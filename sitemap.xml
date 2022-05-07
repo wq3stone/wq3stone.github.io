@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.wq3stone.cn/posts/1.html</loc>
+    <loc>http://www.wq3stone.cn/posts/1554.html</loc>
     
     <lastmod>2022-05-07</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://www.wq3stone.cn/posts/1554.html</loc>
+    <loc>http://www.wq3stone.cn/posts/1.html</loc>
     
     <lastmod>2022-05-07</lastmod>
     
@@ -101,6 +101,15 @@
   </url>
   
   <url>
+    <loc>http://www.wq3stone.cn/message/index.html</loc>
+    
+    <lastmod>2022-01-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.wq3stone.cn/link/index.html</loc>
     
     <lastmod>2022-01-19</lastmod>
@@ -110,7 +119,7 @@
   </url>
   
   <url>
-    <loc>http://www.wq3stone.cn/message/index.html</loc>
+    <loc>http://www.wq3stone.cn/tags/index.html</loc>
     
     <lastmod>2022-01-19</lastmod>
     
@@ -129,15 +138,6 @@
   
   <url>
     <loc>http://www.wq3stone.cn/stars/index.html</loc>
-    
-    <lastmod>2022-01-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wq3stone.cn/tags/index.html</loc>
     
     <lastmod>2022-01-19</lastmod>
     
