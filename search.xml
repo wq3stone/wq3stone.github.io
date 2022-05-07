@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>数据结构疑难题整理</title>
+      <link href="/posts/1554.html"/>
+      <url>/posts/1554.html</url>
+      
+        <content type="html"><![CDATA[<p>pass</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C语言中结构体的比较</title>
+      <link href="/posts/60086.html"/>
+      <url>/posts/60086.html</url>
+      
+        <content type="html"><![CDATA[<p>由于C语言里没有运算符重载，只能对结构体的每个成员逐个进行比较，例如</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">LocateElem</span><span class="params">(SqList L,Book e)</span><span class="comment">//查找到和元素e值相同元素并返回其位置序号 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;L.length;i++)</span><br><span class="line"><span class="keyword">if</span>(L.elem[i].no[<span class="number">20</span>]==e.no[<span class="number">20</span>]&amp;&amp;</span><br><span class="line">           L.elem[i].name[<span class="number">10</span>]==e.name[<span class="number">10</span>]&amp;&amp;</span><br><span class="line">           L.elem[i].price==e.price)</span><br><span class="line">        <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果是C++的话，就可以对==进行重载</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">LocateElem</span><span class="params">(SqList L,Book e)</span><span class="comment">//查找到和元素e值相同元素并返回其位置序号 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;L.length;i++)</span><br><span class="line"><span class="keyword">if</span>(L.elem[i]==e)</span><br><span class="line">        <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> debug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> C语言 </tag>
+            
+            <tag> 结构体 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>最好用的压缩软件Bandizip</title>
+      <link href="/posts/18228.html"/>
+      <url>/posts/18228.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Bandizip在v7.0加入了广告盈利模式，习惯了无广告的我无奈只好用最后一个无广告的旧版本了</p></blockquote><h3 id="官网介绍"><a href="#官网介绍" class="headerlink" title="官网介绍"></a>官网介绍</h3><h4 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h4><ul><li><p>支持的操作系统: Windows 7/8/8.1/10/11 (32bit/64bit/ARM64)</p></li><li><p>集压缩/解压/浏览/编辑为一体的压缩包管理器</p></li><li><p>可以提取包括 RAR/ISO/7Z/ZIP 在内的 30 多种格式</p></li><li><p>可以创建拥有密码和压缩分卷的压缩包</p></li><li><p>支持多个的处理器核心进行高速的解压缩操作</p></li><li><p>对 Windows 11 上下文菜单的支持</p></li></ul><p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202203061120309.png" alt="win11menu"></p><p>（尽管如此我还是喜欢win10的右键菜单样式，可戳此查看<a href="https://www.wq3stone.cn/posts/1526.html">《win11右键菜单返回win10样式》</a>）</p><h4 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h4><ul><li>支持的格式: ZIP, 7Z(lzma2), ZIPX(xz), EXE(sfx), TAR, TGZ, LZH(lh7), ISO(joliet), GZ, XZ</li><li>修改 ZIP 文件 (添加/删除/重命名)</li><li>支持最高提升 6 倍速的多核解压缩技术</li><li>支持创建加密的压缩包</li><li>支持 AES256 文件加密算法</li><li>支持对 4 GB 以上大小的文件进行压缩</li><li>ZIP 格式的文件名支持 Unicode 以及 MBCS 编码</li><li>支持创建 ZIP/7Z 格式的多卷压缩包</li></ul><h4 id="解压缩"><a href="#解压缩" class="headerlink" title="解压缩"></a>解压缩</h4><ul><li>支持的格式: 7Z, ACE, AES, ALZ, ARJ, BH, BIN, BR, BZ, BZ2, CAB, Compound(MSI), DAA(1.0), DEB, EGG, GZ, IMG, ISO, ISZ, LHA, LZ, LZH, LZMA, PMA, RAR, RAR5, SFX(EXE), TAR, TBZ/TBZ2, TGZ, TLZ, TXZ, UDF, WIM, XPI, XZ, Z, ZIP, ZIPX, ZPAQ, ZSTD, NSIS</li><li>可以轻松地查看压缩包的文件列表</li><li>可以只提取选定的文件，同时还支持拖放解压</li><li>支持 ZIP 和 RAR 格式压缩包的注释</li><li>支持对 TGZ/TBZ 格式进行快速提取</li></ul><h4 id="多样化的功能"><a href="#多样化的功能" class="headerlink" title="多样化的功能"></a>多样化的功能</h4><ul><li>支持通过对文件完整性的检查来判断压缩包是否损坏</li><li>支持对代码页进行更改的功能</li><li>可以集成到资源管理器的右键菜单</li></ul><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a class="wp-block-button__link has-text-color has-background" href="https://www.aliyundrive.com/s/dp1UfZgEVYE" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">阿里云盘下载</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 无广告 </tag>
+            
+            <tag> 压缩软件 </tag>
+            
+            <tag> Bandizip </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>俄乌冲突原因简单易懂版本</title>
+      <link href="/posts/22488.html"/>
+      <url>/posts/22488.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>想必这两天大家跟我一样时刻关注着乌克兰局势，但我对此不明不白，在网络上寻找到了一些我可以看得懂的解释，在此分享给大家！</p></blockquote><p>​        最近乌克兰要加入北约，北约是一个以美国为首的国际组织，拥有大量核武器和军事部队。这些年，北约的组织不断扩张，距离俄罗斯越来越近，其实就是美国等西方国家和前苏联的博弈。<br>​        俄罗斯周围的国家不断加入北约，目前俄罗斯西部只剩白俄罗斯和乌克兰还没加入北约，结果现在乌克兰要加入了。白俄罗斯另外三面被北约国家夹着，极有可能也加入。<br>​        如果到时候都加入，俄罗斯西面全是都北约国家，没有缓冲地带，本国的安全会受到很大的威胁。<br>​        所以俄罗斯就号称把乌克兰的领土一分为二，而且在边境部署了军队。因为加入北约有限制条件，不许开战，不许有领土纠纷。俄罗斯这一出，是为了把乌克兰从北约组织里面拉出来。美国一直也很忌惮俄罗斯，所以一直在弄这些小动作，而俄罗斯的态度也变得更强硬。</p><p>​        乌克兰想加入北约组织的原因：小国想不被欺负，就要找靠山。乌克兰是世界三大黑土分布区之一，被称为世界大粮仓，俄罗斯和乌克兰关系不好，也打压过乌克兰，希望它回归，乌克兰不愿意，就想加入北约。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 时事 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>最好用的播放器Potplayer</title>
+      <link href="/posts/23020.html"/>
+      <url>/posts/23020.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>说起播放器，我最喜欢的浏览器就是Potplayer了。但是现在官方的最新版本加入了广告模块，对于习惯了无广告的我来说非常不舒服，于是我找来了官方无广告的旧版本。</p><p>如果大家对广告可以容忍的话，还是鼓励大家使用新版本支持下作者的，毕竟是良心软件，开发不易！</p></blockquote><h3 id="Potplayer无广告版本下载"><a href="#Potplayer无广告版本下载" class="headerlink" title="Potplayer无广告版本下载"></a>Potplayer无广告版本下载</h3><p>非32位用户请不要下载32位，大部分人电脑应该都是64位。</p><p><a class="wp-block-button__link has-text-color has-background" href="https://www.aliyundrive.com/s/Mpgext67frW" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">64位阿里云盘下载</a></p><p><a class="wp-block-button__link has-text-color has-background" href="https://www.aliyundrive.com/s/JmMkaae1KPT" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">32位阿里云盘下载</a></p><p>由于是旧版本，需要屏蔽更新。由于是联网更新，可以使用电脑管家或者修改hosts禁止联网。</p><p>（2022/2/23 旧版本中更新源网址已进不去，因此无需禁止联网也可使用）</p><h3 id="Potplayer最新版官网下载"><a href="#Potplayer最新版官网下载" class="headerlink" title="Potplayer最新版官网下载"></a>Potplayer最新版官网下载</h3><p>官网最新版，即有广告版本下载（供爱心人士下载给开发者提供广告收益）</p><p><a class="wp-block-button__link has-text-color has-background" href="https://www.potplayer.org)" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">官方网站</a></p><h3 id="hosts屏蔽更新方法"><a href="#hosts屏蔽更新方法" class="headerlink" title="hosts屏蔽更新方法"></a>hosts屏蔽更新方法</h3><p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202231200922.png" alt="img"></p><h4 id="打开hosts文件"><a href="#打开hosts文件" class="headerlink" title="打开hosts文件"></a>打开hosts文件</h4><p>hosts地址：<b>C:/windows/system32/drivers/etc/hosts</b></p><p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202231207821.png" alt="image-20220223120712678"></p><h4 id="在文件末尾输入以下几行"><a href="#在文件末尾输入以下几行" class="headerlink" title="在文件末尾输入以下几行"></a>在文件末尾输入以下几行</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 屏蔽potplayer更新</span><br><span class="line">127.0.0.1 tiara.daum.net</span><br><span class="line">127.0.0.1 start.tiara.daum.net</span><br><span class="line">127.0.0.1 get.daum.net</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202231211075.png" alt="image-20220223121134971"></p><h4 id="不要忘记保存"><a href="#不要忘记保存" class="headerlink" title="不要忘记保存"></a>不要忘记保存</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 无广告 </tag>
+            
+            <tag> 播放器 </tag>
+            
+            <tag> Potplayer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo+github建站</title>
+      <link href="/posts/43030.html"/>
+      <url>/posts/43030.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="0、准备工作"><a href="#0、准备工作" class="headerlink" title="0、准备工作"></a>0、准备工作</h3><ul><li>下载安装好node.js和git</li><li>注册登录github</li></ul><h4 id="git绑定用户名和邮箱"><a href="#git绑定用户名和邮箱" class="headerlink" title="git绑定用户名和邮箱"></a>git绑定用户名和邮箱</h4><p>在任意文件夹下右键点击Git Bash Here</p><p>执行<code>git config --global user.email &quot;&lt;youremail&gt;&quot;</code> 和<code>git config --global user.name &quot;&lt;username&gt;&quot;</code></p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211548118.png" alt="配置username和email" style="zoom:50%;" /><h3 id="1、搭建仓库"><a href="#1、搭建仓库" class="headerlink" title="1、搭建仓库"></a>1、搭建仓库</h3><h4 id="点击New-repository（新建仓库）"><a href="#点击New-repository（新建仓库）" class="headerlink" title="点击New repository（新建仓库）"></a>点击New repository（新建仓库）</h4><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211524654.png" alt="新建仓库" style="zoom:50%;" /><h4 id="填写仓库信息"><a href="#填写仓库信息" class="headerlink" title="填写仓库信息"></a>填写仓库信息</h4><p>★ Repository name为<code>&lt;username&gt;.github.io</code>，例如我的用户名为wq3stone我便填写<code>wq3stone.github.io</code>，我已经搭建过了因此会报错</p><p>★ 一定要选择Public，因为你的网站是对外公开的，选择Private别人就看不见了哦</p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211529320.png" alt="填写仓库信息" style="zoom:50%;" /><h4 id="最后点击Create-repository仓库就搭建好了"><a href="#最后点击Create-repository仓库就搭建好了" class="headerlink" title="最后点击Create repository仓库就搭建好了"></a>最后点击Create repository仓库就搭建好了</h4><p>现在可以去<code>&lt;username&gt;.github.io</code>参观一下，展现的是<code>README.md</code>文件中的内容</p><h3 id="2、配置sshkeys"><a href="#2、配置sshkeys" class="headerlink" title="2、配置sshkeys"></a>2、配置sshkeys</h3><h4 id="生成sshkeys"><a href="#生成sshkeys" class="headerlink" title="生成sshkeys"></a>生成sshkeys</h4><p>在任意文件夹下右键点击Git Bash Here，输入<code>ssh-keygen -t rsa -C &lt;youremail&gt;</code> </p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211539711.png" alt="生成sshkeys" style="zoom:50%;" /><p>这里如果没生成过的话会没有Overwrite那一行</p><h4 id="绑定sshkeys"><a href="#绑定sshkeys" class="headerlink" title="绑定sshkeys"></a>绑定sshkeys</h4><p>据图中所示目录找到<code>id_rsa.pub</code>文件，用记事本打开全选复制<img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211601778.png" alt="image-20220221160150741" style="zoom:50%;" /></p><p>然后打开github</p><p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211603468.png" alt="image-20220221160330434" style="zoom:50%;" /><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211605660.png" alt="image-20220221160542609" style="zoom:50%;" /></p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/202202211607352.png" alt="image-20220221160732305" style="zoom:50%;" /><h4 id="测试是否绑定"><a href="#测试是否绑定" class="headerlink" title="测试是否绑定"></a>测试是否绑定</h4><p>打开Git Bash，输入<code>ssh -T git@github.com</code>（…）</p><hr><p>以下内容简要概括</p><hr><h3 id="三、本地生成"><a href="#三、本地生成" class="headerlink" title="三、本地生成"></a>三、本地生成</h3><h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p><code>npm install -g hexo</code></p><h4 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h4><p><code>hexo init</code></p><h4 id="静态生成本地服务器"><a href="#静态生成本地服务器" class="headerlink" title="静态生成本地服务器"></a>静态生成本地服务器</h4><p><code>hexo serve</code>（<code>hexo s</code>）</p><h3 id="四、-config-yml中的deploy"><a href="#四、-config-yml中的deploy" class="headerlink" title="四、_config.yml中的deploy"></a>四、<code>_config.yml</code>中的deploy</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">repository:</span> <span class="string">仓库http地址</span></span><br><span class="line"><span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure><h3 id="五、装插件-npm-install-xxx-save"><a href="#五、装插件-npm-install-xxx-save" class="headerlink" title="五、装插件(npm install xxx --save)"></a>五、装插件(<code>npm install xxx --save</code>)</h3><p>hexo-deployer-git（必需）</p><p>hexo-blog-encrypt（文章加密）<br>hexo-generator-baidu-sitemap（生成百度站点地图）<br>hexo-generator-sitemap（生成站点地图）<br>hexo-abbrlink（生成永久链接）</p><h3 id="六、生成页面"><a href="#六、生成页面" class="headerlink" title="六、生成页面"></a>六、生成页面</h3><p><code>hexo generate</code>（<code>hexo g</code>）</p><h3 id="七、上传到github"><a href="#七、上传到github" class="headerlink" title="七、上传到github"></a>七、上传到github</h3><p><code>hexo deploy</code>（<code>hexo d</code>）</p><p>该过程需要密码去github的开发者设置中设置token</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 建站 </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>世界很大，我们很小</title>
+      <link href="/posts/3.html"/>
+      <url>/posts/3.html</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="aa28197b9038fc7c43e4ccc65f16ba55acae83a4a01f344b618375e15ff9b498">46e22f3608fadf9856191679982408fda027529248134ca52ce44b16d5c2245ad2351f659cdea12ac55c19315b2344282807a392c361a052d40c124949468f573249ae36eaee24b84769caa856a032b24b88b11ab2ce2177981064e7a554f5e777070c173c99d74b6c8fe3420602860b4bf0a210768c02fe83c16deaa59e0a27527efa0f36325c9451bc336a9c292524b04721a8266ad3d2887dd207b6edbd330adf762a37c5422220566d83e7ff2e7776650c8f07e13d6fb05ba756fbd62e5654bae12932f52f6a9e3c62c0f85be9150fe6aba8b34de3fb2a5a7342b3c55f684d5735079dc165c72a7c25d8f01ff99c5b22cf4774ffb05fd96b9c13ca8f8bc8252465375ddc1f903d392c8e30dbe49ca3beb8d36e023ebbad5f7510ce54f0a4a65487ec52b1e99e5954f14f7e25e4116bab8b38594d5a9c8a707609230d06a01f08c7ff61e7d92da085cee18454564cd1751848b5baed16f0c26e48069f009616a84a5ac323eb3bfd515ed4fb2317f1c810a7df00d6b55a5c913e362653fb3defe4a4201644a43b43343180be40d4cb6b0238efb8e1123cebd56a030ff229c8845f70d7976bb9c2155dadbadf329c0db2495bf807fec2f8bdb8fca1fe74cd930d3829b60f340832eaa69fa7d7853c37dce246bd736e4581fe21e1a03017c76357074dbbd5d84215e292d9ebe2edcbba6726053c75efea3aaf47819be65ec2e646ceff8269941a9f58dc60cafa6dae810ddf1e287788d6c28ccf2fc9f05be00f2e4396a1bdbd19c97403cd33acefac096cd6191176a1ff2f9a86a8f142b35231f15a701c9124f3dea2e4d43b933caf202360c213b90b9420ef7a3f8af3fcf4f49cdb26393c1147746cd8840bf6cf92c5278adf53560d015c913f531c90f2bfd5b8f323d8a02b1fa070ccdbf0ee1b3792f4a50aa9bfc4a2a569bf6add814af1deefb9d5c4a2dba7f6147d51cf997046b9b01a0aaa23d581e5d041f8967eeded7e1289d5c4c7931f41cdbd937f42748d1da4271426a8ae83c6a2da4957707535eca92efa0148dee7356992d12a7bd64540a13adea6a7a1b0b266bf590d29e05d9d4dbc1f30e1908f40ea39624860b40216f8d5ec3407f39e472eed5ee026bb9a14417fb03165984c1b524f29c954b26834daac142e05a8e8811267d7c07348976600cc2350b62af00520875be422c51fcef334d4c3278d0b049a14758fbe5da3227cce5733db4af98be720137c6377172eceb5a972b4d06a7922e13f560bad93019d7f94585bd71bbaddb61caab1a7f68c586b32d3eccdc6409a3f7cce55649ced71132a68af8f39873d63ec4764b1ee4c7b50d8cf289554b24beb61fb0b9b019ad646383603e3a663bef6de69fe68a222be61dbed1b1d5f73b24c20c030af4451276a165a83a925d694dab7f5e4548525d98da97da90d2ac2b34b147c8a5bd725cd3b93529603ae0f3b456762e60fc5b5affe7c951e2fa6a2a1a9e12519635ac617e5cfa7e316019e50408b1f1be967f9bfb137abcb99e9f772a3a0a306febb24e9ef1fa1dd5a29fb8c8091446da4e754c1d8d74ab9ba94a954ae024a19739e742ddf2976d648cd1e6ab5fcfaae93d7239e36f5f6560c9916b50462a39099fe8ac340982b01ea7a7b8febbb6777a2d74b41670f4fec96a9448782a3e63ce6e022af79487678488216651b111c0db855e09d11792795db91153fb02b5cf9b2236c864e831ae6aea058f1afca064698dfcb089a8487d603c7be1c15071f6e24217296fa6a0af3d7f0ce98babf1b0caefb2f80560b481f31409fffc2b2037374846a4de8e31dc458fc8615020409c048dd0e7b2d36a9b0902625f4591c069e5915ebb85a115333ee6a0fa3d1ec7a7644ba50a56f89a4fcecc719ee71c178a3835477a0d64345f36e9619059ec3d05ad5576b575fcd4ed486a2239aa659d172d66c8f3cbb63248515b1897ccdb21c5ad608fb6fae62e881a6e055192969572874cae7601b9f96fe4c5a5155a6a92ba5a7ea277c66cb25e843be5f945d27ace89d21adbe714c35b0881570aef5d21358ca9942cfcdef51e5c4eba765d151d16330a9ffc362dca740615b45db7fd2df4bac55a321e417f7cada20d015fed040cae108fa0e1dd0884a2b3a726a8396ffa277c5e08234409f2610f698e638a4f0b60393fbfcd4b478acd719b2eac8bbe92283ad93a5ecf2d76c3a69bde2471e9aca6077375225cff8db4cdea017ba0b188a3ae242d797a0e605c2ba8cdb55406735df2ea484258b18b1aa70929c63f638ee847145fe8c7ab5c0fdd20c0eb3248788848daa8f41bc193616be843eab5ab1691edff6bd61484651468023dad2f28072dd39dc9f08862b39d7806b0b5b7bf47c7a57180d29d175855a6763e7d5073e4c0b3b21cf58a8763f9823de19467a120617997ca942c1bd6bb35412d7cc48b6f1aef2b6d7dee030ae18abc3b1be5f5511f627fe2f4f2ea406e43cb257240d313b7d94373da50693e14e292a14adf331714f7b80bec6a1a393ca33387420993ab71034afcbb4b915d9c742379f479465a367e54b4659a9266cc2e6a80426b3bf83dcc29c7ef5ce52d556cbc0db387ed2e5f1a3a05cbcd6dea8cea7e7d21ceeffe48fbbe4652725685b4d36f9ad5db76175a19b6ae2b6ad17cd3a50d292fa7353d6d0abeded47849af471533ee128c1efa52c14e6cf1991967af8180fb5eaea8642cdcd0709afe51ac076392f9b53a325b9877f139451fd7bd05b110ee9f24bf47629c5a0c91e502066ab4210394d7649f98b8f8c4c9d2646c4d38f20fccc5b9e603e54c56cc9df5bdfc93265e0f2cb39e16c8cde774b580d00cd7a40015a918570da59462cc683ac0ba8c3a89ffe066eef3a1b9ffa5781d8e6d6fdab261f0e127e3c6966a50943e44fd27326d9ce9de08b0fbb5765480ad73a23c35b8536acd56f3231efc2c1af74a519ef7b512d1db935334af432c741aa6c8818e0c03de0599fc8575bed3936eff0ae2427d8029a4d57b6eeba82d46c2063cbbbed76052b2a3e53d2a0815304d7df82068bb0b3ff5830352d497e6b4253cd3d3976611157fdc8d41e498b3b35c23ca0902c56c229d30523d2426f8f42ca7cd413bf91645ad7427b67cf5f3d656284e23d66397d36b7a72025fb8712133e98b0ab459ed57a28ca3bd6bc19efa557bb042a03b0b59fa50fb8d0fb80b576b184795ceab5b734302ebb238152e16c6aaf72ecf77ea31a224419306bcade74f28edd945572f24ba818683c2555add14258556acf16857e8b4b0026d754136af315179c5e80c588d507b6289166174686444639d26223ff1344e1b25698b90663c65bf8c3ab5248d6f33fa4eb729177224ec2188bd4e1d3559635a5cf78262448ae683422e736520e69c280c10b029e8023c5cb8f072d29847a19b7e5ccf371768a793b4d21f3ca4733d0fb8f25f029e0829cbb41483c9e2b050ff811bcdc52b427dd98334a932c440516acbcb6981d74548f58829886363575c03d0c68ed6a5df09b94d05102d4903230273c7f929e5056376b8547db7b75ec63a4f8</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 浅谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 丧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>win11右键菜单返回win10样式</title>
+      <link href="/posts/1526.html"/>
+      <url>/posts/1526.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="通过注册表修改"><a href="#通过注册表修改" class="headerlink" title="通过注册表修改"></a>通过注册表修改</h3><ol><li>运行（win+R）输入<code>regedit</code>打开注册表编辑器定位到<code>HKEY_CURRENT_USER\SOFTWARE\CLASSES\CLSID</code></li><li>右键点击<code>CLSID</code>键值，新建一个名为<code>&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;</code>的项</li><li>右键点击新创建的项，新建一个名为<code>InprocServer32</code>的项，按下回车键保存</li><li>选择新创建的项，然后双击右侧窗格中的默认条目，什么内容都不需要输入，按下回车键</li><li>保存注册表后，重启<code>explorer.exe</code>即可看到右键菜单恢复成旧样式了</li></ol><p>如果想要恢复成为Win11的设计，那么删掉<code>InprocServer32的</code>项就可以了。</p><h3 id="通过脚本修改"><a href="#通过脚本修改" class="headerlink" title="通过脚本修改"></a>通过脚本修改</h3><p>如果你觉得修改注册表比较麻烦，可以看下这个方法，它的本质也是修改注册表，不过不用你去操作了，脚本自动给你增减表项</p><ol><li>首先建立一个<code>.txt</code>文件，将下面代码拷贝到<code>.txt</code>文件中<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">:start</span><br><span class="line">cls</span><br><span class="line">echo,</span><br><span class="line">echo 修改右键菜单模式 www.wq3stone.cn</span><br><span class="line">echo,</span><br><span class="line">echo 1 穿越到Windows 10默认模式</span><br><span class="line">echo,</span><br><span class="line">echo 2 恢复为Windows 11默认模式</span><br><span class="line">echo,</span><br><span class="line">echo 0 什么也不做，退出</span><br><span class="line">echo,</span><br><span class="line">echo,</span><br><span class="line">choice /c:120 /n /m:&quot;请选择要进行的操作（1/2/0）：&quot;</span><br><span class="line">if %errorlevel%==0 exit</span><br><span class="line">if %errorlevel%==2 goto cmd2</span><br><span class="line">if %errorlevel%==1 goto cmd1</span><br><span class="line">exit</span><br><span class="line">:cmd1</span><br><span class="line">reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve</span><br><span class="line">taskkill /f /im explorer.exe</span><br><span class="line">start explorer.exe</span><br><span class="line">exit</span><br><span class="line">:cmd2</span><br><span class="line">reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;&quot; /f</span><br><span class="line">taskkill /f /im explorer.exe</span><br><span class="line">start explorer.exe</span><br><span class="line">exit</span><br></pre></td></tr></table></figure></li><li>将文件的后缀名改成<code>.bat</code>格式<br>如果你的电脑后缀名没有打开的话，可以去<a href="https://www.baidu.com/s?wd=%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E5%90%8E%E7%BC%80%E5%90%8D">这里</a>查看</li><li>打开你的<code>.bat</code>文件，输入1返回win10样式，输入2返回win11样式，输入0退出<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo/img/202201201914821.png"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 右键 </tag>
+            
+            <tag> 菜单 </tag>
+            
+            <tag> win11 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>网站更新通知</title>
+      <link href="/posts/1.html"/>
+      <url>/posts/1.html</url>
+      
+        <content type="html"><![CDATA[<p>网站由<strong>云服务器部署wordpress</strong>更改为<strong>hexo+github</strong>，原因请看图<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo/img/202201201655180.png" alt="白嫖的东西就是不实用"><br>我也曾想将原来的文章内容一并转移，后来我发现本来我更的文章也没有多少，大多都是考试中遇到的C语言题目，我服务的对象除了我之外大多是同学，现在考试已经过去了，那些文章也没太有必要留着了。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>

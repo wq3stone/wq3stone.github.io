@@ -1,0 +1,18 @@
+#footer {
+    background: transparent;
+}
+
+#footer-wrap {
+    color:black;
+}
+
+/* 鼠标样式 */
+body {
+    cursor: url(https://cdn.jsdelivr.net/gh/wq3stone/somefiles/default.cur),
+        default;
+    }
+    a,
+    img {
+    cursor: url(https://cdn.jsdelivr.net/gh/wq3stone/somefiles/pointer.cur),
+        default;
+    }
