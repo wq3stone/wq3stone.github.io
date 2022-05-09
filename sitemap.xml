@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.wq3stone.cn/posts/1405.html</loc>
+    
+    <lastmod>2022-05-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.wq3stone.cn/posts/3784.html</loc>
     
     <lastmod>2022-05-09</lastmod>
@@ -337,6 +346,13 @@
   </url>
   
   <url>
+    <loc>http://www.wq3stone.cn/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.wq3stone.cn/tags/%E9%93%BE%E8%A1%A8/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -393,14 +409,14 @@
   </url>
   
   <url>
-    <loc>http://www.wq3stone.cn/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
+    <loc>http://www.wq3stone.cn/tags/%E6%A0%91/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.wq3stone.cn/tags/%E6%A0%91/</loc>
+    <loc>http://www.wq3stone.cn/tags/%E6%95%B0%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9F%BA%E7%A1%80%E7%AF%87/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -430,14 +446,14 @@
   </url>
   
   <url>
-    <loc>http://www.wq3stone.cn/categories/%E6%97%B6%E4%BA%8B/</loc>
+    <loc>http://www.wq3stone.cn/categories/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.wq3stone.cn/categories/%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://www.wq3stone.cn/categories/%E6%97%B6%E4%BA%8B/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
