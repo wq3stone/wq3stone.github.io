@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>AD中图层介绍</title>
+      <link href="/posts/50152.html"/>
+      <url>/posts/50152.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>对于Altium Designer 15 PCB布线的初学者来说，首先要做的事情就是了解PCB的各个图层的用途。下面我们就通过图文一同来了解一下各个图层的用途吧。</p></blockquote><h2 id="主要用到的图层："><a href="#主要用到的图层：" class="headerlink" title="主要用到的图层："></a>主要用到的图层：</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mechanical  机械层</span><br><span class="line">keepout layer  禁止布线层</span><br><span class="line">Signal layer 信号层</span><br><span class="line">Internal plane layer 内部电源/接地层</span><br><span class="line">top overlay 顶层丝印层</span><br><span class="line">bottom overlay 底层丝印层</span><br><span class="line">top paste  顶层助焊层</span><br><span class="line">bottom paste  底层助焊层</span><br><span class="line">top solder  顶层阻焊层</span><br><span class="line">bottom solder  底层阻焊层</span><br><span class="line">drill guide  过孔引导层</span><br><span class="line">drill drawing  过孔钻孔层</span><br><span class="line">multilayer  多层</span><br></pre></td></tr></table></figure><h2 id="图层详解："><a href="#图层详解：" class="headerlink" title="图层详解："></a>图层详解：</h2><h3 id="1-Mechanical-layer-机械层"><a href="#1-Mechanical-layer-机械层" class="headerlink" title="1.Mechanical layer(机械层)"></a>1.Mechanical layer(机械层)</h3><p>Altium Designer提供了16个机械层，它一般用于设置电路板的外形尺寸，数据标记，对齐标记，装配说明以及其它的机械信息。这些信息因设计公司或PCB制造厂家的要求而有所不同。另外，机械层可以附加在其它层上一起输出显示。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/56bd6c40e1cb4115e3bbf9ea9f69be5b.png" alt="undefined"></p><h3 id="2-Keep-out-layer-禁止布线层"><a href="#2-Keep-out-layer-禁止布线层" class="headerlink" title="2.Keep out layer(禁止布线层)"></a>2.Keep out layer(禁止布线层)</h3><p>用于定义在电路板上能够有效放置元件和布线的区域。在该层绘制一个封闭区域作为布线有效区，在该区域外是不能自动布局和布线的。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/4fc97ac0f430d598552ee4962fafbc02.png" alt="undefined"></p><h3 id="3-Signal-layer-信号层"><a href="#3-Signal-layer-信号层" class="headerlink" title="3.Signal layer(信号层)"></a>3.Signal layer(信号层)</h3><p>信号层主要用于布置电路板上的导线。Altium Designer提供了32个信号层，包括Top layer(顶层)，Bottom layer(底层)和32个内电层。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/91986117d52118dd6302ff16fb1ea28c.png" alt="undefined"></p><h3 id="4-Internal-plane-layer-内部电源-接地层"><a href="#4-Internal-plane-layer-内部电源-接地层" class="headerlink" title="4.Internal plane layer(内部电源/接地层)"></a>4.Internal plane layer(内部电源/接地层)</h3><p>Altium Designer提供了32个内部电源层/接地层。该类型的层仅用于多层板，主要用于布置电源层和接地层。我们称双层板，四层板，六层板，一般指信号层和内部电源/接地层的数目。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/4a3bd94f3515784335278e3a6484efaa.png" alt="undefined"></p><h3 id="5-Silkscreen-layer-丝印层"><a href="#5-Silkscreen-layer-丝印层" class="headerlink" title="5.Silkscreen layer(丝印层)"></a>5.Silkscreen layer(丝印层)</h3><p>丝印层主要用于放置印制信息，如元件的轮廓和标注，各种注释字符等。Altium Designer提供了Top Overlay（顶层丝印层）和Bottom Overlay（底层丝印层）两个丝印层。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/427a268e206c9987e9f5a861c7d9b827.png" alt="undefined"></p><h3 id="6-Solder-mask-layer-阻焊层"><a href="#6-Solder-mask-layer-阻焊层" class="headerlink" title="6.Solder mask layer(阻焊层)"></a>6.Solder mask layer(阻焊层)</h3><p>在焊盘以外的各部位涂覆一层涂料，我们通常用的有绿油、蓝油等，用于阻止这些部位上锡。阻焊层用于在设计过程中匹配焊盘，是自动产生的。阻焊层是负片输出，阻焊层的地方不盖油，其他地方盖油。Altium Designer提供了Top Solder(顶层)和Bottom Solder(底层)两个阻焊层。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/4ef50186b4cac12fab311b349af72a05.png" alt="undefined"></p><h3 id="7-Paste-mask-layer-助焊层，SMD贴片层"><a href="#7-Paste-mask-layer-助焊层，SMD贴片层" class="headerlink" title="7.Paste mask layer(助焊层，SMD贴片层)"></a>7.Paste mask layer(助焊层，SMD贴片层)</h3><p>它和阻焊层的作用相似，不同的是在机器焊接时对应的表面粘贴式元件的焊盘。Altium Designer提供了Top Paste(顶层助焊层)和Bottom Paste(底层助焊层)两个助焊层。主要针对PCB板上的SMD元件。在将SMD元件贴PCB板上以前，必须在每一个SMD焊盘上先涂上锡膏，在涂锡用的钢网就一定需要这个Paste Mask文件,菲林胶片才可以加工出来。Paste Mask层的Gerber输出最重要的一点要清楚，即这个层主要针对SMD元件，同时将这个层与上面介绍的Solder Mask作一比较，弄清两者的不同作用，因为从菲林胶片图中看这两个胶片图很相似。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/eb26420a6768afa23b156824cb7fc2c7.png" alt="undefined"></p><blockquote><p>阻焊层和助焊层的区分阻焊层：solder mask，是指板子上要上绿油的部分；因为它是负片输出，没有阻焊层的区域都要上绿油，所以实际上有solder mask的部分实际效果并不上绿油。<br>助焊层：paste mask，是机器贴片时要用的，是对应所有贴片元件的焊盘的，大小与toplayer/bottomlayer层一样，是用来开钢网漏锡用的。</p></blockquote><h3 id="8-Multi-layer-多层"><a href="#8-Multi-layer-多层" class="headerlink" title="8.Multi layer(多层)"></a>8.Multi layer(多层)</h3><p>电路板上焊盘和穿透式过孔要穿透整个电路板，与不同的导电图形层建立电气连接关系，因此系统专门设置了一个抽象的层—多层。一般，焊盘与过孔都要设置在多层上，如果关闭此层，焊盘与过孔就无法显示出来。<br><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/4998f17094af7611a1b2430e20f4b913.png" alt="undefined"></p><h3 id="9-Drill-layer-钻孔层"><a href="#9-Drill-layer-钻孔层" class="headerlink" title="9.Drill layer(钻孔层)"></a>9.Drill layer(钻孔层)</h3><p>钻孔层提供电路板制造过程中的钻孔信息(如焊盘，过孔就需要钻孔)。Altium Designer提供了Drill gride(钻孔指示)和Drill drawing(钻孔)两个钻孔层。</p><p>通过对PCB的各个图层的定义及功能的了解，我们能进一步了解一块PCB的组成，为我们学习PCB设计打下坚实基础。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AD </tag>
+            
+            <tag> Altium Designer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Dijkstra算法和Floyd算法</title>
       <link href="/posts/43437.html"/>
       <url>/posts/43437.html</url>
