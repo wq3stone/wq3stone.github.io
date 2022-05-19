@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>图基础篇</title>
+      <link href="/posts/11930.html"/>
+      <url>/posts/11930.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="知识补充"><a href="#知识补充" class="headerlink" title="知识补充"></a>知识补充</h3><p>连通图：</p><p>连通分量：</p><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><strong>【R1-3】</strong>Prim 算法是维护一个森林，每一步把两棵树合并成一棵。</p><p>答案：False</p><p>解析：Kruskal算法才是维护一个森林，每一步把两棵树合并成一棵。</p><p>**【R1-4]**用一维数组<code>G[]</code>存储有4个顶点的无向图如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">G[] = &#123; 0, 1, 0, 1, 1, 0, 0, 0, 1, 0 &#125;</span><br></pre></td></tr></table></figure><p>则顶点2和顶点0之间是有边的。</p><p>答案：True</p><p>**【R1-6]**如果无向图G必须进行两次广度优先搜索才能访问其所有顶点，则G中一定有回路。</p><p>答案：False</p><p><strong>【R1-10】</strong>无向连通图边数一定大于顶点个数减1。</p><p>答案：False</p><p><strong>【R2-6】</strong>在<em>N</em>个顶点的无向图中，所有顶点的度之和不会超过顶点数的多少倍？</p><p>答案：N-1</p><p>解析：完全无向图的边为N(N−1)/2，度数为N(N−1)，所以为N-1倍。</p><p>**【R2-8]**已知无向图G含有16条边，其中度为4的顶点个数为3，度为3的顶点个数为4，其他顶点的度均小于3。图G所含的顶点个数至少是：</p><p>解析：<font color=red>无向图边数的两倍等于各顶点度数的总和。</font>由于其他顶点的度均小于3，可以设它们的度都为2，设它们的数量是k，可列出这样的方程4×3+3×4+2×k=16×2，解得k=4。4+3+4=11</p><p><strong>【R2-9】</strong>用DFS遍历一个无环有向图，并在DFS算法退栈返回时打印相应的顶点，则输出的顶点序列是？</p><p>答案：逆拓扑有序</p><p><strong>【R2-14】</strong>任何一个带权无向连通图的最小生成树——<font color=red>有可能不唯一</font></p><p><strong>【R2-18】</strong>给定无向图G，从V0出发进行深度优先遍历访问的边集合为： {(V0,V1), (V0,V4), (V1,V2), (V1,V3), (V4,V5), (V5,V6)}。则下面哪条边不可能出现在G中？<font color=red>(V1,V5)</font></p><p><strong>【R2-19】</strong>给定一有向图的邻接表如下。从顶点V1出发按广度优先搜索法进行遍历，则得到的一种顶点序列为：<font color=red>V1,V3,V2,V4,V5</font></p><p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/20220519192853.png"></p><p><strong>【R2-24】</strong>给定有权无向图的邻接矩阵如下，其最小生成树的总权重是：</p><p><img src="https://cdn.jsdelivr.net/gh/wq3stone/picgo//img/20220519194845.png"></p><p>答案：14</p><p><strong>【R2-25】如果G是一个有15条边的非连通无向图，那么该图顶点个数最少为多少？</strong></p><p>答案：7</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AD中图层介绍</title>
       <link href="/posts/50152.html"/>
       <url>/posts/50152.html</url>
