@@ -11161,4 +11161,23 @@ alt="img" />
         <tag>408</tag>
       </tags>
   </entry>
+  <entry>
+    <title>【学习笔记】MySQL安装配置命令</title>
+    <url>/posts/42645.html</url>
+    <content><![CDATA[<h3 id="mysql安装">MySQL安装</h3>
+<p>①安装服务：<code>mysqld --install</code></p>
+<p>②初始化：　<code>mysqld --initialize --console</code></p>
+<p>③开启服务：<code>net start mysql</code></p>
+<p>④关闭服务：<code>net stop mysql</code></p>
+<p>⑤登录mysql：<code>mysql -u root -p</code></p>
+<p>⑥修改密码：<code>alter user root@localhost identified by '密码';</code></p>
+<p>⑦标记删除mysql服务：<code>sc delete mysql</code></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
 </search>
