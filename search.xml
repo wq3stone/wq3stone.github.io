@@ -33,8 +33,7 @@ alt="image-20230310215046744" />
 <p>去服务查看有无"VMAuthdService"这个服务</p>
 <ul>
 <li>有，应该是被禁用了。右键该服务-属性，将启动类型改为”自动“即可</li>
-<li>无，管理员运行cmd命令"sc create VMAuthdService binpath=
-“D:-authd.exe”"（其中D:）</li>
+<li>无，管理员运行cmd命令<code>sc create VMAuthdService binpath= "D:\VMware\vmware-authd.exe"</code>（其中<code>D:\VMware</code>为你的VMware所在目录）</li>
 </ul>
 ]]></content>
       <categories>
