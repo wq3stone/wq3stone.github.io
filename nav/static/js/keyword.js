@@ -22,7 +22,6 @@ $(function () {
     { url: 'https://www.so.com/s?q=', type: 'so' },
     { url: 'https://www.google.com/search?q=', type: 'google' },
     { url: 'https://search.bilibili.com/all?keyword=', type: 'bili' },
-    { url: 'https://www.zhihu.com/search?type=content&q=', type: 'zhihu' },
   ];
   $searchLogo.on('click', function () {
     $searchMethods.show();

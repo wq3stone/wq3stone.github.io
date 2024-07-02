@@ -213,10 +213,6 @@ li.bili {
     background-image: url("./img/bili.png");
 }
 
-li.zhihu {
-    background-image: url("./img/zhihu.png");
-}
-
 .search-methods .search-item:hover {
     background-color: #f0f0f0;
 }
