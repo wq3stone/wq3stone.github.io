@@ -1,0 +1,38 @@
+
+#app {
+    width: 800px;
+    margin: 0 auto;
+    font-size:62.5%;
+}
+
+.messages {
+    overflow: auto;
+}
+
+.message {
+    min-width: 100px;
+    max-width: 80%;
+    padding: 10px 10px 0 10px;
+    background: #FFF;
+    border-radius: 10px;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.request-area {
+    height: 120px;
+    width: 800px;
+    position: fixed;
+    bottom: 0;
+}
+
+.response-area {
+    height: calc(100vh - 140px);
+    width: 800px;
+    background: rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 10px;
+    border-radius: 5px;
+    color: #333;
+    overflow: auto;
+}
