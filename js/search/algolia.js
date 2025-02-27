@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     setTimeout(() => { document.querySelector('#algolia-search .ais-SearchBox-input').focus() }, 100)
 
     // shortcut: ESC
-    document.addEventListener('keydown', function f (event) {
+    document.addEventListener('keydown', function f(event) {
       if (event.code === 'Escape') {
         closeSearch()
         document.removeEventListener('keydown', f)
@@ -93,12 +93,12 @@ window.addEventListener('load', () => {
         const link = data.permalink ? data.permalink : (GLOBAL_CONFIG.root + data.path)
         const result = data._highlightResult
         const content = result.contentStripTruncate
-                        ? cutContent(result.contentStripTruncate.value)
-                        : result.contentStrip
-                        ? cutContent(result.contentStrip.value)
-                        : result.content
-                        ? cutContent(result.content.value)
-                        : ''
+          ? cutContent(result.contentStripTruncate.value)
+          : result.contentStrip
+            ? cutContent(result.contentStrip.value)
+            : result.content
+              ? cutContent(result.content.value)
+              : ''
         return `
           <a href="${link}" class="algolia-hit-item-link">
           ${result.title.value || 'no-title'}
@@ -145,7 +145,7 @@ window.addEventListener('load', () => {
   })
 
 
-  search.addWidgets([configure,searchBox,hits,stats,powerBy,pagination]) // add the widgets to the instantsearch instance
+  search.addWidgets([configure, searchBox, hits, stats, powerBy, pagination]) // add the widgets to the instantsearch instance
 
   search.start()
 

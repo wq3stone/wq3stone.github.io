@@ -14,93 +14,90 @@ new Vue({
             currentIndex: 0
         }
     },
+    mounted() {
+        this.$nextTick(this.scrollToBottom);
+    },
     methods: {
         formatContent(content) {
             return marked.parse(content);
         },
         scrollToBottom() {
-            var scrollTarget = document.getElementById("response");
-            scrollTarget.scrollTop=scrollTarget.scrollHeight;
+            const container = document.querySelector('.messages-container');
+            container.scrollTop = container.scrollHeight;
         },
         async askChatGPT() {
-            var _this = this
-            _this.loading = true
-            _this.messages.push(
-                {
-                "role": "user",
-                "content": this.userInput
-            })
-            _this.currentIndex += 1
-            _this.userInput = ''
-            const response = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.apiKey}`
-                },
-                body: JSON.stringify({
-                    model: 'qwen-plus',  //deepseek-r1
-                    messages: this.messages,
-                    // max_tokens: 1000,
-                    stream: true
-                })
-            });
-            if (response.ok) {
-                _this.scrollToBottom()
-                _this.loading = false
-                const reader = response.body.getReader();
-                const stream = new ReadableStream({
-                    async start(controller) {
-                        function fetchData() {
-                            reader.read().then(({done, value}) => {
-                                if (done) {
-                                    controller.close();
-                                    return;
-                                }
-                                const chunkText = new TextDecoder().decode(value);
-                                chunkText.split('\n').forEach(line => {
-                                    if (line) {
-                                        if (line === 'data: [DONE]') {
-                                            return
-                                        }
-                                        line = line.replaceAll('data: ', '');
-                                        const data = JSON.parse(line);
-                                        if (data.choices[0].finish_reason && data.choices[0].finish_reason === 'stop') {
-                                            return;
-                                        }
-                                        
-                                        if (data.choices[0].delta.reasoning_content) {
-                                            const text = data.choices[0].delta.reasoning_content;
-                                            _this.messages[_this.currentIndex].content += text;
-                                            _this.scrollToBottom()
-                                        }
-                                        
-                                        if (data.choices[0].delta.content) {
-                                            const text = data.choices[0].delta.content;
-                                            _this.messages[_this.currentIndex].content += text;
-                    
-                                            _this.scrollToBottom()
-                                        }
-
-                                        
-
-                                
-                                    }
-                                });
-                                fetchData();
-                            });
-                        }
-                        _this.messages.push({
-                            "role": "assistant",
-                            "content": ""
-                        })
-                        _this.currentIndex += 1
-                        fetchData();
-                    }
+            if (!this.userInput.trim()) return;
+            
+            const _this = this;
+            _this.loading = true;
+            
+            try {
+                _this.messages.push({
+                    "role": "user",
+                    "content": this.userInput
                 });
-                await new Response(stream).text();
-            } else {
-                this.$message.error('发生错误')
+                _this.currentIndex += 1;
+                _this.userInput = '';
+                
+                await this.$nextTick();
+                this.scrollToBottom();
+                
+                const response = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${this.apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'qwen-plus',
+                        messages: this.messages,
+                        stream: true
+                    })
+                });
+
+                if (response.ok) {
+                    _this.messages.push({
+                        "role": "assistant",
+                        "content": ""
+                    });
+                    _this.currentIndex += 1;
+
+                    const reader = response.body.getReader();
+                    const decoder = new TextDecoder();
+                    
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+                        
+                        const chunk = decoder.decode(value);
+                        const lines = chunk.split('\n');
+                        
+                        for (const line of lines) {
+                            if (line.startsWith('data: ')) {
+                                const dataStr = line.replace('data: ', '');
+                                if (dataStr === '[DONE]') continue;
+                                
+                                try {
+                                    const data = JSON.parse(dataStr);
+                                    if (data.choices[0].delta.content) {
+                                        const text = data.choices[0].delta.content;
+                                        _this.messages[_this.currentIndex].content += text;
+                                        this.$nextTick(this.scrollToBottom);
+                                    }
+                                } catch (e) {
+                                    console.error('解析错误:', e);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    this.$message.error('请求失败: ' + response.status);
+                }
+            } catch (error) {
+                this.$message.error('发生错误: ' + error.message);
+            } finally {
+                _this.loading = false;
+                this.$nextTick(this.scrollToBottom);
             }
         }
     }

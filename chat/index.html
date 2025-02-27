@@ -13,23 +13,26 @@
 <body>
 <div id="app">
     <div class="response-area" id="response">
-        <div style="padding: 10px; overflow: auto">
+        <div class="messages-container">
             <div class="messages" v-for="(item,index) in messages" v-if="index > 0">
-                <div class="message" :style="item.role === 'user' ? {float: 'right'} : {float: 'left'}">
-                    <div>
-                        <div style="margin-bottom: 10px; font-weight: bold">{{ item.role === 'user' ? '你：' : 'AI：' }}</div>
+                <div class="message" :class="{ 'user-message': item.role === 'user', 'ai-message': item.role === 'assistant' }">
+                    <div class="message-header">
+                        {{ item.role === 'user' ? '你：' : 'AI：' }}
                     </div>
-                    <div style="color: gray" v-if="item.role === 'assistant'" v-html="formatContent(item.content)"></div>
-                    <div style="color: gray" v-else>{{ item.content }}<p></p></div>
+                    <div class="message-content">
+                        <div v-if="item.role === 'assistant'" v-html="formatContent(item.content)"></div>
+                        <div v-else>{{ item.content }}<p></p></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="request-area">
-        <el-input type="textarea" @keyup.enter.native="askChatGPT" :autofocus="true"
-                  :rows="5" v-model="userInput" placeholder="输入你的问题"></el-input>
-        <div style="position: absolute; right: 10px; bottom: 15px">
+        <el-input type="textarea" @keyup.enter.native="askChatGPT" 
+                  :autofocus="true" :rows="3" v-model="userInput" 
+                  placeholder="输入你的问题" class="input-area"></el-input>
+        <div class="button-container">
             <el-button @click="askChatGPT" type="primary" v-loading="loading">发送</el-button>
         </div>
     </div>
