@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
     <title>随机美女视频</title>
     <style>
         body {
@@ -91,10 +93,7 @@
                     if (!videoUrl || !videoUrl.startsWith('http')) {
                         throw new Error('无效的视频URL');
                     }
-                    // 强制将HTTP转换为HTTPS
-                    if (videoUrl.startsWith('http://')) {
-                        videoUrl = videoUrl.replace('http://', 'https://');
-                    }
+
                     // 更新视频源
                     videoPlayer.src = videoUrl;
                     videoPlayer.load();
