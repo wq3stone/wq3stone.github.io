@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bing壁纸获取</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+            display: none; /* 初始隐藏 */
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        select, button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        select {
+            background-color: #ecf0f1;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #bingImage {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        .loading {
+            font-size: 1.2rem;
+            color: #3498db;
+            margin-top: 10px;
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+        <p>正在加载壁纸，请稍候...</p>
+    </div>
+
+    <!-- 页面内容 -->
+    <div class="container" id="container">
+        <h1>Bing壁纸获取</h1>
+        <div class="controls">
+            <select id="modeSelect">
+                <option value="FHD">FHD (1920x1080)</option>
+                <option value="UHD">UHD (3840x2160)</option>
+                <option value="MBL">MBL (1080x1920)</option>
+                <option value="MRK">MRK (1920x1200)</option>
+            </select>
+            <br>
+            <button onclick="getTodayWallpaper()">获取今天的Bing壁纸</button>
+            <button onclick="getRandomWallpaper()">获取随机Bing壁纸</button>
+        </div>
+        <img id="bingImage" src="" alt="Bing Wallpaper">
+        <div class="footer">© 2023 Bing壁纸获取工具</div>
+    </div>
+
+    <script>
+        // 页面加载时默认获取今天的壁纸
+        window.onload = function() {
+            getTodayWallpaper();
+        };
+
+        function getTodayWallpaper() {
+            showLoading();
+            const mode = document.getElementById("modeSelect").value;
+            const url = `https://dailybing.com/api/v1/today/zh-cn/${mode}`;
+            fetchImage(url);
+        }
+
+        function getRandomWallpaper() {
+            showLoading();
+            const mode = document.getElementById("modeSelect").value;
+            const randomDate = generateRandomDate();
+            const url = `https://dailybing.com/api/v1/${randomDate}/zh-cn/${mode}`;
+            fetchImage(url);
+        }
+
+        function fetchImage(url) {
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        return response.blob();
+                    } else {
+                        throw new Error('无法获取图片');
+                    }
+                })
+                .then(blob => {
+                    const imageUrl = URL.createObjectURL(blob);
+                    document.getElementById("bingImage").src = imageUrl;
+                    hideLoading();
+                    showContainer();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('获取图片失败，请稍后重试。');
+                    hideLoading();
+                });
+        }
+
+        function generateRandomDate() {
+            const startDate = new Date(2020, 0, 1); // 2020年1月1日
+            const endDate = new Date(); // 今天
+            const randomDate = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
+            const year = randomDate.getFullYear();
+            const month = String(randomDate.getMonth() + 1).padStart(2, '0');
+            const day = String(randomDate.getDate()).padStart(2, '0');
+            return `${year}${month}${day}`;
+        }
+
+        function showLoading() {
+            document.getElementById("loading").style.display = "block";
+        }
+
+        function hideLoading() {
+            document.getElementById("loading").style.display = "none";
+        }
+
+        function showContainer() {
+            document.getElementById("container").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
