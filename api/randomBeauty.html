@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             text-align: center;
             background-color: #fff;
@@ -23,13 +25,16 @@
             width: 90%;
             max-width: 1200px;
         }
+
         video {
             width: 100%;
             height: auto;
             max-height: 80vh;
             border-radius: 10px;
-            background-color: #000; /* 添加黑色背景，避免灰色 */
+            background-color: #000;
+            /* 添加黑色背景，避免灰色 */
         }
+
         .refresh-button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -41,15 +46,18 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         .refresh-button:hover {
             background-color: #0056b3;
         }
+
         .error-message {
             color: red;
             margin-top: 10px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>随机美女视频</h1>
@@ -83,6 +91,10 @@
                     if (!videoUrl || !videoUrl.startsWith('http')) {
                         throw new Error('无效的视频URL');
                     }
+                    // 强制将HTTP转换为HTTPS
+                    if (videoUrl.startsWith('http://')) {
+                        videoUrl = videoUrl.replace('http://', 'https://');
+                    }
                     // 更新视频源
                     videoPlayer.src = videoUrl;
                     videoPlayer.load();
@@ -104,4 +116,5 @@
         });
     </script>
 </body>
+
 </html>
