@@ -62,36 +62,6 @@ alt="删除IconCache.db文件" />
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】ArrayList学习</title>
-    <url>/posts/8928.html</url>
-    <content><![CDATA[<p>ArrayList的底层操作机制</p>
-<ul>
-<li>ArrayList中维护了一个Object类型的数组elementData.
-<ul>
-<li>transient Object[] elementData</li>
-</ul></li>
-<li>当创建ArrayList对象时，如果使用的无参构造器，则初始elementData容量为0，第一次添加，则扩容为10，如果需要再次扩容，则扩容为1.5倍</li>
-<li>当创建ArrayList对象时，如果使用的有参构造器，则初始elementData容量为传入的参数大小，如果需要再次扩容，则扩容为1.5倍</li>
-</ul>
-<p>ArrayList注意事项：</p>
-<ul>
-<li>ArrayList可以加入null空元素，并且多个</li>
-<li>ArrayList是由数组来实现数据存储的</li>
-<li>ArrayList基本等同于Vector
-<ul>
-<li>ArrayList是线程不安全，但执行效率高</li>
-<li>多线程不建议使用ArrayList</li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】AJAX</title>
     <url>/posts/16388.html</url>
     <content><![CDATA[<h1 id="ajaxasynchronous-javascript-and-xml">AJAX（Asynchronous
@@ -871,9 +841,27 @@ style="text-align: left;">服务器不支持请求中指明的HTTP协议版本�
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】Collection方法</title>
-    <url>/posts/2488.html</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CollectionMethod</span> &#123;</span><br><span class="line">    <span class="meta">@SuppressWarnings(&#123;&quot;all&quot;&#125;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">List</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line"><span class="comment">//        add:添加单个元素</span></span><br><span class="line">        list.add(<span class="string">&quot;wq3stone&quot;</span>);</span><br><span class="line">        list.add(<span class="number">5</span>);   <span class="comment">//自动装箱 list.add(new Integer(5))</span></span><br><span class="line">        list.add(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);     <span class="comment">// list=[wq3stone, 5, true]</span></span><br><span class="line"><span class="comment">//        remove:删除指定元素</span></span><br><span class="line">        list.remove(<span class="number">0</span>);   <span class="comment">//删除第一个元素，返回第一个元素的值</span></span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);     <span class="comment">// list=[5, true]</span></span><br><span class="line">        list.remove(<span class="literal">true</span>);  <span class="comment">//删除值为true的元素，返回一个布尔值</span></span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);     <span class="comment">// list=[5]</span></span><br><span class="line"><span class="comment">//        contains:查找元素是否存在</span></span><br><span class="line">        System.out.println(list.contains(<span class="number">5</span>));</span><br><span class="line"><span class="comment">//        size:获取元素个数</span></span><br><span class="line">        System.out.println(list.size());</span><br><span class="line"><span class="comment">//        isEmpty:判断是否为空</span></span><br><span class="line">        System.out.println(list.isEmpty());</span><br><span class="line"><span class="comment">//        clear:清空</span></span><br><span class="line">        list.clear();</span><br><span class="line">        System.out.println(list.isEmpty());</span><br><span class="line"><span class="comment">//        addAll:添加多个元素</span></span><br><span class="line">        <span class="type">List</span> <span class="variable">list2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        list2.add(<span class="string">&quot;new_element1&quot;</span>);</span><br><span class="line">        list2.add(<span class="string">&quot;new_element2&quot;</span>);</span><br><span class="line">        list.addAll(list2);</span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);</span><br><span class="line"><span class="comment">//        containsAll:查找多个元素是否都存在</span></span><br><span class="line">        <span class="type">List</span> <span class="variable">list3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        list3.add(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        System.out.println(list.containsAll(list3));</span><br><span class="line"><span class="comment">//        removeAll:删除多个元素</span></span><br><span class="line">        list.removeAll(list2);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>【学习笔记】ArrayList学习</title>
+    <url>/posts/8928.html</url>
+    <content><![CDATA[<p>ArrayList的底层操作机制</p>
+<ul>
+<li>ArrayList中维护了一个Object类型的数组elementData.
+<ul>
+<li>transient Object[] elementData</li>
+</ul></li>
+<li>当创建ArrayList对象时，如果使用的无参构造器，则初始elementData容量为0，第一次添加，则扩容为10，如果需要再次扩容，则扩容为1.5倍</li>
+<li>当创建ArrayList对象时，如果使用的有参构造器，则初始elementData容量为传入的参数大小，如果需要再次扩容，则扩容为1.5倍</li>
+</ul>
+<p>ArrayList注意事项：</p>
+<ul>
+<li>ArrayList可以加入null空元素，并且多个</li>
+<li>ArrayList是由数组来实现数据存储的</li>
+<li>ArrayList基本等同于Vector
+<ul>
+<li>ArrayList是线程不安全，但执行效率高</li>
+<li>多线程不建议使用ArrayList</li>
+</ul></li>
+</ul>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -895,6 +883,18 @@ style="text-align: left;">服务器不支持请求中指明的HTTP协议版本�
       </categories>
       <tags>
         <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】Collection方法</title>
+    <url>/posts/2488.html</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CollectionMethod</span> &#123;</span><br><span class="line">    <span class="meta">@SuppressWarnings(&#123;&quot;all&quot;&#125;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">List</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line"><span class="comment">//        add:添加单个元素</span></span><br><span class="line">        list.add(<span class="string">&quot;wq3stone&quot;</span>);</span><br><span class="line">        list.add(<span class="number">5</span>);   <span class="comment">//自动装箱 list.add(new Integer(5))</span></span><br><span class="line">        list.add(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);     <span class="comment">// list=[wq3stone, 5, true]</span></span><br><span class="line"><span class="comment">//        remove:删除指定元素</span></span><br><span class="line">        list.remove(<span class="number">0</span>);   <span class="comment">//删除第一个元素，返回第一个元素的值</span></span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);     <span class="comment">// list=[5, true]</span></span><br><span class="line">        list.remove(<span class="literal">true</span>);  <span class="comment">//删除值为true的元素，返回一个布尔值</span></span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);     <span class="comment">// list=[5]</span></span><br><span class="line"><span class="comment">//        contains:查找元素是否存在</span></span><br><span class="line">        System.out.println(list.contains(<span class="number">5</span>));</span><br><span class="line"><span class="comment">//        size:获取元素个数</span></span><br><span class="line">        System.out.println(list.size());</span><br><span class="line"><span class="comment">//        isEmpty:判断是否为空</span></span><br><span class="line">        System.out.println(list.isEmpty());</span><br><span class="line"><span class="comment">//        clear:清空</span></span><br><span class="line">        list.clear();</span><br><span class="line">        System.out.println(list.isEmpty());</span><br><span class="line"><span class="comment">//        addAll:添加多个元素</span></span><br><span class="line">        <span class="type">List</span> <span class="variable">list2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        list2.add(<span class="string">&quot;new_element1&quot;</span>);</span><br><span class="line">        list2.add(<span class="string">&quot;new_element2&quot;</span>);</span><br><span class="line">        list.addAll(list2);</span><br><span class="line">        System.out.println(<span class="string">&quot;list=&quot;</span> + list);</span><br><span class="line"><span class="comment">//        containsAll:查找多个元素是否都存在</span></span><br><span class="line">        <span class="type">List</span> <span class="variable">list3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        list3.add(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        System.out.println(list.containsAll(list3));</span><br><span class="line"><span class="comment">//        removeAll:删除多个元素</span></span><br><span class="line">        list.removeAll(list2);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1265,6 +1265,61 @@ margin也可以设置负值，如果是负值则元素会向相反的方向移�
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】Java动态绑定</title>
+    <url>/posts/9845.html</url>
+    <content><![CDATA[<h4 id="程序绑定">程序绑定</h4>
+<p>程序绑定指的是一个方法的调用与方法所在的类(方法主体)关联起来。
+对java来说，绑定分为静态绑定和动态绑定；或者叫做前期绑定和后期绑定</p>
+<h4 id="静态绑定">静态绑定</h4>
+<blockquote>
+<p>静态绑定（前期绑定）：在程序执行前方法已经被绑定。</p>
+</blockquote>
+<p>在编译过程中就已经知道这个方法到底是哪个类中的方法，此时由
+编译器或其它连接程序实现。例如：C。
+针对java简单的可以理解为程序编译期的绑定；
+java当中的方法只有final，static，private和构造方法是前期绑定
+(如果一个方法不可被继承或者继承后不可被覆盖，那么这个方法就采用的静态绑定。)</p>
+<h4 id="动态绑定">动态绑定</h4>
+<blockquote>
+<p>动态绑定（后期绑定）：在运行时根据具体对象的类型进行绑定。</p>
+</blockquote>
+<p>若一种语言实现了后期绑定，同时必须提供一些机制，可在运行期间判断对象的类型，并分别调用适当的方法。也就是说，
+编译器此时依然不知道对象的类型，但方法调用机制能自己去调查，找到正确的方法主体。不同的语言对后期绑定的实现方法是有所区别的。但我们至少可以这样认为：它们都要在对象中安插某些特殊类型的信息。
+动态绑定的过程：</p>
+<blockquote>
+<ol type="1">
+<li>
+虚拟机提取对象的实际类型的方法表
+</li>
+<li>
+虚拟机搜索方法签名；
+</li>
+<li>
+调用方法。
+</li>
+</ol>
+</blockquote>
+<p><b>属性是静态绑定的</b></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;父亲属性&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">　　</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;儿子属性&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Father</span> <span class="variable">sample</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">    System.out.println(<span class="string">&quot;调用的属性：&quot;</span> + sample.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码输出的是父亲属性</p>
+<p><b>方法是动态绑定的</b></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;FatherFatherFather&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;SonSonSon&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Father</span> <span class="variable">sample</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">        System.out.println(sample.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上述代码输出的是儿子属性</p>
+<p>再来看一串代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span></span><br><span class="line">	&#123;</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">GraduateStudent</span>());</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">Student</span>());</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">Person</span>());</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">Object</span>());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">m</span><span class="params">(Object o)</span></span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(o.toString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GraduateStudent</span> <span class="keyword">extends</span> <span class="title class_">Student</span></span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Student&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">extends</span> <span class="title class_">Object</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Person&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码输出结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Student</span><br><span class="line">Student</span><br><span class="line">Person</span><br><span class="line">java.lang.Object@7852e922</span><br></pre></td></tr></table></figure>
+<h4 id="总结">总结</h4>
+<p>动态绑定体现了Java的继承与多态，在继承链中，JVM一直沿着继承链动态找到带有该方法的实现。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】JavaScript笔记</title>
     <url>/posts/59091.html</url>
     <content><![CDATA[<h1 id="javascript的引入">JavaScript的引入</h1>
@@ -1464,52 +1519,26 @@ id="判断一个属性是否是这个对象自身拥有的">判断一个属性�
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】Java动态绑定</title>
-    <url>/posts/9845.html</url>
-    <content><![CDATA[<h4 id="程序绑定">程序绑定</h4>
-<p>程序绑定指的是一个方法的调用与方法所在的类(方法主体)关联起来。
-对java来说，绑定分为静态绑定和动态绑定；或者叫做前期绑定和后期绑定</p>
-<h4 id="静态绑定">静态绑定</h4>
-<blockquote>
-<p>静态绑定（前期绑定）：在程序执行前方法已经被绑定。</p>
-</blockquote>
-<p>在编译过程中就已经知道这个方法到底是哪个类中的方法，此时由
-编译器或其它连接程序实现。例如：C。
-针对java简单的可以理解为程序编译期的绑定；
-java当中的方法只有final，static，private和构造方法是前期绑定
-(如果一个方法不可被继承或者继承后不可被覆盖，那么这个方法就采用的静态绑定。)</p>
-<h4 id="动态绑定">动态绑定</h4>
-<blockquote>
-<p>动态绑定（后期绑定）：在运行时根据具体对象的类型进行绑定。</p>
-</blockquote>
-<p>若一种语言实现了后期绑定，同时必须提供一些机制，可在运行期间判断对象的类型，并分别调用适当的方法。也就是说，
-编译器此时依然不知道对象的类型，但方法调用机制能自己去调查，找到正确的方法主体。不同的语言对后期绑定的实现方法是有所区别的。但我们至少可以这样认为：它们都要在对象中安插某些特殊类型的信息。
-动态绑定的过程：</p>
-<blockquote>
-<ol type="1">
-<li>
-虚拟机提取对象的实际类型的方法表
-</li>
-<li>
-虚拟机搜索方法签名；
-</li>
-<li>
-调用方法。
-</li>
-</ol>
-</blockquote>
-<p><b>属性是静态绑定的</b></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;父亲属性&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">　　</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;儿子属性&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Father</span> <span class="variable">sample</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">    System.out.println(<span class="string">&quot;调用的属性：&quot;</span> + sample.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码输出的是父亲属性</p>
-<p><b>方法是动态绑定的</b></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;FatherFatherFather&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;SonSonSon&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Father</span> <span class="variable">sample</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">        System.out.println(sample.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>上述代码输出的是儿子属性</p>
-<p>再来看一串代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span></span><br><span class="line">	&#123;</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">GraduateStudent</span>());</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">Student</span>());</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">Person</span>());</span><br><span class="line">		m(<span class="keyword">new</span> <span class="title class_">Object</span>());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">m</span><span class="params">(Object o)</span></span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(o.toString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GraduateStudent</span> <span class="keyword">extends</span> <span class="title class_">Student</span></span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Student&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">extends</span> <span class="title class_">Object</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Person&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码输出结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Student</span><br><span class="line">Student</span><br><span class="line">Person</span><br><span class="line">java.lang.Object@7852e922</span><br></pre></td></tr></table></figure>
-<h4 id="总结">总结</h4>
-<p>动态绑定体现了Java的继承与多态，在继承链中，JVM一直沿着继承链动态找到带有该方法的实现。</p>
+    <title>【学习笔记】Java增强型for循环</title>
+    <url>/posts/11635.html</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="meta">@SuppressWarnings(&quot;all&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EnhanceFor</span> &#123;</span><br><span class="line">    <span class="comment">// 增强for底层是简化版的迭代器</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">List</span> <span class="variable">col</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        col.add(<span class="keyword">new</span> <span class="title class_">Book</span>(<span class="string">&quot;西游记&quot;</span>,<span class="string">&quot;吴承恩&quot;</span>,<span class="number">44.6</span>));</span><br><span class="line">        col.add(<span class="keyword">new</span> <span class="title class_">Book</span>(<span class="string">&quot;红楼梦&quot;</span>,<span class="string">&quot;曹雪芹&quot;</span>,<span class="number">38.9</span>));</span><br><span class="line">        col.add(<span class="keyword">new</span> <span class="title class_">Book</span>(<span class="string">&quot;水浒传&quot;</span>,<span class="string">&quot;罗贯中&quot;</span>,<span class="number">66.6</span>));</span><br><span class="line">        <span class="type">Iterator</span> <span class="variable">it</span> <span class="operator">=</span> col.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())</span><br><span class="line">            System.out.println(it.next());</span><br><span class="line">        System.out.println(<span class="string">&quot;=================&quot;</span>);</span><br><span class="line">        <span class="comment">//使用增强for迭代器 快捷键 I</span></span><br><span class="line">        <span class="keyword">for</span>(Object book : col)&#123;</span><br><span class="line">            System.out.println(book);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//增强for遍历数组</span></span><br><span class="line">        <span class="type">int</span>[] nums = &#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num : nums)&#123;</span><br><span class="line">            System.out.print(num + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】Java常用的文件操作</title>
+    <url>/posts/39094.html</url>
+    <content><![CDATA[<h3 id="创建文件对象">创建文件对象</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(String pathname) <span class="comment">//根据路径创建一个File对象</span></span><br><span class="line"><span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(File parent,String child) <span class="comment">//根据父目录文件+子路径创建</span></span><br><span class="line"><span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(String parent,String child) <span class="comment">//根据父目录+子路径创建</span></span><br><span class="line"></span><br><span class="line">f.createNewFile();	<span class="comment">// 创建文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取文件的相关信息">获取文件的相关信息</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(...);</span><br><span class="line">System.out.println(<span class="string">&quot;文件名字：&quot;</span>+file.getName());</span><br><span class="line">System.out.println(<span class="string">&quot;文件的绝对路径：&quot;</span> + file.getAbsolutePath());</span><br><span class="line">System.out.println(<span class="string">&quot;文件的父级目录：&quot;</span> + file.getParentFile());</span><br><span class="line">System.out.println(<span class="string">&quot;文件的大小：&quot;</span> + file.length());</span><br><span class="line">System.out.println(<span class="string">&quot;文件是否存在：&quot;</span> + file.exists());</span><br><span class="line">System.out.println(<span class="string">&quot;是不是一个文件&quot;</span> + file.isFile());</span><br><span class="line">System.out.println(<span class="string">&quot;是不是一个目录&quot;</span> + file.isDirectory());</span><br></pre></td></tr></table></figure>
+<h3 id="目录的操作和文件删除">目录的操作和文件删除</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">dirPath</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(...);</span><br><span class="line">dirPath.mkdir();	<span class="comment">// 创建一级目录</span></span><br><span class="line">dirPath.mkdirs();	<span class="comment">// 创建多级目录</span></span><br><span class="line">dirPath.delete();	<span class="comment">// 删除目录</span></span><br><span class="line"><span class="comment">// 以上操作均有返回值 成功(true) 失败(false)</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -1645,35 +1674,6 @@ throw
 <p>输出结果是：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">进入方法A</span><br><span class="line">用A方法的finally</span><br><span class="line">制造异常</span><br><span class="line">进入方法B</span><br><span class="line">调用B方法的finally</span><br></pre></td></tr></table></figure>
 <p>IDEA格式化代码快捷键：<code>Ctrl + Alt + Shift + L</code></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】Java增强型for循环</title>
-    <url>/posts/11635.html</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="meta">@SuppressWarnings(&quot;all&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EnhanceFor</span> &#123;</span><br><span class="line">    <span class="comment">// 增强for底层是简化版的迭代器</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">List</span> <span class="variable">col</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        col.add(<span class="keyword">new</span> <span class="title class_">Book</span>(<span class="string">&quot;西游记&quot;</span>,<span class="string">&quot;吴承恩&quot;</span>,<span class="number">44.6</span>));</span><br><span class="line">        col.add(<span class="keyword">new</span> <span class="title class_">Book</span>(<span class="string">&quot;红楼梦&quot;</span>,<span class="string">&quot;曹雪芹&quot;</span>,<span class="number">38.9</span>));</span><br><span class="line">        col.add(<span class="keyword">new</span> <span class="title class_">Book</span>(<span class="string">&quot;水浒传&quot;</span>,<span class="string">&quot;罗贯中&quot;</span>,<span class="number">66.6</span>));</span><br><span class="line">        <span class="type">Iterator</span> <span class="variable">it</span> <span class="operator">=</span> col.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())</span><br><span class="line">            System.out.println(it.next());</span><br><span class="line">        System.out.println(<span class="string">&quot;=================&quot;</span>);</span><br><span class="line">        <span class="comment">//使用增强for迭代器 快捷键 I</span></span><br><span class="line">        <span class="keyword">for</span>(Object book : col)&#123;</span><br><span class="line">            System.out.println(book);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//增强for遍历数组</span></span><br><span class="line">        <span class="type">int</span>[] nums = &#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num : nums)&#123;</span><br><span class="line">            System.out.print(num + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】Java常用的文件操作</title>
-    <url>/posts/39094.html</url>
-    <content><![CDATA[<h3 id="创建文件对象">创建文件对象</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(String pathname) <span class="comment">//根据路径创建一个File对象</span></span><br><span class="line"><span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(File parent,String child) <span class="comment">//根据父目录文件+子路径创建</span></span><br><span class="line"><span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(String parent,String child) <span class="comment">//根据父目录+子路径创建</span></span><br><span class="line"></span><br><span class="line">f.createNewFile();	<span class="comment">// 创建文件</span></span><br></pre></td></tr></table></figure>
-<h3 id="获取文件的相关信息">获取文件的相关信息</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(...);</span><br><span class="line">System.out.println(<span class="string">&quot;文件名字：&quot;</span>+file.getName());</span><br><span class="line">System.out.println(<span class="string">&quot;文件的绝对路径：&quot;</span> + file.getAbsolutePath());</span><br><span class="line">System.out.println(<span class="string">&quot;文件的父级目录：&quot;</span> + file.getParentFile());</span><br><span class="line">System.out.println(<span class="string">&quot;文件的大小：&quot;</span> + file.length());</span><br><span class="line">System.out.println(<span class="string">&quot;文件是否存在：&quot;</span> + file.exists());</span><br><span class="line">System.out.println(<span class="string">&quot;是不是一个文件&quot;</span> + file.isFile());</span><br><span class="line">System.out.println(<span class="string">&quot;是不是一个目录&quot;</span> + file.isDirectory());</span><br></pre></td></tr></table></figure>
-<h3 id="目录的操作和文件删除">目录的操作和文件删除</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">dirPath</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(...);</span><br><span class="line">dirPath.mkdir();	<span class="comment">// 创建一级目录</span></span><br><span class="line">dirPath.mkdirs();	<span class="comment">// 创建多级目录</span></span><br><span class="line">dirPath.delete();	<span class="comment">// 删除目录</span></span><br><span class="line"><span class="comment">// 以上操作均有返回值 成功(true) 失败(false)</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -2304,32 +2304,6 @@ src="https://picture-wq3stone.oss-cn-hangzhou.aliyuncs.com/picgo/202211231643136
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】MarkDown数学公式基本语法</title>
-    <url>/posts/22632.html</url>
-    <content><![CDATA[<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202306151033711.jpeg"
-alt="MarkDown" />
-<figcaption aria-hidden="true">MarkDown</figcaption>
-</figure>
-<p>行内公式<span class="math inline">\(\int_a^b (x^a+b)
-d(x)\)</span></p>
-<p>独立公式 <span class="math display">\[
-函数名=\begin{cases}  
-公式1 &amp; 条件1 \\
-公式2 &amp; 条件2 \\
-公式3 &amp; 条件3
-\end{cases}
-\]</span> {独立公式}</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>MarkDown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】MySQL命令</title>
     <url>/posts/48897.html</url>
     <content><![CDATA[<h3 id="连接到mysql服务的指令">连接到MySQL服务的指令</h3>
@@ -2368,6 +2342,246 @@ d(x)\)</span></p>
       </categories>
       <tags>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】MarkDown数学公式基本语法</title>
+    <url>/posts/22632.html</url>
+    <content><![CDATA[<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202306151033711.jpeg"
+alt="MarkDown" />
+<figcaption aria-hidden="true">MarkDown</figcaption>
+</figure>
+<p>行内公式<span class="math inline">\(\int_a^b (x^a+b)
+d(x)\)</span></p>
+<p>独立公式 <span class="math display">\[
+函数名=\begin{cases}  
+公式1 &amp; 条件1 \\
+公式2 &amp; 条件2 \\
+公式3 &amp; 条件3
+\end{cases}
+\]</span> {独立公式}</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>MarkDown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】MySQL安装配置命令</title>
+    <url>/posts/42645.html</url>
+    <content><![CDATA[<h3 id="mysql安装">MySQL安装</h3>
+<p>①安装服务：<code>mysqld --install</code></p>
+<p>②初始化：　<code>mysqld --initialize --console</code></p>
+<p>③开启服务：<code>net start mysql</code></p>
+<p>④关闭服务：<code>net stop mysql</code></p>
+<p>⑤登录mysql：<code>mysql -u root -p</code></p>
+<p>⑥修改密码：<code>alter user root@localhost identified by '密码';</code></p>
+<p>⑦标记删除mysql服务：<code>sc delete mysql</code></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】OJ术语</title>
+    <url>/posts/22232.html</url>
+    <content><![CDATA[<p><strong>AC-Accepted 答案正确/通过</strong></p>
+<p><strong>WA-Wrong Answer 答案错误</strong></p>
+<p><strong>RE-Runtime Error 运行时错误</strong></p>
+<p><strong>CE-Complie Error 编译错误</strong></p>
+<p><strong>TLE-Time Limit Exceed 运行超时</strong></p>
+<p><strong>MLE-Memory Limit Exceed 超出内存限制</strong></p>
+<p><strong>PE-Presentation Error 格式错误</strong></p>
+<p><strong>OLE-Output Limit Exceed 输出超出限制/输出超限</strong></p>
+<p><strong>补充一个</strong></p>
+<p><strong>UKE_Unknown Error未知错误</strong></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>OJ术语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】conda的使用</title>
+    <url>/posts/23557.html</url>
+    <content><![CDATA[<h2 id="指令集合">指令集合</h2>
+<h3 id="设置镜像">设置镜像</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置清华镜像</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"><span class="comment">#设置搜索时显示通道地址</span></span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+<h3 id="管理conda">管理conda</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda update conda  <span class="comment"># 更新conda</span></span><br><span class="line">conda update Anaconda  <span class="comment"># 更新整个Anaconda</span></span><br><span class="line">conda clean -p  <span class="comment"># 删除没有用的包</span></span><br><span class="line">conda clean -t  <span class="comment"># 删除tar打包</span></span><br><span class="line">conda clean -a <span class="comment"># 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)</span></span><br></pre></td></tr></table></figure>
+<h3 id="管理环境">管理环境</h3>
+<h4 id="查看环境">查看环境</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">env</span> list</span><br><span class="line">conda info -e</span><br><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+<p>以上三条命令都可以。注意最后一个是”--”，而不是“-”</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261052650.png"
+alt="image-20230726105204603" />
+<figcaption aria-hidden="true">image-20230726105204603</figcaption>
+</figure>
+<blockquote>
+<p>所显示的列表中，前面带星号“*“的表示当前活动环境。</p>
+</blockquote>
+<h4 id="创建环境">创建环境</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n xxx  <span class="comment"># 创建环境名为xxx的环境</span></span><br></pre></td></tr></table></figure>
+<p>例如创建环境名为py39的环境并安装python3.9</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n py39 python==3.9</span><br></pre></td></tr></table></figure>
+<p>这表示创建python版本为3.9、名字为py39的虚拟环境</p>
+<blockquote>
+<p>创建后，py39文件可以在Anaconda安装目录envs文件下找到。在不指定python版本时，自动创建基于最新python版本的虚拟环境。</p>
+</blockquote>
+<h4 id="激活环境">激活环境</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda activate xxx  <span class="comment"># 激活环境名为xxx的环境</span></span><br></pre></td></tr></table></figure>
+<p>此时使用python
+--version可以检查当前python版本是否为所想要的（即虚拟环境的python版本）</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261055499.png"
+alt="image-20230726105525458" />
+<figcaption aria-hidden="true">image-20230726105525458</figcaption>
+</figure>
+<h4 id="退出环境">退出环境</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda activate</span><br><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<p>以上两条命令只中任一条都会让你回到base
+environment，它们从不同的角度出发到达了同一个目的地。可以这样理解，activate的缺省值是base，deactivate的缺省值是当前环境，因此它们最终的结果都是回到base</p>
+<h4 id="删除环境">删除环境</h4>
+<p>执行以下命令可以将该指定虚拟环境及其中所安装的包都删除。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda remove --name env_name --all</span><br></pre></td></tr></table></figure>
+<h4 id="导出环境">导出环境</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#获得环境名为env_name中的所有配置并保存配置信息到my_env.yml文件中</span></span><br><span class="line">conda <span class="built_in">env</span> <span class="built_in">export</span> --name env_name &gt; my_env.yml</span><br><span class="line"><span class="comment">#重新还原环境</span></span><br><span class="line">conda <span class="built_in">env</span> create -f my_env.yml</span><br></pre></td></tr></table></figure>
+<h3 id="管理包">管理包</h3>
+<h4 id="查询包">查询包</h4>
+<p>查看当前环境安装了哪些包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+<p>查看Anaconda repository中是否有xxx包（联网查询）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda search xxx</span><br></pre></td></tr></table></figure>
+<h4 id="安装包">安装包</h4>
+<p>在当前环境中安装package_name包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install package_name</span><br></pre></td></tr></table></figure>
+<p>也可以指定安装的包的版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install package_name==1.0.0</span><br></pre></td></tr></table></figure>
+<p>例如，安装numpy版本为0.20.3</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install numpy==0.20.3</span><br></pre></td></tr></table></figure>
+<h4 id="更新包">更新包</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda update package_name</span><br></pre></td></tr></table></figure>
+<p>将package_name包更新到最新版本</p>
+<h4 id="卸载包">卸载包</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda uninstall package_name</span><br></pre></td></tr></table></figure>
+<p>卸载包名为package_name的包</p>
+<h2 id="conda与pip">conda与pip</h2>
+<h3 id="有什么区别">有什么区别？</h3>
+<ol type="1">
+<li>conda可以管理非python包，pip只能管理python包。</li>
+<li>conda自己可以用来创建环境，pip不能，需要依赖virtualenv之类的。</li>
+<li>conda安装的包是编译好的二进制文件，安装包文件过程中会自动安装依赖包；pip安装的包是wheel或源码，装过程中不会去支持python语言之外的依赖项。</li>
+<li>conda安装的包会统一下载到一个目录文件中，当环境B需要下载的包，之前其他环境安装过，就只需要把之间下载的文件复制到环境B中，下载一次多次安装。pip是直接下载到对应环境中。</li>
+<li>conda只能在conda管理的环境中使用，例如比如conda所创建的虚环境中使用。pip可以在任何环境中使用，在conda创建的环境
+中使用pip命令，需要先安装pip（conda install pip ），然后可以 环境A
+中使用pip 。conda
+安装的包，pip可以卸载，但不能卸载依赖包，pip安装的包，只能用pip卸载。</li>
+</ol>
+<h3 id="安装在哪里">安装在哪里？</h3>
+<ul>
+<li><code>conda install xxx</code>：这种方式安装的库都会放在<code>anaconda3/pkgs</code>目录下，这样的好处就是，当在某个环境下已经下载好了某个库，再在另一个环境中还需要这个库时，就可以直接从<code>pkgs</code>目录下将该库复制至新环境而不用重复下载。</li>
+<li><code>pip install xxx</code>：分两种情况，一种情况就是当前conda环境的python是conda安装的，和系统的不一样，那么<code>xxx</code>会被安装到<code>anaconda3/envs/current_env/lib/python3.x/site-packages</code>文件夹中，如果当前conda环境用的是系统的python，那么<code>xxx</code>会通常会被安装到<code>~/.local/lib/python3.x/site-packages</code>文件夹中</li>
+</ul>
+<h3
+id="如何判断conda中某个包是通过conda还是pip安装的">如何判断conda中某个包是通过conda还是pip安装的？</h3>
+<p>执行 <code>conda list</code>
+，用pip安装的包显示的build项目为pypi。如下图所示</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261133811.png"
+alt="image-20230726113303750" />
+<figcaption aria-hidden="true">image-20230726113303750</figcaption>
+</figure>
+<h2 id="conda的配置">conda的配置</h2>
+<h3 id="condarc文件在哪儿">.condarc文件在哪儿？</h3>
+<p>执行<code>conda info</code>，如下图所示</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261145690.png"
+alt="image-20230726114544635" />
+<figcaption aria-hidden="true">image-20230726114544635</figcaption>
+</figure>
+<h3 id="channel管理">channel管理</h3>
+<p>追加conda-forge channel:</p>
+<blockquote>
+<p>conda config --add channels conda-forge</p>
+</blockquote>
+<p>移除conda-forge channel:</p>
+<blockquote>
+<p>conda config --remove channels conda-forge</p>
+</blockquote>
+<p>查询当前配置中包含哪些channels</p>
+<blockquote>
+<p>conda config --get channels</p>
+</blockquote>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261147482.png"
+alt="image-20230726114725437" />
+<figcaption aria-hidden="true">image-20230726114725437</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】xml学习笔记</title>
+    <url>/posts/11539.html</url>
+    <content><![CDATA[<h3 id="xml概念">XML概念</h3>
+<p>XML：eXtensible Markup Language，可扩展标记语言 -
+可扩展：标签都是自定义的 - 功能 1.
+存储数据，可作为小型数据库，存储配置文件 2.
+数据传输，可在不兼容的系统之间轻松地交换数据</p>
+<p>XML与HTML的区别：</p>
+<ol type="1">
+<li>xml标签都是自定义的，html标签是预定义</li>
+<li>xml语法严格，html语法松散</li>
+<li>xml是存储数据的，html是展示数据</li>
+</ol>
+<h3 id="xml语法">XML语法</h3>
+<h4 id="基本语法">基本语法</h4>
+<ol type="1">
+<li>xml文档的后缀名是 <code>*.xml</code></li>
+<li>若有文档声明，则必须放在第一行，不然报错</li>
+<li>xml文档中有且仅有一个根标签</li>
+<li>属性值必须使用单或双引号引起来</li>
+<li>标签必须正确关闭</li>
+<li>xml标签名称区分大小写</li>
+<li>标签名属性名不能以数字或者标点符号开始，不能包含空格，不能以字符“xml”（含大小写）开头</li>
+<li>元素需要正确嵌套不能交叉</li>
+<li>特殊字符使用实体（只有以下五种）
+<ul>
+<li><code>&amp;lt;</code> &lt;</li>
+<li><code>&amp;gt;</code> &gt;</li>
+<li><code>&amp;amp;</code> &amp;</li>
+<li><code>&amp;quot;</code> "</li>
+<li><code>&amp;apos;</code> '</li>
+</ul></li>
+</ol>
+<p><strong>sample-xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">users</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span> <span class="attr">id</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>zhangsan<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>23<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">gender</span>&gt;</span>male<span class="tag">&lt;/<span class="name">gender</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span> <span class="attr">id</span>=<span class="string">&#x27;2&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>lisi<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>24<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">gender</span>&gt;</span>female<span class="tag">&lt;/<span class="name">gender</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">users</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>XML</tag>
       </tags>
   </entry>
   <entry>
@@ -4396,176 +4610,6 @@ IOC管理的bean对象都是单例的，此处的单例不是通过构造器进�
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】MySQL安装配置命令</title>
-    <url>/posts/42645.html</url>
-    <content><![CDATA[<h3 id="mysql安装">MySQL安装</h3>
-<p>①安装服务：<code>mysqld --install</code></p>
-<p>②初始化：　<code>mysqld --initialize --console</code></p>
-<p>③开启服务：<code>net start mysql</code></p>
-<p>④关闭服务：<code>net stop mysql</code></p>
-<p>⑤登录mysql：<code>mysql -u root -p</code></p>
-<p>⑥修改密码：<code>alter user root@localhost identified by '密码';</code></p>
-<p>⑦标记删除mysql服务：<code>sc delete mysql</code></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】OJ术语</title>
-    <url>/posts/22232.html</url>
-    <content><![CDATA[<p><strong>AC-Accepted 答案正确/通过</strong></p>
-<p><strong>WA-Wrong Answer 答案错误</strong></p>
-<p><strong>RE-Runtime Error 运行时错误</strong></p>
-<p><strong>CE-Complie Error 编译错误</strong></p>
-<p><strong>TLE-Time Limit Exceed 运行超时</strong></p>
-<p><strong>MLE-Memory Limit Exceed 超出内存限制</strong></p>
-<p><strong>PE-Presentation Error 格式错误</strong></p>
-<p><strong>OLE-Output Limit Exceed 输出超出限制/输出超限</strong></p>
-<p><strong>补充一个</strong></p>
-<p><strong>UKE_Unknown Error未知错误</strong></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>OJ术语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】conda的使用</title>
-    <url>/posts/23557.html</url>
-    <content><![CDATA[<h2 id="指令集合">指令集合</h2>
-<h3 id="设置镜像">设置镜像</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置清华镜像</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"><span class="comment">#设置搜索时显示通道地址</span></span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-<h3 id="管理conda">管理conda</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda update conda  <span class="comment"># 更新conda</span></span><br><span class="line">conda update Anaconda  <span class="comment"># 更新整个Anaconda</span></span><br><span class="line">conda clean -p  <span class="comment"># 删除没有用的包</span></span><br><span class="line">conda clean -t  <span class="comment"># 删除tar打包</span></span><br><span class="line">conda clean -a <span class="comment"># 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)</span></span><br></pre></td></tr></table></figure>
-<h3 id="管理环境">管理环境</h3>
-<h4 id="查看环境">查看环境</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">env</span> list</span><br><span class="line">conda info -e</span><br><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
-<p>以上三条命令都可以。注意最后一个是”--”，而不是“-”</p>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261052650.png"
-alt="image-20230726105204603" />
-<figcaption aria-hidden="true">image-20230726105204603</figcaption>
-</figure>
-<blockquote>
-<p>所显示的列表中，前面带星号“*“的表示当前活动环境。</p>
-</blockquote>
-<h4 id="创建环境">创建环境</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n xxx  <span class="comment"># 创建环境名为xxx的环境</span></span><br></pre></td></tr></table></figure>
-<p>例如创建环境名为py39的环境并安装python3.9</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n py39 python==3.9</span><br></pre></td></tr></table></figure>
-<p>这表示创建python版本为3.9、名字为py39的虚拟环境</p>
-<blockquote>
-<p>创建后，py39文件可以在Anaconda安装目录envs文件下找到。在不指定python版本时，自动创建基于最新python版本的虚拟环境。</p>
-</blockquote>
-<h4 id="激活环境">激活环境</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda activate xxx  <span class="comment"># 激活环境名为xxx的环境</span></span><br></pre></td></tr></table></figure>
-<p>此时使用python
---version可以检查当前python版本是否为所想要的（即虚拟环境的python版本）</p>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261055499.png"
-alt="image-20230726105525458" />
-<figcaption aria-hidden="true">image-20230726105525458</figcaption>
-</figure>
-<h4 id="退出环境">退出环境</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda activate</span><br><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
-<p>以上两条命令只中任一条都会让你回到base
-environment，它们从不同的角度出发到达了同一个目的地。可以这样理解，activate的缺省值是base，deactivate的缺省值是当前环境，因此它们最终的结果都是回到base</p>
-<h4 id="删除环境">删除环境</h4>
-<p>执行以下命令可以将该指定虚拟环境及其中所安装的包都删除。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda remove --name env_name --all</span><br></pre></td></tr></table></figure>
-<h4 id="导出环境">导出环境</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#获得环境名为env_name中的所有配置并保存配置信息到my_env.yml文件中</span></span><br><span class="line">conda <span class="built_in">env</span> <span class="built_in">export</span> --name env_name &gt; my_env.yml</span><br><span class="line"><span class="comment">#重新还原环境</span></span><br><span class="line">conda <span class="built_in">env</span> create -f my_env.yml</span><br></pre></td></tr></table></figure>
-<h3 id="管理包">管理包</h3>
-<h4 id="查询包">查询包</h4>
-<p>查看当前环境安装了哪些包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
-<p>查看Anaconda repository中是否有xxx包（联网查询）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda search xxx</span><br></pre></td></tr></table></figure>
-<h4 id="安装包">安装包</h4>
-<p>在当前环境中安装package_name包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install package_name</span><br></pre></td></tr></table></figure>
-<p>也可以指定安装的包的版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install package_name==1.0.0</span><br></pre></td></tr></table></figure>
-<p>例如，安装numpy版本为0.20.3</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install numpy==0.20.3</span><br></pre></td></tr></table></figure>
-<h4 id="更新包">更新包</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda update package_name</span><br></pre></td></tr></table></figure>
-<p>将package_name包更新到最新版本</p>
-<h4 id="卸载包">卸载包</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda uninstall package_name</span><br></pre></td></tr></table></figure>
-<p>卸载包名为package_name的包</p>
-<h2 id="conda与pip">conda与pip</h2>
-<h3 id="有什么区别">有什么区别？</h3>
-<ol type="1">
-<li>conda可以管理非python包，pip只能管理python包。</li>
-<li>conda自己可以用来创建环境，pip不能，需要依赖virtualenv之类的。</li>
-<li>conda安装的包是编译好的二进制文件，安装包文件过程中会自动安装依赖包；pip安装的包是wheel或源码，装过程中不会去支持python语言之外的依赖项。</li>
-<li>conda安装的包会统一下载到一个目录文件中，当环境B需要下载的包，之前其他环境安装过，就只需要把之间下载的文件复制到环境B中，下载一次多次安装。pip是直接下载到对应环境中。</li>
-<li>conda只能在conda管理的环境中使用，例如比如conda所创建的虚环境中使用。pip可以在任何环境中使用，在conda创建的环境
-中使用pip命令，需要先安装pip（conda install pip ），然后可以 环境A
-中使用pip 。conda
-安装的包，pip可以卸载，但不能卸载依赖包，pip安装的包，只能用pip卸载。</li>
-</ol>
-<h3 id="安装在哪里">安装在哪里？</h3>
-<ul>
-<li><code>conda install xxx</code>：这种方式安装的库都会放在<code>anaconda3/pkgs</code>目录下，这样的好处就是，当在某个环境下已经下载好了某个库，再在另一个环境中还需要这个库时，就可以直接从<code>pkgs</code>目录下将该库复制至新环境而不用重复下载。</li>
-<li><code>pip install xxx</code>：分两种情况，一种情况就是当前conda环境的python是conda安装的，和系统的不一样，那么<code>xxx</code>会被安装到<code>anaconda3/envs/current_env/lib/python3.x/site-packages</code>文件夹中，如果当前conda环境用的是系统的python，那么<code>xxx</code>会通常会被安装到<code>~/.local/lib/python3.x/site-packages</code>文件夹中</li>
-</ul>
-<h3
-id="如何判断conda中某个包是通过conda还是pip安装的">如何判断conda中某个包是通过conda还是pip安装的？</h3>
-<p>执行 <code>conda list</code>
-，用pip安装的包显示的build项目为pypi。如下图所示</p>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261133811.png"
-alt="image-20230726113303750" />
-<figcaption aria-hidden="true">image-20230726113303750</figcaption>
-</figure>
-<h2 id="conda的配置">conda的配置</h2>
-<h3 id="condarc文件在哪儿">.condarc文件在哪儿？</h3>
-<p>执行<code>conda info</code>，如下图所示</p>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261145690.png"
-alt="image-20230726114544635" />
-<figcaption aria-hidden="true">image-20230726114544635</figcaption>
-</figure>
-<h3 id="channel管理">channel管理</h3>
-<p>追加conda-forge channel:</p>
-<blockquote>
-<p>conda config --add channels conda-forge</p>
-</blockquote>
-<p>移除conda-forge channel:</p>
-<blockquote>
-<p>conda config --remove channels conda-forge</p>
-</blockquote>
-<p>查询当前配置中包含哪些channels</p>
-<blockquote>
-<p>conda config --get channels</p>
-</blockquote>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261147482.png"
-alt="image-20230726114725437" />
-<figcaption aria-hidden="true">image-20230726114725437</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>conda</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】hexo+github建站</title>
     <url>/posts/27971.html</url>
     <content><![CDATA[<h3 id="准备工作">0、准备工作</h3>
@@ -4641,50 +4685,6 @@ hexo-generator-sitemap（生成站点地图） hexo-abbrlink（生成永久链�
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】xml学习笔记</title>
-    <url>/posts/11539.html</url>
-    <content><![CDATA[<h3 id="xml概念">XML概念</h3>
-<p>XML：eXtensible Markup Language，可扩展标记语言 -
-可扩展：标签都是自定义的 - 功能 1.
-存储数据，可作为小型数据库，存储配置文件 2.
-数据传输，可在不兼容的系统之间轻松地交换数据</p>
-<p>XML与HTML的区别：</p>
-<ol type="1">
-<li>xml标签都是自定义的，html标签是预定义</li>
-<li>xml语法严格，html语法松散</li>
-<li>xml是存储数据的，html是展示数据</li>
-</ol>
-<h3 id="xml语法">XML语法</h3>
-<h4 id="基本语法">基本语法</h4>
-<ol type="1">
-<li>xml文档的后缀名是 <code>*.xml</code></li>
-<li>若有文档声明，则必须放在第一行，不然报错</li>
-<li>xml文档中有且仅有一个根标签</li>
-<li>属性值必须使用单或双引号引起来</li>
-<li>标签必须正确关闭</li>
-<li>xml标签名称区分大小写</li>
-<li>标签名属性名不能以数字或者标点符号开始，不能包含空格，不能以字符“xml”（含大小写）开头</li>
-<li>元素需要正确嵌套不能交叉</li>
-<li>特殊字符使用实体（只有以下五种）
-<ul>
-<li><code>&amp;lt;</code> &lt;</li>
-<li><code>&amp;gt;</code> &gt;</li>
-<li><code>&amp;amp;</code> &amp;</li>
-<li><code>&amp;quot;</code> "</li>
-<li><code>&amp;apos;</code> '</li>
-</ul></li>
-</ol>
-<p><strong>sample-xml</strong></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">users</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span> <span class="attr">id</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>zhangsan<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>23<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">gender</span>&gt;</span>male<span class="tag">&lt;/<span class="name">gender</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span> <span class="attr">id</span>=<span class="string">&#x27;2&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>lisi<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>24<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">gender</span>&gt;</span>female<span class="tag">&lt;/<span class="name">gender</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">users</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>XML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】使用阿里云OSS+CDN搭建图床（未写）</title>
     <url>/posts/43138.html</url>
     <content><![CDATA[
@@ -4694,6 +4694,76 @@ hexo-generator-sitemap（生成站点地图） hexo-abbrlink（生成永久链�
       </categories>
       <tags>
         <tag>搭建图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】修改jupyter默认工作目录</title>
+    <url>/posts/35819.html</url>
+    <content><![CDATA[<ol type="1">
+<li>进入conda环境</li>
+<li>运行<code>jupyter notebook --generate-config</code>命令</li>
+<li>找到配置文件</li>
+<li>修改c.NotebookApp.notebook_dir为工作目录</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】内大复试</title>
+    <url>/posts/54903.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="f7320d6e79223817ceee7aec8171904a3b02780561be963360be57a8915c383f">25d90d729731e7dd7f7ec72587e5f71c5ce76a618abfc47a41e6b988eb447d656e5b7dc706e9ac8e89af549296b9d8c0e31a4a86768ffdae0fc0f19901f7c1962bb0acc8ec64e64a42f75a77f71e04cc554b798aecb043493472a87051b776dbe0fbc0ef2e3acacd7b5f53cb4c8222a2326d46918c8bcf6522ac9099064157f0257dacc41c5b8a48612a0ba4405620de6452f42cc41166ba6dc05e2ef3938b5a2e2ce4dca5c5f1b92a97dca964d30f9cc13c4c3d8bc61e3d37dd4d33815432149722c08268c761aa9a912eecbdd4c470056af21aae318b5c6b288cb4452bea544bba2d9a36d911ed373b6b8bcd3865ce1ce0eb93af1a7b290ada5e1c021729ffab9dc537e80224cfb15e47fb9c0a9c8ea09a0b1a8e2b8af0b36a3fe1879767f92e880e6b423baad800c442f8347f9453597fea6863e2df1bb969d3dde3ce4547dd4e174caf5d8278bf2f2e200430e934228531d7f785e9d71ccc75452569f658e3b9ce64e80f08f822041106a9602cc3350db35a3d985e0b05ffceb5d898a9507359db14b28823a771e6861064f8e500ea2c6a348ad2c41ae47847fc65eba51fc4b5e4ca1c8cd700e0279180775d88c9ca551e136c4f2dbcd11d7a76b2db2e5f53a23f9cf0c3dd1f4ad8a185c4a02ace3b68c295fee525ddbd4a1e6e1db50818e585d405df2c33742df4f7846225c593488b728b1f5f1061ae3b1304f766d6ca8587da5ad7809a28a3491de37c39f013d62341ef6e9eafbf646720ead035e43eb8a540eae98a23f8ca048347e487af8b13ebca3fc208b8db2b14fabfe4b4c8a12904c03772b663e6c51a7898dbcedde07b6e3dc7e62bcdcf45a2b76eb73d5d6d320f8dbd2267e00d0714837f6a206c098bc9109ebc4c9f945ff1f26fac718901ee56b0a39bfbcc901530636f259de1bf4a3d0ca96434ff377dc5ee01b93a4f35f7b0107419e062883e97f60603d7f043fb80ecc79c6e69552a0ccc60d380e2b18f4981894c95e8a924cdb8abc547b551d1fbda153b9d4e77f4841f25dc3e6bda412d721a1fda573890ce5bc0237f3b0c85e2b08f799ec74873cb8f925c92451be2d42996d2d439856d0a364c9db70b42ec059c72c67945cd668bad9d6b7504191c0266a96617192e515a4202813b26df899b8c152086c4eb507da7bd84c28944cfbde27c7987e6eec4b2fcf180fd9303417f238d099e3306a6d10fcd9e187264845d5b67b83c2a9cb24828287112a0553b96df0afaa3e7f7ef839c3620b807d77d3b41baaf267887f883140994901906a3df3a6a9637c8952b26f695aef1f509cd1ee218ca2f1071325002a785e7b654e576baff1e8c3508404f315231e21e05977d0da369592676d3e5e80c9d77870153f5f5f0531b75ad9f94c420569ec5b673f72843be4210004d4ef9fe506ba4263853e7f8d7b60a2810729ca8a85349d2a3f081603183b2a082a7e07f6b108b5856d1b7ca50140912e83984f7eb7a12f127549056e7fc051c60795685a93497e475dfc1eb078fd8289729f56cef871d5152f751ebd043b2fa62ce47fa1209879e4fcaf9701dccd5c26f871759f196794e457b608e210056110bd0b90c2881d2429688cae6c8b816f86e7c011e387ab8287ccd249f1a2c6ef898b08b632425c7d0c7b9cf420943c06a9872397c2e3ede1fb00bb4303a8acb0a73bb38c8929c94a9b63d415988c15905c36299a8cf7ba45dc3fd4536cde180a97a7338e415667a32e96368251b3fb201d837613bc3dcf432d0bf048c966b1c2e6843c0d2250107bed3a4243d7e65878b6380989d776ed30125a3ddb1cb7b907ba384de52a2b57bb8e1f08c4f8c318f9ee644fa8b210f752e9f51c2dbb843037e751562d7a5396a7834d1582a2089b70938732e9f2f68561c54c4648f1911dd972272965b1a70ff773aa366ae401bb3816c49900334dccdcd052a2b6fb2b70d3a7241d6524276a1e28cda3cb25be934f451cd44f075edf42dc48666d52ea3ca13430b68e295ab2a68e6956669c6166c8353a482bda9698191145447aba7c1f9285333532794ec35300663e430437f4d6b72577bb7144440bc708276bcd12cdd320e22583708c277c52983f1775ed1a428d294364f8b91016a2eb9a206d35a37896f5372f980e07800b911c96de43ad0106d02c5a3370b34079058c730e1b6c8ef8529ec68275af847908cdbfa286ff56c8931ef26068c32338fb5e0a87e9817736e79864822c0326b5f14353a73e4e8c50a411dbe8523ff67e37741a873f411865fa9f8c7476be32ae8f3f019b74ed4c46ff3366d39720e65bd115ecf158a9237e6678e0ea43b8ba14f3315e59a066c96e8bb05c12f292a2b457351b7ddf0ee41936c09f7e6f99bfb2028decb7f7373ca72474886d1e8a9f466be0cfea03b2c2fff370eddde39d5e087ff5c6d49afc4d50c57728753d731913fa1b50cdf1e89c69fbb6effb0991b5e09b39cbb593ce3471f1721e510632bf3b3f5d5741e29752b28062955c7771210a7e1150543b9548c43b40828755750ca20e2cde0182ef2d29ba95262f9a448144e056bf95dc33d440926647971c0d60fe87bb135a19f87c45674a66e1c4a27e5a700a598a8cdefcc4a150e5b5dfa5f30822268e1a8fcf66f70165e8458492e812568fc9740c7a082ba40665d11530f54bed91e80e1cd8cc1cf741efb7e3ef8dd0c5386c847fc6a7733954a4202fcf6de</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机组成原理</tag>
+        <tag>操作系统</tag>
+        <tag>数据结构</tag>
+        <tag>计算机网络</tag>
+        <tag>复试</tag>
+        <tag>口语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】微分方程的求解</title>
+    <url>/posts/21851.html</url>
+    <content><![CDATA[<h3 id="微分方程的基本概念">微分方程的基本概念</h3>
+<p>来看一个最简单的微分方程： <span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="6.048ex" height="2.294ex" role="img" focusable="false" viewBox="0 -809 2673 1014"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(523,413) scale(0.707)"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></g></g><g data-mml-node="mo" transform="translate(1045.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2101,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g></svg></mjx-container></span> 则可以得到：</p>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.552ex;" xmlns="http://www.w3.org/2000/svg" width="11.888ex" height="4.968ex" role="img" focusable="false" viewBox="0 -1509.9 5254.6 2195.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(767.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(1823.6,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(3494.3,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(4494.6,0)"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g></g></g></svg></mjx-container></span> 这就是微分方程的解。需要注意到三个方面：</p>
+<ol type="1">
+<li>微分方程最大的特点就是方程中含有导数项；</li>
+<li>求解微分方程，并非是要给𝑦𝑦, 𝑥𝑥以确定的数值，而是解出𝑦𝑦,
+𝑥𝑥之间的关系式；</li>
+<li>微分方程的解并非是唯一的，需要加入一个未定参数𝐶𝐶.</li>
+</ol>
+<p>如果微分方程改变条件：</p>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="21.776ex" height="2.396ex" role="img" focusable="false" viewBox="0 -809 9624.8 1059"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(523,413) scale(0.707)"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></g></g><g data-mml-node="mo" transform="translate(1045.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2101,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mstyle" transform="translate(2673,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mo" transform="translate(3673,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4062,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(4911.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(5967.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(6467.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(6912.2,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(7680,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(8735.8,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(9235.8,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span> 得到对应的解就变成唯一的：</p>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.552ex;" xmlns="http://www.w3.org/2000/svg" width="11.3ex" height="4.968ex" role="img" focusable="false" viewBox="0 -1509.9 4994.6 2195.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(767.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(1823.6,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(3494.3,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(4494.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span> 由此，我们管“<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="11.705ex" height="1.971ex" role="img" focusable="false" viewBox="0 -666 5173.8 871"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(849.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(1905.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(2405.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(2850.2,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3618,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(4673.8,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span>”叫做这个微分方程的<strong>定解条件</strong>，对应的解分为“<strong>通解</strong>”和“<strong>特解</strong>”，顾
+名思义，就是针对微分方程本身的通用的解，以及针对特定条件所确定的唯一的解：</p>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.552ex;" xmlns="http://www.w3.org/2000/svg" width="36.763ex" height="4.968ex" role="img" focusable="false" viewBox="0 -1509.9 16249.1 2195.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">通</text></g><g data-mml-node="mi" transform="translate(1000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">解</text></g><g data-mml-node="mi" transform="translate(2000,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">：</text></g><g data-mml-node="mi" transform="translate(3000,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3767.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(4823.6,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(6494.3,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(7494.6,0)"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g><g data-mml-node="mspace" transform="translate(8254.6,0)"></g><g data-mml-node="mi" transform="translate(8254.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">特</text></g><g data-mml-node="mi" transform="translate(9254.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">解</text></g><g data-mml-node="mi" transform="translate(10254.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">：</text></g><g data-mml-node="mi" transform="translate(11254.6,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(12022.3,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(13078.1,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(14748.9,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(15749.1,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>数学建模</tag>
+        <tag>高等数学</tag>
       </tags>
   </entry>
   <entry>
@@ -7327,49 +7397,6 @@ User类型的对象从session域中移除了。</li>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】修改jupyter默认工作目录</title>
-    <url>/posts/35819.html</url>
-    <content><![CDATA[<ol type="1">
-<li>进入conda环境</li>
-<li>运行<code>jupyter notebook --generate-config</code>命令</li>
-<li>找到配置文件</li>
-<li>修改c.NotebookApp.notebook_dir为工作目录</li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>jupyter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】微分方程的求解</title>
-    <url>/posts/21851.html</url>
-    <content><![CDATA[<h3 id="微分方程的基本概念">微分方程的基本概念</h3>
-<p>来看一个最简单的微分方程： <span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="6.048ex" height="2.294ex" role="img" focusable="false" viewBox="0 -809 2673 1014"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(523,413) scale(0.707)"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></g></g><g data-mml-node="mo" transform="translate(1045.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2101,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g></svg></mjx-container></span> 则可以得到：</p>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.552ex;" xmlns="http://www.w3.org/2000/svg" width="11.888ex" height="4.968ex" role="img" focusable="false" viewBox="0 -1509.9 5254.6 2195.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(767.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(1823.6,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(3494.3,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(4494.6,0)"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g></g></g></svg></mjx-container></span> 这就是微分方程的解。需要注意到三个方面：</p>
-<ol type="1">
-<li>微分方程最大的特点就是方程中含有导数项；</li>
-<li>求解微分方程，并非是要给𝑦𝑦, 𝑥𝑥以确定的数值，而是解出𝑦𝑦,
-𝑥𝑥之间的关系式；</li>
-<li>微分方程的解并非是唯一的，需要加入一个未定参数𝐶𝐶.</li>
-</ol>
-<p>如果微分方程改变条件：</p>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="21.776ex" height="2.396ex" role="img" focusable="false" viewBox="0 -809 9624.8 1059"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(523,413) scale(0.707)"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></g></g><g data-mml-node="mo" transform="translate(1045.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2101,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mstyle" transform="translate(2673,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mo" transform="translate(3673,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4062,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(4911.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(5967.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(6467.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(6912.2,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(7680,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(8735.8,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(9235.8,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span> 得到对应的解就变成唯一的：</p>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.552ex;" xmlns="http://www.w3.org/2000/svg" width="11.3ex" height="4.968ex" role="img" focusable="false" viewBox="0 -1509.9 4994.6 2195.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(767.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(1823.6,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(3494.3,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(4494.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span> 由此，我们管“<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="11.705ex" height="1.971ex" role="img" focusable="false" viewBox="0 -666 5173.8 871"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(849.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(1905.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(2405.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(2850.2,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3618,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(4673.8,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span>”叫做这个微分方程的<strong>定解条件</strong>，对应的解分为“<strong>通解</strong>”和“<strong>特解</strong>”，顾
-名思义，就是针对微分方程本身的通用的解，以及针对特定条件所确定的唯一的解：</p>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.552ex;" xmlns="http://www.w3.org/2000/svg" width="36.763ex" height="4.968ex" role="img" focusable="false" viewBox="0 -1509.9 16249.1 2195.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">通</text></g><g data-mml-node="mi" transform="translate(1000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">解</text></g><g data-mml-node="mi" transform="translate(2000,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">：</text></g><g data-mml-node="mi" transform="translate(3000,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3767.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(4823.6,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(6494.3,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(7494.6,0)"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g><g data-mml-node="mspace" transform="translate(8254.6,0)"></g><g data-mml-node="mi" transform="translate(8254.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">特</text></g><g data-mml-node="mi" transform="translate(9254.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">解</text></g><g data-mml-node="mi" transform="translate(10254.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">：</text></g><g data-mml-node="mi" transform="translate(11254.6,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(12022.3,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(13078.1,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(14748.9,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(15749.1,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>数学建模</tag>
-        <tag>高等数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数学建模（未更完）</title>
     <url>/posts/59666.html</url>
     <content><![CDATA[<h2 id="数学建模的一般步骤">数学建模的一般步骤</h2>
@@ -9113,8 +9140,79 @@ alt="img" />
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>操作系统</tag>
+        <tag>408</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【深度学习】配置深度学习环境</title>
+    <url>/posts/10831.html</url>
+    <content><![CDATA[<h3 id="查看cuda版本">查看CUDA版本</h3>
+<p>执行<code>nvidia-smi</code>命令，如下图所示</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261156654.png"
+alt="image-20230726115622592" />
+<figcaption aria-hidden="true">image-20230726115622592</figcaption>
+</figure>
+<p>可以发现我的CUDA Version为12.0，因此可以安装cuda12.0以下的pytorch</p>
+<h3 id="创建虚拟环境">创建虚拟环境</h3>
+<p>这里我取虚拟环境名为DL（DeepLearning），可以自定义</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda create -n DL python=<span class="number">3</span>.<span class="number">9</span>  # 创建虚拟环境并指定python版本</span><br></pre></td></tr></table></figure>
+<h3 id="激活虚拟环境">激活虚拟环境</h3>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda activate DL</span><br></pre></td></tr></table></figure>
+<h3 id="查看anaconda库中的pytorch">查看Anaconda库中的pytorch</h3>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda search pytorch</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261212345.png"
+alt="image-20230726121236260" />
+<figcaption aria-hidden="true">image-20230726121236260</figcaption>
+</figure>
+<h3 id="conda安装pytorch">conda安装pytorch</h3>
+<p>找到对应的pytorch（主要看python版本、CUDA版本），使用conda进行安装
+这里我指定pytorch版本为<code>1.12.0</code>，build号为<code>py3.9_cuda11.6_cudnn8_0</code>，没有指定channel</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda install pytorch=<span class="number">1</span>.<span class="number">12</span>.<span class="number">0</span>=py3.<span class="number">9</span>_cuda11.<span class="number">6</span>_cudnn8_0</span><br></pre></td></tr></table></figure>
+<p>如果使用conda安装不上可以使用pip安装</p>
+<p><a class="wp-block-button__link has-text-color has-background" href="https://pan.baidu.com/s/1X1K14nHzZRh0GaruGggdYA?pwd=8mtp" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">百度网盘下载【提取码8mtp】</a></p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【玩转电脑】win11右键菜单返回win10样式</title>
+    <url>/posts/1526.html</url>
+    <content><![CDATA[<p><font color=red>注：2023年8月-此方法疑似失效</font></p>
+<h3 id="通过注册表修改">通过注册表修改</h3>
+<ol type="1">
+<li>运行（win+R）输入<code>regedit</code>打开注册表编辑器定位到<code>HKEY_CURRENT_USER\SOFTWARE\CLASSES\CLSID</code></li>
+<li>右键点击<code>CLSID</code>键值，新建一个名为<code>&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;</code>的项</li>
+<li>右键点击新创建的项，新建一个名为<code>InprocServer32</code>的项，按下回车键保存</li>
+<li>选择新创建的项，然后双击右侧窗格中的默认条目，什么内容都不需要输入，按下回车键</li>
+<li>保存注册表后，重启<code>explorer.exe</code>即可看到右键菜单恢复成旧样式了</li>
+</ol>
+<p>如果想要恢复成为Win11的设计，那么删掉<code>InprocServer32的</code>项就可以了。</p>
+<h3 id="通过脚本修改">通过脚本修改</h3>
+<p>如果你觉得修改注册表比较麻烦，可以看下这个方法，它的本质也是修改注册表，不过不用你去操作了，脚本自动给你增减表项
+1.
+首先建立一个<code>.txt</code>文件，将下面代码拷贝到<code>.txt</code>文件中
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">:start</span><br><span class="line">cls</span><br><span class="line">echo,</span><br><span class="line">echo 修改右键菜单模式 www.wq3stone.cn</span><br><span class="line">echo,</span><br><span class="line">echo 1 穿越到Windows 10默认模式</span><br><span class="line">echo,</span><br><span class="line">echo 2 恢复为Windows 11默认模式</span><br><span class="line">echo,</span><br><span class="line">echo 0 什么也不做，退出</span><br><span class="line">echo,</span><br><span class="line">echo,</span><br><span class="line">choice /c:120 /n /m:&quot;请选择要进行的操作（1/2/0）：&quot;</span><br><span class="line">if %errorlevel%==0 exit</span><br><span class="line">if %errorlevel%==2 goto cmd2</span><br><span class="line">if %errorlevel%==1 goto cmd1</span><br><span class="line">exit</span><br><span class="line">:cmd1</span><br><span class="line">reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve</span><br><span class="line">taskkill /f /im explorer.exe</span><br><span class="line">start explorer.exe</span><br><span class="line">exit</span><br><span class="line">:cmd2</span><br><span class="line">reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;&quot; /f</span><br><span class="line">taskkill /f /im explorer.exe</span><br><span class="line">start explorer.exe</span><br><span class="line">exit</span><br></pre></td></tr></table></figure> 2. 将文件的后缀名改成<code>.bat</code>格式
+如果你的电脑后缀名没有打开的话，可以去<a
+href="https://cn.bing.com/search?q=如何显示文件后缀名">这里</a>查看 3.
+打开你的<code>.bat</code>文件，输入1返回win10样式，输入2返回win11样式，输入0退出
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202308101634122.png"
+alt="uTools_1691656451704" /></p>
+]]></content>
+      <categories>
+        <category>玩转电脑</category>
+      </categories>
+      <tags>
+        <tag>win10</tag>
       </tags>
   </entry>
   <entry>
@@ -9260,42 +9358,65 @@ https://www.bilibili.com/read/cv9965206?spm_id_from=333.999.0.0</p>
       </tags>
   </entry>
   <entry>
-    <title>【深度学习】配置深度学习环境</title>
-    <url>/posts/10831.html</url>
-    <content><![CDATA[<h3 id="查看cuda版本">查看CUDA版本</h3>
-<p>执行<code>nvidia-smi</code>命令，如下图所示</p>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261156654.png"
-alt="image-20230726115622592" />
-<figcaption aria-hidden="true">image-20230726115622592</figcaption>
-</figure>
-<p>可以发现我的CUDA Version为12.0，因此可以安装cuda12.0以下的pytorch</p>
-<h3 id="创建虚拟环境">创建虚拟环境</h3>
-<p>这里我取虚拟环境名为DL（DeepLearning），可以自定义</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda create -n DL python=<span class="number">3</span>.<span class="number">9</span>  # 创建虚拟环境并指定python版本</span><br></pre></td></tr></table></figure>
-<h3 id="激活虚拟环境">激活虚拟环境</h3>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda activate DL</span><br></pre></td></tr></table></figure>
-<h3 id="查看anaconda库中的pytorch">查看Anaconda库中的pytorch</h3>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda search pytorch</span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261212345.png"
-alt="image-20230726121236260" />
-<figcaption aria-hidden="true">image-20230726121236260</figcaption>
-</figure>
-<h3 id="conda安装pytorch">conda安装pytorch</h3>
-<p>找到对应的pytorch（主要看python版本、CUDA版本），使用conda进行安装
-这里我指定pytorch版本为<code>1.12.0</code>，build号为<code>py3.9_cuda11.6_cudnn8_0</code>，没有指定channel</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">conda install pytorch=<span class="number">1</span>.<span class="number">12</span>.<span class="number">0</span>=py3.<span class="number">9</span>_cuda11.<span class="number">6</span>_cudnn8_0</span><br></pre></td></tr></table></figure>
-<p>如果使用conda安装不上可以使用pip安装</p>
-<p><a class="wp-block-button__link has-text-color has-background" href="https://pan.baidu.com/s/1X1K14nHzZRh0GaruGggdYA?pwd=8mtp" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">百度网盘下载【提取码8mtp】</a></p>
+    <title>【软件分享】最好用的压缩软件Bandizip</title>
+    <url>/posts/18228.html</url>
+    <content><![CDATA[<blockquote>
+<p>Bandizip在v7.0加入了广告盈利模式，习惯了无广告的我无奈只好用最后一个无广告的旧版本了</p>
+</blockquote>
+<h3 id="官网介绍">官网介绍</h3>
+<h4 id="主要功能">主要功能</h4>
+<ul>
+<li><p>支持的操作系统: Windows 7/8/8.1/10/11
+(32bit/64bit/ARM64)</p></li>
+<li><p>集压缩/解压/浏览/编辑为一体的压缩包管理器</p></li>
+<li><p>可以提取包括 RAR/ISO/7Z/ZIP 在内的 30 多种格式</p></li>
+<li><p>可以创建拥有密码和压缩分卷的压缩包</p></li>
+<li><p>支持多个的处理器核心进行高速的解压缩操作</p></li>
+<li><p>对 Windows 11 上下文菜单的支持</p></li>
+</ul>
+<p><img
+src="https://picture-wq3stone.oss-cn-hangzhou.aliyuncs.com/picgo/202209272152408.png"
+alt="win11-menu" />]</p>
+<p>（尽管如此我还是喜欢win10的右键菜单样式，可戳此查看<a
+href="https://www.wq3stone.cn/posts/1526.html">《win11右键菜单返回win10样式》</a>）</p>
+<h4 id="压缩">压缩</h4>
+<ul>
+<li>支持的格式: ZIP, 7Z(lzma2), ZIPX(xz), EXE(sfx), TAR, TGZ, LZH(lh7),
+ISO(joliet), GZ, XZ</li>
+<li>修改 ZIP 文件 (添加/删除/重命名)</li>
+<li>支持最高提升 6 倍速的多核解压缩技术</li>
+<li>支持创建加密的压缩包</li>
+<li>支持 AES256 文件加密算法</li>
+<li>支持对 4 GB 以上大小的文件进行压缩</li>
+<li>ZIP 格式的文件名支持 Unicode 以及 MBCS 编码</li>
+<li>支持创建 ZIP/7Z 格式的多卷压缩包</li>
+</ul>
+<h4 id="解压缩">解压缩</h4>
+<ul>
+<li>支持的格式: 7Z, ACE, AES, ALZ, ARJ, BH, BIN, BR, BZ, BZ2, CAB,
+Compound(MSI), DAA(1.0), DEB, EGG, GZ, IMG, ISO, ISZ, LHA, LZ, LZH,
+LZMA, PMA, RAR, RAR5, SFX(EXE), TAR, TBZ/TBZ2, TGZ, TLZ, TXZ, UDF, WIM,
+XPI, XZ, Z, ZIP, ZIPX, ZPAQ, ZSTD, NSIS</li>
+<li>可以轻松地查看压缩包的文件列表</li>
+<li>可以只提取选定的文件，同时还支持拖放解压</li>
+<li>支持 ZIP 和 RAR 格式压缩包的注释</li>
+<li>支持对 TGZ/TBZ 格式进行快速提取</li>
+</ul>
+<h4 id="多样化的功能">多样化的功能</h4>
+<ul>
+<li>支持通过对文件完整性的检查来判断压缩包是否损坏</li>
+<li>支持对代码页进行更改的功能</li>
+<li>可以集成到资源管理器的右键菜单</li>
+</ul>
+<h3 id="下载地址">下载地址</h3>
+<p><a class="wp-block-button__link has-text-color has-background" href="https://www.aliyundrive.com/s/skywQTuhdxE" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">阿里云盘下载【提取码uu58】</a></p>
+<p><a class="wp-block-button__link has-text-color has-background" href="https://pan.baidu.com/s/1bwEBQV4xs1_ZB6nyEg4i5g?pwd=f523" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">百度网盘下载【提取码f523】</a></p>
 ]]></content>
       <categories>
-        <category>深度学习</category>
+        <category>软件分享</category>
       </categories>
       <tags>
-        <tag>pytorch</tag>
+        <tag>压缩软件</tag>
       </tags>
   </entry>
   <entry>
@@ -10991,40 +11112,37 @@ alt="img" />
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>计算机组成原理</tag>
+        <tag>408</tag>
       </tags>
   </entry>
   <entry>
-    <title>【玩转电脑】win11右键菜单返回win10样式</title>
-    <url>/posts/1526.html</url>
-    <content><![CDATA[<p><font color=red>注：2023年8月-此方法疑似失效</font></p>
-<h3 id="通过注册表修改">通过注册表修改</h3>
-<ol type="1">
-<li>运行（win+R）输入<code>regedit</code>打开注册表编辑器定位到<code>HKEY_CURRENT_USER\SOFTWARE\CLASSES\CLSID</code></li>
-<li>右键点击<code>CLSID</code>键值，新建一个名为<code>&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;</code>的项</li>
-<li>右键点击新创建的项，新建一个名为<code>InprocServer32</code>的项，按下回车键保存</li>
-<li>选择新创建的项，然后双击右侧窗格中的默认条目，什么内容都不需要输入，按下回车键</li>
-<li>保存注册表后，重启<code>explorer.exe</code>即可看到右键菜单恢复成旧样式了</li>
-</ol>
-<p>如果想要恢复成为Win11的设计，那么删掉<code>InprocServer32的</code>项就可以了。</p>
-<h3 id="通过脚本修改">通过脚本修改</h3>
-<p>如果你觉得修改注册表比较麻烦，可以看下这个方法，它的本质也是修改注册表，不过不用你去操作了，脚本自动给你增减表项
-1.
-首先建立一个<code>.txt</code>文件，将下面代码拷贝到<code>.txt</code>文件中
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">:start</span><br><span class="line">cls</span><br><span class="line">echo,</span><br><span class="line">echo 修改右键菜单模式 www.wq3stone.cn</span><br><span class="line">echo,</span><br><span class="line">echo 1 穿越到Windows 10默认模式</span><br><span class="line">echo,</span><br><span class="line">echo 2 恢复为Windows 11默认模式</span><br><span class="line">echo,</span><br><span class="line">echo 0 什么也不做，退出</span><br><span class="line">echo,</span><br><span class="line">echo,</span><br><span class="line">choice /c:120 /n /m:&quot;请选择要进行的操作（1/2/0）：&quot;</span><br><span class="line">if %errorlevel%==0 exit</span><br><span class="line">if %errorlevel%==2 goto cmd2</span><br><span class="line">if %errorlevel%==1 goto cmd1</span><br><span class="line">exit</span><br><span class="line">:cmd1</span><br><span class="line">reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve</span><br><span class="line">taskkill /f /im explorer.exe</span><br><span class="line">start explorer.exe</span><br><span class="line">exit</span><br><span class="line">:cmd2</span><br><span class="line">reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;&quot; /f</span><br><span class="line">taskkill /f /im explorer.exe</span><br><span class="line">start explorer.exe</span><br><span class="line">exit</span><br></pre></td></tr></table></figure> 2. 将文件的后缀名改成<code>.bat</code>格式
-如果你的电脑后缀名没有打开的话，可以去<a
-href="https://cn.bing.com/search?q=如何显示文件后缀名">这里</a>查看 3.
-打开你的<code>.bat</code>文件，输入1返回win10样式，输入2返回win11样式，输入0退出
+    <title>【软件分享】Internet Download Manager(IDM)破解版</title>
+    <url>/posts/22410.html</url>
+    <content><![CDATA[<h3 id="去官网下载idm">去官网下载IDM</h3>
+<figure>
 <img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202308101634122.png"
-alt="uTools_1691656451704" /></p>
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202502242111644.png"
+alt="image-20250224211117355" />
+<figcaption aria-hidden="true">image-20250224211117355</figcaption>
+</figure>
+<p>点击<strong>TRY IDM 30-DAYS FREE TRIAL</strong>下载最新版IDM</p>
+<h3 id="下载">下载</h3>
+<p><a class="wp-block-button__link has-text-color has-background" href="https://pan.baidu.com/s/1omxKWQhJOI4QLRDhhtpyIA?pwd=6666" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">百度网盘下载【提取码6666】</a></p>
+<h3 id="激活">激活</h3>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202502242113409.png"
+alt="image-20250224211323370" />
+<figcaption aria-hidden="true">image-20250224211323370</figcaption>
+</figure>
+<p>如图所示，取消勾选第一个复选框（IDM自动更新检查）避免以后idm时常提醒更新，再点击<strong><u>C</u>rack</strong>执行破解</p>
 ]]></content>
       <categories>
-        <category>玩转电脑</category>
+        <category>软件分享</category>
       </categories>
       <tags>
-        <tag>win10</tag>
+        <tag>下载软件</tag>
       </tags>
   </entry>
   <entry>
@@ -11124,68 +11242,6 @@ alt="image-20230817103542239" />
       </tags>
   </entry>
   <entry>
-    <title>【软件分享】最好用的压缩软件Bandizip</title>
-    <url>/posts/18228.html</url>
-    <content><![CDATA[<blockquote>
-<p>Bandizip在v7.0加入了广告盈利模式，习惯了无广告的我无奈只好用最后一个无广告的旧版本了</p>
-</blockquote>
-<h3 id="官网介绍">官网介绍</h3>
-<h4 id="主要功能">主要功能</h4>
-<ul>
-<li><p>支持的操作系统: Windows 7/8/8.1/10/11
-(32bit/64bit/ARM64)</p></li>
-<li><p>集压缩/解压/浏览/编辑为一体的压缩包管理器</p></li>
-<li><p>可以提取包括 RAR/ISO/7Z/ZIP 在内的 30 多种格式</p></li>
-<li><p>可以创建拥有密码和压缩分卷的压缩包</p></li>
-<li><p>支持多个的处理器核心进行高速的解压缩操作</p></li>
-<li><p>对 Windows 11 上下文菜单的支持</p></li>
-</ul>
-<p><img
-src="https://picture-wq3stone.oss-cn-hangzhou.aliyuncs.com/picgo/202209272152408.png"
-alt="win11-menu" />]</p>
-<p>（尽管如此我还是喜欢win10的右键菜单样式，可戳此查看<a
-href="https://www.wq3stone.cn/posts/1526.html">《win11右键菜单返回win10样式》</a>）</p>
-<h4 id="压缩">压缩</h4>
-<ul>
-<li>支持的格式: ZIP, 7Z(lzma2), ZIPX(xz), EXE(sfx), TAR, TGZ, LZH(lh7),
-ISO(joliet), GZ, XZ</li>
-<li>修改 ZIP 文件 (添加/删除/重命名)</li>
-<li>支持最高提升 6 倍速的多核解压缩技术</li>
-<li>支持创建加密的压缩包</li>
-<li>支持 AES256 文件加密算法</li>
-<li>支持对 4 GB 以上大小的文件进行压缩</li>
-<li>ZIP 格式的文件名支持 Unicode 以及 MBCS 编码</li>
-<li>支持创建 ZIP/7Z 格式的多卷压缩包</li>
-</ul>
-<h4 id="解压缩">解压缩</h4>
-<ul>
-<li>支持的格式: 7Z, ACE, AES, ALZ, ARJ, BH, BIN, BR, BZ, BZ2, CAB,
-Compound(MSI), DAA(1.0), DEB, EGG, GZ, IMG, ISO, ISZ, LHA, LZ, LZH,
-LZMA, PMA, RAR, RAR5, SFX(EXE), TAR, TBZ/TBZ2, TGZ, TLZ, TXZ, UDF, WIM,
-XPI, XZ, Z, ZIP, ZIPX, ZPAQ, ZSTD, NSIS</li>
-<li>可以轻松地查看压缩包的文件列表</li>
-<li>可以只提取选定的文件，同时还支持拖放解压</li>
-<li>支持 ZIP 和 RAR 格式压缩包的注释</li>
-<li>支持对 TGZ/TBZ 格式进行快速提取</li>
-</ul>
-<h4 id="多样化的功能">多样化的功能</h4>
-<ul>
-<li>支持通过对文件完整性的检查来判断压缩包是否损坏</li>
-<li>支持对代码页进行更改的功能</li>
-<li>可以集成到资源管理器的右键菜单</li>
-</ul>
-<h3 id="下载地址">下载地址</h3>
-<p><a class="wp-block-button__link has-text-color has-background" href="https://www.aliyundrive.com/s/skywQTuhdxE" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">阿里云盘下载【提取码uu58】</a></p>
-<p><a class="wp-block-button__link has-text-color has-background" href="https://pan.baidu.com/s/1bwEBQV4xs1_ZB6nyEg4i5g?pwd=f523" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">百度网盘下载【提取码f523】</a></p>
-]]></content>
-      <categories>
-        <category>软件分享</category>
-      </categories>
-      <tags>
-        <tag>压缩软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【软件分享】福昕pdf编辑器</title>
     <url>/posts/54291.html</url>
     <content><![CDATA[<p><a class="wp-block-button__link has-text-color has-background" href="https://pan.baidu.com/s/1XcpZspzVqhajCNaiHrbYMQ?pwd=fu8h" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">百度网盘下载【提取码fu8h】</a></p>
@@ -11195,35 +11251,6 @@ XPI, XZ, Z, ZIP, ZIPX, ZPAQ, ZSTD, NSIS</li>
       </categories>
       <tags>
         <tag>pdf编辑器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【软件分享】Internet Download Manager(IDM)破解版</title>
-    <url>/posts/22410.html</url>
-    <content><![CDATA[<h3 id="去官网下载idm">去官网下载IDM</h3>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202502242111644.png"
-alt="image-20250224211117355" />
-<figcaption aria-hidden="true">image-20250224211117355</figcaption>
-</figure>
-<p>点击<strong>TRY IDM 30-DAYS FREE TRIAL</strong>下载最新版IDM</p>
-<h3 id="下载">下载</h3>
-<p><a class="wp-block-button__link has-text-color has-background" href="https://pan.baidu.com/s/1omxKWQhJOI4QLRDhhtpyIA?pwd=6666" style="border-radius:2px;background-color:#ba0c49;color:#fffffa" target="_blank" rel="noreferrer noopener">百度网盘下载【提取码6666】</a></p>
-<h3 id="激活">激活</h3>
-<figure>
-<img
-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202502242113409.png"
-alt="image-20250224211323370" />
-<figcaption aria-hidden="true">image-20250224211323370</figcaption>
-</figure>
-<p>如图所示，取消勾选第一个复选框（IDM自动更新检查）避免以后idm时常提醒更新，再点击<strong><u>C</u>rack</strong>执行破解</p>
-]]></content>
-      <categories>
-        <category>软件分享</category>
-      </categories>
-      <tags>
-        <tag>下载软件</tag>
       </tags>
   </entry>
 </search>
