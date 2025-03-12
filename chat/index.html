@@ -3,25 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <title>wq3stone</title>
-    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>智能聊天助手</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.14/theme-chalk/index.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.14/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <style>
+    /* 优化后的CSS样式 */
+    body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background: #f0f2f5;
+    }
+
+    #app {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tools-area {
+        padding: 10px 20px;
+        background: #fff;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+        z-index: 1;
+    }
+
+    .response-area {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    .messages-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .message {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        transition: transform 0.2s;
+    }
+
+    .message:hover {
+        transform: translateX(5px);
+    }
+
+    .user-message {
+        background: #f0f7ff;
+        border-left: 4px solid #409eff;
+    }
+
+    .ai-message {
+        border-left: 4px solid #67c23a;
+    }
+
+    .message-header {
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: #409eff;
+    }
+
+    .message-content {
+        line-height: 1.7;
+        color: #333;
+    }
+
+    pre {
+        position: relative;
+        background: #f8f9fa !important;
+        padding: 15px;
+        border-radius: 6px;
+        margin: 15px 0;
+        overflow-x: auto;
+    }
+
+    .copy-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 5px 12px;
+        background: rgba(64,158,255,.1);
+        color: #409eff;
+        border: 1px solid rgba(64,158,255,.2);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+        background: rgba(64,158,255,.2);
+    }
+
+    .request-area {
+        padding: 20px;
+        background: white;
+        border-top: 1px solid #ebeef5;
+    }
+
+    .button-container {
+        margin-top: 15px;
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+    }
+
+    /* 滚动条优化 */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,.05);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(144,147,153,.3);
+        border-radius: 4px;
+    }
+    </style>
 </head>
 <body>
 <div id="app">
-    <div class="response-area" id="response">
+    <div class="tools-area">
+        <el-button @click="exportChat" size="small" icon="el-icon-download">导出记录</el-button>
+        <el-button @click="importChat" size="small" icon="el-icon-upload2">导入记录</el-button>
+        <el-button @click="clearChat" size="small" type="danger" icon="el-icon-delete">清空记录</el-button>
+    </div>
+    
+    <div class="response-area">
         <div class="messages-container">
             <div class="messages" v-for="(item,index) in messages" v-if="index > 0">
-                <div class="message" :class="{ 'user-message': item.role === 'user', 'ai-message': item.role === 'assistant' }">
+                <div class="message" :class="{ 
+                    'user-message': item.role === 'user', 
+                    'ai-message': item.role === 'assistant' 
+                }">
                     <div class="message-header">
-                        {{ item.role === 'user' ? '你：' : 'AI：' }}
+                        {{ item.role === 'user' ? '你' : 'AI助手' }}
                     </div>
                     <div class="message-content">
                         <div v-if="item.role === 'assistant'" v-html="formatContent(item.content)"></div>
-                        <div v-else>{{ item.content }}<p></p></div>
+                        <div v-else>{{ item.content }}</div>
                     </div>
                 </div>
             </div>
@@ -29,14 +160,258 @@
     </div>
 
     <div class="request-area">
-        <el-input type="textarea" @keyup.enter.native="askChatGPT" 
-                  :autofocus="true" :rows="3" v-model="userInput" 
-                  placeholder="输入你的问题" class="input-area"></el-input>
+        <el-input 
+            type="textarea" 
+            @keyup.enter.native="askChatGPT" 
+            :autofocus="true" 
+            :rows="3" 
+            v-model="userInput" 
+            placeholder="输入问题后按回车发送"
+            resize="none"
+            class="input-area"
+        ></el-input>
         <div class="button-container">
-            <el-button @click="askChatGPT" type="primary" v-loading="loading">发送</el-button>
+            <el-button @click="askChatGPT" type="primary" :loading="loading">
+                {{ loading ? '生成中...' : '发送消息' }}
+            </el-button>
         </div>
     </div>
 </div>
 </body>
-<script type="text/javascript" src="chat.js"></script>
+<script>
+// 配置Markdown渲染
+marked.setOptions({
+    highlight: function(code, lang) {
+        return hljs.highlightAuto(code).value;
+    },
+    breaks: true
+});
+
+// 自定义渲染器添加复制按钮
+const renderer = new marked.Renderer();
+const originalCodeRenderer = renderer.code;
+renderer.code = function(code, language, isEscaped) {
+    const html = originalCodeRenderer.call(this, code, language, isEscaped);
+    return `<div style="position:relative">
+        ${html}
+        <button class="copy-btn" onclick="copyCode(this)">复制代码</button>
+    </div>`;
+};
+
+// 全局复制函数
+window.copyCode = function(button) {
+    const code = button.previousElementSibling.textContent;
+    navigator.clipboard.writeText(code).then(() => {
+        button.textContent = '已复制!';
+        setTimeout(() => button.textContent = '复制代码', 2000);
+    });
+};
+
+new Vue({
+    el: '#app',
+    data() {
+        return {
+            loading: false,
+            userInput: '',
+            apiKey: 'sk-5bfb6802ebf1435a8f6451954505e5e4',
+            messages: [],
+            currentIndex: 0
+        }
+    },
+    mounted() {
+        this.loadLocalStorage();
+        this.$nextTick(this.scrollToBottom);
+    },
+    methods: {
+        formatContent(content) {
+            return marked.parse(content, { renderer });
+        },
+        scrollToBottom() {
+            const container = this.$el.querySelector('.response-area');
+            container.scrollTop = container.scrollHeight;
+        },
+        saveToLocalStorage() {
+            localStorage.setItem('chatHistory', JSON.stringify(this.messages));
+        },
+        loadLocalStorage() {
+            const history = localStorage.getItem('chatHistory');
+            if (history) {
+                try {
+                    const data = JSON.parse(history);
+                    this.fixMessageData(data);
+                } catch(e) {
+                    console.error('本地存储数据异常:', e);
+                    this.initDefaultMessages();
+                }
+            } else {
+                this.initDefaultMessages();
+            }
+        },
+        fixMessageData(data) {
+            // 确保系统消息存在且为第一条
+            let fixedData = data;
+            if (data.length === 0 || data[0].role !== 'system') {
+                fixedData = [{
+                    "role": "system",
+                    "content": "You are a helpful assistant."
+                }, ...data.filter(m => m.role !== 'system')];
+            }
+            this.messages = fixedData;
+            this.currentIndex = this.messages.length - 1;
+        },
+        initDefaultMessages() {
+            this.messages = [{
+                "role": "system", 
+                "content": "You are a helpful assistant."
+            }];
+            this.currentIndex = 0;
+        },
+        exportChat() {
+            try {
+                const filename = new Date(new Date().getTime() + 8 * 3600000)
+                    .toISOString().slice(0, 19).replace(/[-T:]/g, '') + '_chat.json';
+                const dataStr = JSON.stringify(this.messages);
+                const blob = new Blob([dataStr], {type: 'application/json'});
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                this.$message.success(`导出成功: ${filename}`);
+            } catch (e) {
+                this.$message.error('导出失败: ' + e.message);
+            }
+        },
+        importChat() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = e => {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        if (!Array.isArray(data)) throw new Error('无效的聊天记录格式');
+                        
+                        this.fixMessageData(data);
+                        this.saveToLocalStorage();
+                        
+                        this.$nextTick(() => {
+                            hljs.highlightAll();
+                            this.scrollToBottom();
+                            this.$message.success('聊天记录已成功导入');
+                        });
+                    } catch (e) {
+                        this.$message.error(`文件导入失败: ${e.message}`);
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        },
+        clearChat() {
+            this.$confirm('此操作将永久删除所有聊天记录，是否继续？', '警告', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                localStorage.removeItem('chatHistory');
+                this.initDefaultMessages();
+                this.$message.success('聊天记录已清空');
+            });
+        },
+        async askChatGPT() {
+            if (!this.userInput.trim()) return;
+            
+            this.loading = true;
+            const userMessage = this.userInput;
+            
+            try {
+                // 添加用户消息
+                this.messages.push({
+                    role: 'user',
+                    content: userMessage
+                });
+                this.currentIndex = this.messages.length - 1;
+                this.userInput = '';
+                this.saveToLocalStorage();
+                
+                await this.$nextTick();
+                this.scrollToBottom();
+
+                // 准备AI消息占位
+                this.messages.push({ 
+                    role: 'assistant', 
+                    content: '' 
+                });
+                const aiMessageIndex = this.messages.length - 1;
+                
+                // 发起请求
+                const response = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${this.apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'qwen-plus',
+                        messages: this.messages,
+                        stream: true
+                    })
+                });
+
+                if (!response.ok) throw new Error(`请求失败: ${response.status}`);
+                
+                // 处理流式响应
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    const chunk = decoder.decode(value);
+                    const lines = chunk.split('\n').filter(l => l.trim());
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const dataStr = line.replace('data: ', '');
+                            if (dataStr === '[DONE]') continue;
+                            
+                            try {
+                                const data = JSON.parse(dataStr);
+                                if (data.choices[0].delta.content) {
+                                    this.messages[aiMessageIndex].content += data.choices[0].delta.content;
+                                    this.$nextTick(() => {
+                                        this.scrollToBottom();
+                                        hljs.highlightAll();
+                                    });
+                                }
+                            } catch(e) {
+                                console.error('解析错误:', e);
+                            }
+                        }
+                    }
+                }
+                
+                this.saveToLocalStorage();
+            } catch (error) {
+                this.$message.error(`请求出错: ${error.message}`);
+            } finally {
+                this.loading = false;
+                this.$nextTick(this.scrollToBottom);
+            }
+        }
+    }
+});
+</script>
 </html>
