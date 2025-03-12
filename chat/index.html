@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <title>智能聊天助手</title>
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
-	<link rel="shortcut icon" href="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/favicon.png" />
+    <link rel="shortcut icon" href="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/favicon.png" />
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.14/theme-chalk/index.css">
     <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.14/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -192,12 +192,12 @@
     <div class="request-area">
         <el-input 
             type="textarea" 
-            @keyup.enter.native="askChatGPT" 
+            @keydown.native="handleKeydown"
             :autofocus="true" 
-            :rows="3" 
+            :rows="4"
             v-model="userInput" 
-            placeholder="输入问题后按回车发送"
-            resize="none"
+            placeholder="输入问题后按回车发送，Shift+回车换行"
+            resize="vertical"
             class="input-area"
         ></el-input>
         <div class="button-container">
@@ -247,7 +247,7 @@ new Vue({
             modelOptions: [
                 { value: 'qwen-plus', label: '千问Plus' },
                 { value: 'qwen-plus-latest', label: '千问Plus最新版' },
-				{ value: 'qwq-plus', label: '千问QwQ推理模型增强版' },
+                { value: 'qwq-plus', label: '千问QwQ推理模型增强版' },
                 { value: 'deepseek-r1', label: '深度求索R1' },
                 { value: 'deepseek-v3', label: '深度求索V3' }
             ]
@@ -260,6 +260,12 @@ new Vue({
         this.$nextTick(this.scrollToBottom);
     },
     methods: {
+        handleKeydown(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.askChatGPT();
+            }
+        },
         formatContent(content) {
             return marked.parse(content, { renderer });
         },
@@ -332,21 +338,34 @@ new Vue({
                 this.$message.error('导出失败: ' + e.message);
             }
         },
-        importChat() {
+        async importChat() {
             const input = document.createElement('input');
             input.type = 'file';
             input.accept = '.json';
             
-            input.onchange = e => {
+            input.onchange = async e => {
                 const file = e.target.files[0];
                 if (!file) return;
                 
                 const reader = new FileReader();
-                reader.onload = (e) => {
+                reader.onload = async (e) => {
                     try {
                         const data = JSON.parse(e.target.result);
                         if (!Array.isArray(data)) throw new Error('无效的聊天记录格式');
-                        
+
+                        if (this.messages.length > 1) {
+                            try {
+                                await this.$confirm('导入新记录将覆盖当前聊天内容，是否继续？', '提示', {
+                                    confirmButtonText: '确定',
+                                    cancelButtonText: '取消',
+                                    type: 'warning'
+                                });
+                            } catch (cancel) {
+                                this.$message.info('已取消导入操作');
+                                return;
+                            }
+                        }
+
                         this.fixMessageData(data);
                         this.saveToLocalStorage();
                         
