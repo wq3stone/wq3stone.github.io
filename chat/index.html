@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <style>
-    /* 优化后的CSS样式 */
     body {
         margin: 0;
         display: flex;
@@ -28,10 +27,17 @@
     }
 
     .tools-area {
+        display: flex;
+        align-items: center;
         padding: 10px 20px;
         background: #fff;
         box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
         z-index: 1;
+    }
+
+    .model-selector {
+        margin-right: 15px;
+        width: 180px;
     }
 
     .response-area {
@@ -117,7 +123,6 @@
         justify-content: flex-end;
     }
 
-    /* 滚动条优化 */
     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -132,7 +137,6 @@
         border-radius: 4px;
     }
 
-    /* 消息提示样式 */
     .el-message {
         box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
     }
@@ -144,6 +148,21 @@
 <body>
 <div id="app">
     <div class="tools-area">
+        <el-select 
+            v-model="selectedModel" 
+            size="small"
+            placeholder="选择模型"
+            class="model-selector"
+            @change="saveModelPreference"
+        >
+            <el-option
+                v-for="item in modelOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+            />
+        </el-select>
+        
         <el-button @click="exportChat" size="small" icon="el-icon-download">导出记录</el-button>
         <el-button @click="importChat" size="small" icon="el-icon-upload2">导入记录</el-button>
         <el-button @click="shareChat" size="small" icon="el-icon-share">分享记录</el-button>
@@ -222,12 +241,20 @@ new Vue({
             userInput: '',
             apiKey: 'sk-5bfb6802ebf1435a8f6451954505e5e4',
             messages: [],
-            currentIndex: 0
+            currentIndex: 0,
+            selectedModel: 'qwen-plus',
+            modelOptions: [
+                { value: 'qwen-plus', label: '千问Plus' },
+                { value: 'qwen-plus-latest', label: '千问Plus最新版' },
+                { value: 'deepseek-r1', label: '深度求索R1' },
+                { value: 'deepseek-v3', label: '深度求索V3' }
+            ]
         }
     },
     mounted() {
         this.loadLocalStorage();
         this.loadSharedChat();
+        this.loadModelPreference();
         this.$nextTick(this.scrollToBottom);
     },
     methods: {
@@ -254,6 +281,15 @@ new Vue({
             } else {
                 this.initDefaultMessages();
             }
+        },
+        loadModelPreference() {
+            const savedModel = localStorage.getItem('selectedModel');
+            if (savedModel) {
+                this.selectedModel = savedModel;
+            }
+        },
+        saveModelPreference() {
+            localStorage.setItem('selectedModel', this.selectedModel);
         },
         fixMessageData(data) {
             let fixedData = data;
@@ -409,7 +445,7 @@ new Vue({
                         'Authorization': `Bearer ${this.apiKey}`
                     },
                     body: JSON.stringify({
-                        model: 'qwen-plus',
+                        model: this.selectedModel,
                         messages: this.messages,
                         stream: true
                     })
