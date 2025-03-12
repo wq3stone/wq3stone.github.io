@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <style>
+    /* 新增v-cloak样式防止闪烁 */
+    [v-cloak] {
+        display: none !important;
+    }
+
     body {
         margin: 0;
         display: flex;
@@ -147,65 +152,86 @@
     </style>
 </head>
 <body>
-<div id="app">
-    <div class="tools-area">
-        <el-select 
-            v-model="selectedModel" 
-            size="small"
-            placeholder="选择模型"
-            class="model-selector"
-            @change="saveModelPreference"
-        >
-            <el-option
-                v-for="item in modelOptions"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-            />
-        </el-select>
+<div id="app" v-cloak> <!-- 新增v-cloak指令 -->
+    <el-dialog 
+        :visible.sync="showLoginDialog" 
+        title="身份验证" 
+        width="400px"
+        :close-on-click-modal="false"
+        :show-close="false"
+    >
+        <el-input 
+            v-model="passwordInput" 
+            type="password" 
+            placeholder="请输入访问密码" 
+            show-password
+            @keyup.enter.native="handleLogin"
+        ></el-input>
+        <span slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="handleLogin">进入系统</el-button>
+        </span>
+    </el-dialog>
+
+    <template v-if="isAuthenticated">
+        <div class="tools-area">
+            <el-select 
+                v-model="selectedModel" 
+                size="small"
+                placeholder="选择模型"
+                class="model-selector"
+                @change="saveModelPreference"
+            >
+                <el-option
+                    v-for="item in modelOptions"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                />
+            </el-select>
+            
+            <el-button @click="exportChat" size="small" icon="el-icon-download">导出记录</el-button>
+            <el-button @click="importChat" size="small" icon="el-icon-upload2">导入记录</el-button>
+            <el-button @click="shareChat" size="small" icon="el-icon-share">分享记录</el-button>
+            <el-button @click="clearChat" size="small" type="danger" icon="el-icon-delete">清空记录</el-button>
+        </div>
         
-        <el-button @click="exportChat" size="small" icon="el-icon-download">导出记录</el-button>
-        <el-button @click="importChat" size="small" icon="el-icon-upload2">导入记录</el-button>
-        <el-button @click="shareChat" size="small" icon="el-icon-share">分享记录</el-button>
-        <el-button @click="clearChat" size="small" type="danger" icon="el-icon-delete">清空记录</el-button>
-    </div>
-    
-    <div class="response-area">
-        <div class="messages-container">
-            <div class="messages" v-for="(item,index) in messages" v-if="index > 0">
-                <div class="message" :class="{ 
-                    'user-message': item.role === 'user', 
-                    'ai-message': item.role === 'assistant' 
-                }">
-                    <div class="message-header">
-                        {{ item.role === 'user' ? '你' : 'AI助手' }}
-                    </div>
-                    <div class="message-content">
-                        <div v-if="item.role === 'assistant'" v-html="formatContent(item.content)"></div>
-                        <div v-else>{{ item.content }}</div>
+        <div class="response-area">
+            <div class="messages-container">
+                <div class="messages" v-for="(item,index) in messages" v-if="index > 0">
+                    <div class="message" :class="{ 
+                        'user-message': item.role === 'user', 
+                        'ai-message': item.role === 'assistant' 
+                    }">
+                        <div class="message-header">
+                            {{ item.role === 'user' ? '你' : 'AI助手' }}
+                        </div>
+                        <div class="message-content">
+                            <div v-if="item.role === 'assistant'" v-html="formatContent(item.content)"></div>
+                            <div v-else>{{ item.content }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="request-area">
-        <el-input 
-            type="textarea" 
-            @keydown.native="handleKeydown"
-            :autofocus="true" 
-            :rows="4"
-            v-model="userInput" 
-            placeholder="输入问题后按回车发送，Shift+回车换行"
-            resize="vertical"
-            class="input-area"
-        ></el-input>
-        <div class="button-container">
-            <el-button @click="askChatGPT" type="primary" :loading="loading">
-                {{ loading ? '生成中...' : '发送消息' }}
-            </el-button>
+        <div class="request-area">
+            <el-input 
+                type="textarea" 
+                @keydown.native="handleKeydown"
+                :autofocus="true" 
+                :rows="4"
+                v-model="userInput" 
+                placeholder="输入问题后按回车发送，Shift+回车换行"
+                resize="vertical"
+                class="input-area"
+            ></el-input>
+            <div class="button-container">
+                <el-button @click="askChatGPT" type="primary" :loading="loading">
+                    {{ loading ? '生成中...' : '发送消息' }}
+                </el-button>
+            </div>
         </div>
-    </div>
+    </template>
 </div>
 </body>
 <script>
@@ -238,6 +264,9 @@ new Vue({
     el: '#app',
     data() {
         return {
+            isAuthenticated: false,
+            showLoginDialog: false, // 修改初始化状态为false
+            passwordInput: '',
             loading: false,
             userInput: '',
             apiKey: 'sk-5bfb6802ebf1435a8f6451954505e5e4',
@@ -254,12 +283,47 @@ new Vue({
         }
     },
     mounted() {
-        this.loadLocalStorage();
-        this.loadSharedChat();
-        this.loadModelPreference();
-        this.$nextTick(this.scrollToBottom);
+        this.initAuthState(); // 新增初始化方法
     },
     methods: {
+        initAuthState() { // 新增认证状态初始化方法
+            const savedAuth = sessionStorage.getItem('isAuthenticated');
+            if (savedAuth === 'true') {
+                this.isAuthenticated = true;
+                this.loadLocalStorage();
+                this.loadSharedChat();
+                this.loadModelPreference();
+                this.$nextTick(this.scrollToBottom);
+            } else {
+                this.showLoginDialog = true; // 延迟显示登录框
+            }
+        },
+        async handleLogin() {
+            try {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(this.passwordInput);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                
+                const correctHash = 'c65380415262cc4390112657fb9033bd3b629239c10ef4cff0ff3988659a9f1b';
+                
+                if (hashHex === correctHash) {
+                    this.isAuthenticated = true;
+                    this.showLoginDialog = false;
+                    sessionStorage.setItem('isAuthenticated', 'true');
+                    this.loadLocalStorage();
+                    this.loadSharedChat();
+                    this.loadModelPreference();
+                    this.$nextTick(this.scrollToBottom);
+                } else {
+                    this.$message.error('密码错误，请重试');
+                    this.passwordInput = '';
+                }
+            } catch (error) {
+                this.$message.error('验证失败：' + error.message);
+            }
+        },
         handleKeydown(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
