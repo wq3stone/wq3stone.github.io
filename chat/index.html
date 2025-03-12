@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.14/theme-chalk/index.css">
     <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.14/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <style>
@@ -130,6 +131,14 @@
         background: rgba(144,147,153,.3);
         border-radius: 4px;
     }
+
+    /* 消息提示样式 */
+    .el-message {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    }
+    .el-message.success {
+        background: #f0f9eb !important;
+    }
     </style>
 </head>
 <body>
@@ -137,6 +146,7 @@
     <div class="tools-area">
         <el-button @click="exportChat" size="small" icon="el-icon-download">导出记录</el-button>
         <el-button @click="importChat" size="small" icon="el-icon-upload2">导入记录</el-button>
+        <el-button @click="shareChat" size="small" icon="el-icon-share">分享记录</el-button>
         <el-button @click="clearChat" size="small" type="danger" icon="el-icon-delete">清空记录</el-button>
     </div>
     
@@ -179,7 +189,6 @@
 </div>
 </body>
 <script>
-// 配置Markdown渲染
 marked.setOptions({
     highlight: function(code, lang) {
         return hljs.highlightAuto(code).value;
@@ -187,7 +196,6 @@ marked.setOptions({
     breaks: true
 });
 
-// 自定义渲染器添加复制按钮
 const renderer = new marked.Renderer();
 const originalCodeRenderer = renderer.code;
 renderer.code = function(code, language, isEscaped) {
@@ -198,7 +206,6 @@ renderer.code = function(code, language, isEscaped) {
     </div>`;
 };
 
-// 全局复制函数
 window.copyCode = function(button) {
     const code = button.previousElementSibling.textContent;
     navigator.clipboard.writeText(code).then(() => {
@@ -220,6 +227,7 @@ new Vue({
     },
     mounted() {
         this.loadLocalStorage();
+        this.loadSharedChat();
         this.$nextTick(this.scrollToBottom);
     },
     methods: {
@@ -248,7 +256,6 @@ new Vue({
             }
         },
         fixMessageData(data) {
-            // 确保系统消息存在且为第一条
             let fixedData = data;
             if (data.length === 0 || data[0].role !== 'system') {
                 fixedData = [{
@@ -318,6 +325,48 @@ new Vue({
             };
             input.click();
         },
+        shareChat() {
+            try {
+                const chatData = LZString.compressToEncodedURIComponent(
+                    JSON.stringify(this.messages)
+                );
+                const shareLink = `${window.location.origin}${window.location.pathname}#/share/${chatData}`;
+                
+                navigator.clipboard.writeText(shareLink).then(() => {
+                    this.$message.success({
+                        message: `分享链接已复制到剪贴板，有效期7天`,
+                        duration: 5000,
+                        showClose: true
+                    });
+                });
+            } catch (e) {
+                this.$message.error('生成分享链接失败: ' + e.message);
+            }
+        },
+        loadSharedChat() {
+            const hash = window.location.hash;
+            if (hash.startsWith('#/share/')) {
+                try {
+                    const compressed = hash.split('#/share/')[1];
+                    const decompressed = LZString.decompressFromEncodedURIComponent(compressed);
+                    
+                    if (!decompressed) throw new Error('无效的分享链接');
+                    
+                    const data = JSON.parse(decompressed);
+                    this.fixMessageData(data);
+                    this.saveToLocalStorage();
+                    
+                    this.$nextTick(() => {
+                        hljs.highlightAll();
+                        this.scrollToBottom();
+                        this.$message.success('已成功加载分享的聊天记录');
+                    });
+                } catch(e) {
+                    console.error('分享链接解析失败:', e);
+                    this.$message.error('分享链接已过期或格式不正确');
+                }
+            }
+        },
         clearChat() {
             this.$confirm('此操作将永久删除所有聊天记录，是否继续？', '警告', {
                 confirmButtonText: '确定',
@@ -336,7 +385,6 @@ new Vue({
             const userMessage = this.userInput;
             
             try {
-                // 添加用户消息
                 this.messages.push({
                     role: 'user',
                     content: userMessage
@@ -348,14 +396,12 @@ new Vue({
                 await this.$nextTick();
                 this.scrollToBottom();
 
-                // 准备AI消息占位
                 this.messages.push({ 
                     role: 'assistant', 
                     content: '' 
                 });
                 const aiMessageIndex = this.messages.length - 1;
                 
-                // 发起请求
                 const response = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
                     method: 'POST',
                     headers: {
@@ -371,7 +417,6 @@ new Vue({
 
                 if (!response.ok) throw new Error(`请求失败: ${response.status}`);
                 
-                // 处理流式响应
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder();
                 
