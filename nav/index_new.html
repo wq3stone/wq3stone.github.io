@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>wq3stone个人导航 - 不懂就搜，一搜就懂</title>
+  <meta name="keywords" content="王勤磊导航,不懂就搜,实用网址,主页导航,简单网址导航,搜索,王勤磊" />
+  <meta name="description" content="王勤磊导航，个人实用导航站！" />
+  <link rel="shortcut icon" href="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/favicon.png" />
+  <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="inner-center main">
+    <div class="content-inside">
+      <!-- slogan start -->
+      <div class="logo-box">
+        <div class="logo-left">
+          <a href="https://www.wq3stone.cn"><img src="./static/img/logo.gif" alt="logo"></a>
+        </div>
+        <div class="logo-right">
+          <span>wq3stone个人导航</span>
+        </div>
+      </div>
+      <!-- slogan end -->
+
+      <!-- 搜索框 start -->
+      <div id="search_form" class="search-section">
+        <div class="search-left">
+          <div id="search_logo" data-type="google" class="search-logo"></div>
+          <div class="input-wrap">
+            <label for="search_keyword">
+              <input id="search_keyword" class="search-input" name="keyword" maxlength="100" autocomplete="off"
+                type="text" placeholder="搜索一触即达！" autofocus />
+            </label>
+            <div class="clear-keyword" id="clear_keyword" title="清空">x</div>
+          </div>
+          <!--  搜索引擎 start  -->
+          <ul id="search_methods" class="search-methods">
+            <li data-type="google" class="search-item google">谷歌</li>
+            <li data-type="baidu" class="search-item baidu">百度</li>
+            <li data-type="bing" class="search-item bing">必应</li>
+            <li data-type="so" class="search-item so">360搜索</li>
+            <li data-type="sogou" class="search-item sogou">搜狗</li>
+            <li data-type="bili" class="search-item bili">哔哩哔哩</li>
+          </ul>
+          <!--  搜索引擎 end  -->
+          <!--  搜索结果 start -->
+          <ul id="search_result" class="search-result">
+            <!--<li class="result-item"></li>-->
+          </ul>
+          <!--  搜索结果 end -->
+        </div>
+        <input class="search-submit" value="搜索" id="search_submit" type="submit">
+      </div>
+      <!-- 搜索框 end -->
+
+      <!-- 导航地址 start -->
+      <div class="nav-content" id="dynamic-nav-content">
+        <!-- 动态生成的内容将插入到这里 -->
+      </div>
+      <!-- 导航地址 end -->
+    </div>
+  </div>
+  <footer class="inner-center footer">
+    <p>
+      <a href="https://gitee.com/wq3stone" target="_blank"> <img src="./static/css/img/github.png" alt="" height="20"
+          width="20"></a>
+      &nbsp; &nbsp; &nbsp;
+      <a href="mailto:wq3tone@sina.com" style="color:#8C8C8C;">链接失效？向我反馈！</a>
+    </p>
+    <p style="margin-top:8px;"> <a href="https://www.wq3stone.cn" style="color:#8C8C8C;" target="_blank">Copyright © 2025
+        by 王勤磊</a></p>
+  </footer>
+  <script src="./static/js/jquery.min.js"></script>
+  <script src="./static/js/keyword.js"></script>
+  <script>
+    // 调用API并生成导航内容
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('http://wq3stone.cn:3000/api/nav')
+        .then(response => response.json())
+        .then(data => {
+          const navContentDiv = document.getElementById('dynamic-nav-content');
+
+          // 按分类整理数据
+          const categorizedData = {};
+          data.forEach(item => {
+            if (!categorizedData[item.category]) {
+              categorizedData[item.category] = [];
+            }
+            categorizedData[item.category].push(item);
+          });
+
+          // 遍历分类并生成HTML
+          for (const category in categorizedData) {
+            const items = categorizedData[category];
+            const jjListDiv = document.createElement('div');
+            jjListDiv.className = 'jj-list';
+
+            const jjListTit = document.createElement('div');
+            jjListTit.className = 'jj-list-tit';
+            jjListTit.textContent = category;
+
+            const jjListCon = document.createElement('ul');
+            jjListCon.className = 'jj-list-con';
+
+            items.forEach(item => {
+              const listItem = document.createElement('li');
+              const link = document.createElement('a');
+              link.href = item.url;
+              link.className = 'jj-list-link';
+              link.target = '_blank';
+              link.textContent = item.name;
+              listItem.appendChild(link);
+              jjListCon.appendChild(listItem);
+            });
+
+            jjListDiv.appendChild(jjListTit);
+            jjListDiv.appendChild(jjListCon);
+            navContentDiv.appendChild(jjListDiv);
+          }
+        })
+        .catch(error => console.error('Error fetching navigation data:', error));
+    });
+  </script>
+</body>
+
+</html>
