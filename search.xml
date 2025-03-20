@@ -11253,4 +11253,38 @@ alt="image-20230817103542239" />
         <tag>pdf编辑器</tag>
       </tags>
   </entry>
+  <entry>
+    <title>【学习笔记】使用pm2管理进程时环境变量读取问题</title>
+    <url>/posts/6998.html</url>
+    <content><![CDATA[<p>今天想把我Linux上的项目做到开机自启，通过上网查阅发现可以通过pm2进程管理工具或者自定义服务实现开机自启动，但就当我使用pm2服务启动后，发现我的项目并未生效，提示我的服务为500错误，于是我使用<code>pm2 list</code>查看项目状态<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202503201128405.png"
+alt="image-20250320112830364" /></p>
+<p>显示状态正常，于是使用<code>pm2 logs api-nav</code>查看日志发现报错</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MongoDB连接失败: MongooseError: The `uri` parameter to `openUri()` must be a string, got &quot;undefined&quot;. Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202503201130189.png"
+alt="image-20250320113019137" />
+<figcaption aria-hidden="true">image-20250320113019137</figcaption>
+</figure>
+<p>这个错误我在本地部署以及直接node运行都从未出现过</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202503201132990.png"
+alt="image-20250320113217955" />
+<figcaption aria-hidden="true">image-20250320113217955</figcaption>
+</figure>
+<p>显然是正常的，翻译错误提示易知：uri应该是字符串类型，而实际运行时获取到的是undefined，然后我在数据库连接对象中把uri更改为字符串，而非通过<code>.env</code>文件获取，项目就正常运行了，也就是说明在项目运行时对<code>.env</code>文件没有正确的读取</p>
+<p><img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202503201145516.png" /></p>
+<p>将红框中的删除，蓝框中的修改为实际值，可以暂时解决此问题，但是并非长远之计。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
 </search>

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.wq3stone.cn/posts/6998.html</loc>
+    
+    <lastmod>2025-03-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.wq3stone.cn/posts/54903.html</loc>
     
     <lastmod>2025-02-28</lastmod>
@@ -609,6 +618,20 @@
   
   <url>
     <loc>https://www.wq3stone.cn/tags/pdf%E7%BC%96%E8%BE%91%E5%99%A8/</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wq3stone.cn/tags/Linux/</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.wq3stone.cn/tags/MongoDB/</loc>
     <lastmod>2025-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
