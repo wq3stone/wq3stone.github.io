@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史上的今天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #history-events {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .event-item {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b6b;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-item h2 {
+            margin: 0 0 0.5rem;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .event-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>历史上的今天</h1>
+        <div id="history-events"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const historyEventsDiv = document.getElementById('history-events');
+
+            fetch('https://saduck.top/api/extraFunctions/history', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    // 如果 API 需要额外的参数，请在这里添加
+                    // 例如：date: "2023-10-01"
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 0) {
+                        data.result.forEach(event => {
+                            const eventElement = document.createElement('li');
+                            eventElement.innerHTML = `
+                    <h2>${event.year}</h2>
+                    <p>${event.description}</p>
+                `;
+                            historyEventsDiv.appendChild(eventElement);
+                        });
+                    } else {
+                        historyEventsDiv.innerHTML = `<p>获取数据失败：${data.message}</p>`;
+                    }
+                })
+                .catch(error => {
+                    historyEventsDiv.innerHTML = `<p>网络错误，请稍后再试。</p>`;
+                    console.error('Error fetching data:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

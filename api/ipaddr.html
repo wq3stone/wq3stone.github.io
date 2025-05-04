@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP信息查询工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1890ff;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #1890ff;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #40a9ff;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .info-label {
+            width: 100px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .info-value {
+            flex: 1;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .error {
+            color: #ff4d4f;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .loading {
+            color: #1890ff;
+            text-align: center;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IP信息查询工具</h1>
+        
+        <div class="result-card" id="defaultResult">
+            <h2>您的IP信息</h2>
+            <div class="info-item">
+                <span class="info-label">IP地址</span>
+                <span class="info-value" id="ip">加载中...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">归属地</span>
+                <span class="info-value" id="location">加载中...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">运营商</span>
+                <span class="info-value" id="isp">加载中...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">邮编/区号</span>
+                <span class="info-value" id="postcode">加载中...</span>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="customIp" placeholder="输入要查询的IP地址（例如：8.8.8.8）">
+            <button onclick="searchCustomIp()">查询</button>
+        </div>
+
+        <div class="result-card" id="customResult" style="display: none;">
+            <h2>查询结果</h2>
+            <div class="info-item">
+                <span class="info-label">IP地址</span>
+                <span class="info-value" id="custom-ip">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">归属地</span>
+                <span class="info-value" id="custom-location">-</span>
+            </div>
+        </div>
+
+        <div id="errorMsg" class="error"></div>
+        <div id="loading" class="loading" style="display: none;">查询中...</div>
+    </div>
+
+    <script>
+        // 获取默认IP信息
+        fetch('https://2024.ipchaxun.com/')
+            .then(response => response.json())
+            .then(data => {
+                if(data.ret === 'ok') {
+                    document.getElementById('ip').textContent = data.ip;
+                    document.getElementById('location').textContent = 
+                        `${data.data[0]} ${data.data[1]} ${data.data[2]} ${data.data[3]}`;
+                    document.getElementById('isp').textContent = data.data[4];
+                    document.getElementById('postcode').textContent = 
+                        `${data.data[5]} / ${data.data[6]}`;
+                }
+            })
+            .catch(() => {
+                document.getElementById('defaultResult').innerHTML = 
+                    '<div class="error">默认IP信息获取失败</div>';
+            });
+
+        // 自定义IP查询
+        async function searchCustomIp() {
+            const ip = document.getElementById('customIp').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+            const resultDiv = document.getElementById('customResult');
+            const loading = document.getElementById('loading');
+
+            // 输入验证
+            if(!/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ip)) {
+                errorMsg.textContent = '请输入有效的IP地址（例如：8.8.8.8）';
+                resultDiv.style.display = 'none';
+                return;
+            }
+
+            errorMsg.textContent = '';
+            resultDiv.style.display = 'none';
+            loading.style.display = 'block';
+
+            try {
+                // 使用多个备用代理
+                const proxies = [
+                    'https://api.allorigins.win/get?url=',
+                    'https://corsproxy.io/?',
+                    'https://thingproxy.freeboard.io/fetch/'
+                ];
+
+                const targetUrl = encodeURIComponent(
+                    `https://opendata.baidu.com/api.php?query=${ip}&resource_id=6006&oe=utf8`
+                );
+
+                // 尝试多个代理
+                for (const proxy of proxies) {
+                    try {
+                        const response = await fetch(proxy + targetUrl, {
+                            timeout: 5000 // 设置超时
+                        });
+                        
+                        if (!response.ok) continue;
+                        
+                        const data = await response.json();
+                        // 处理AllOrigins的包装响应
+                        const realData = data.contents ? JSON.parse(data.contents) : data;
+
+                        if(realData.status === '0') {
+                            loading.style.display = 'none';
+                            resultDiv.style.display = 'block';
+                            document.getElementById('custom-ip').textContent = ip;
+                            document.getElementById('custom-location').textContent = 
+                                realData.data[0]?.location || '未知地区';
+                            return;
+                        }
+                    } catch (e) {
+                        continue;
+                    }
+                }
+
+                throw new Error('所有代理服务器均无响应');
+                
+            } catch (error) {
+                loading.style.display = 'none';
+                errorMsg.textContent = `查询失败：${error.message}`;
+                resultDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

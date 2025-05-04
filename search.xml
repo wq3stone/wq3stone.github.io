@@ -13647,14 +13647,67 @@ NCHW。</li>
   <entry>
     <title>【学习笔记】仿射变换与透视变换</title>
     <url>/posts/19806.html</url>
-    <content><![CDATA[<p>1 什么是仿射变换 仿射变换（Affine
+    <content><![CDATA[<h1 id="仿射变换">仿射变换</h1>
+<h2 id="什么是仿射变换">1 什么是仿射变换</h2>
+<p>仿射变换（Affine
 Transformation）其实是另外两种简单变换的叠加：一个是线性变换，一个是平移变换</p>
 <p>仿射变换变化包括缩放（Scale、平移(transform)、旋转(rotate)、反射（reflection,对图形照镜子）、错切(shear
-mapping，感觉像是一个图形的倒影)，原来的直线仿射变换后还是直线，原来的平行线经过仿射变换之后还是平行线，这就是仿射</p>
+mapping，感觉像是一个图形的倒影)，原来的直线仿射变换后还是直线，原来的平行线经过仿射变换之后还是平行线，这就是仿射。</p>
 <p>仿射变换中集合中的一些性质保持不变： （1）凸性
 （2）共线性：若几个点变换前在一条线上，则仿射变换后仍然在一条线上
 （3）平行性：若两条线变换前平行，则变换后仍然平行
 （4）共线比例不变性：变换前一条线上两条线段的比例，在变换后比例不变</p>
+<h2 id="仿射变换数学表达">2 仿射变换数学表达</h2>
+<p><span class="math display">\[
+f(x)=A x+b, \quad x \in X
+\]</span></p>
+<p>仿射变换是二维平面中一种重要的变换，在图像图形领域有广泛的应用，在二维图像变换中，一般表达为：
+<span class="math display">\[
+\left[\begin{array}{c}
+x^{\prime} \\
+y^{\prime} \\
+1
+\end{array}\right]=\left[\begin{array}{ccc}
+R_{00} &amp; R_{01} &amp; T_x \\
+R_{10} &amp; R_{11} &amp; T_y \\
+0 &amp; 0 &amp; 1
+\end{array}\right]\left[\begin{array}{l}
+x \\
+y \\
+1
+\end{array}\right]
+\]</span> 可以视为线性变换R和平移变换T的叠加</p>
+<h2 id="仿射变换的理解">3 仿射变换的理解</h2>
+<p>要熟练应用仿射变换，则需先理解仿射变换，说白了就是要弄清楚上面的R，T矩阵各个参数代表什么含义，用图像来表达：</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505040325264.png"
+alt="仿射变换过程" />
+<figcaption aria-hidden="true">仿射变换过程</figcaption>
+</figure>
+<h3 id="平移变换">平移变换</h3>
+<p>不难想象，就是将x，y平移指定值，则R矩阵为单位矩阵，T矩阵为指定值，如上图中，第一行第二列图
+<span class="math display">\[
+M=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; T_x \\
+0 &amp; 1 &amp; T_y \\
+0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p>
+<h3 id="反射变换">反射变换</h3>
+<p>见图最后一行，如相对x轴放射，则x不变，y变为相反号 <span
+class="math display">\[
+M=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p>
+<h3 id="旋转变换">旋转变换</h3>
+<p>关于旋转矩阵，这里详细来看看，网上博客中，有朋友在疑惑旋转矩阵中，<span
+class="math inline">\(sin(\theta)\)</span>的负号位置问题，下面我谈谈我个人想法，若有错误请大家指点。为简单起见，只从一个点的旋转来看....具体请查看原作者博客原文</p>
+<h1 id="透视变换">透视变换</h1>
+<h2 id="什么是透视变换">1 什么是透视变换</h2>
 <figure>
 <img
 src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505031705202.png"

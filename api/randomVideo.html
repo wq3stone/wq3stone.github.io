@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机视频</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1200px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            border-radius: 10px;
+            background-color: #000; /* 添加黑色背景，避免灰色 */
+        }
+        .refresh-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .refresh-button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>随机视频</h1>
+        <video id="videoPlayer" controls autoplay>
+            <source src="" type="video/mp4">
+            您的浏览器不支持视频播放。
+        </video>
+        <div id="errorMessage" class="error-message"></div>
+        <button class="refresh-button" onclick="refreshVideo()">换一换</button>
+    </div>
+
+    <script>
+        function refreshVideo() {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // 清空错误信息
+            errorMessage.textContent = '';
+
+            // 获取视频URL
+            fetch('https://www.wudada.online/Api/ScSp')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络请求失败');
+                    }
+                    return response.json(); // 解析JSON
+                })
+                .then(data => {
+                    // 检查返回的数据是否有效
+                    if (data.code !== "200" || !data.data) {
+                        throw new Error('无效的视频数据');
+                    }
+
+                    // 更新视频源
+                    videoPlayer.src = data.data;
+                    videoPlayer.load();
+                    videoPlayer.play();
+                })
+                .catch(error => {
+                    console.error('获取视频失败:', error);
+                    errorMessage.textContent = '获取视频失败，请稍后重试。错误信息：' + error.message;
+                });
+        }
+
+        // 页面加载时自动获取第一个视频
+        window.onload = refreshVideo;
+
+        // 监听视频错误事件
+        document.getElementById('videoPlayer').addEventListener('error', function () {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = '视频加载失败，请检查URL或网络连接。';
+        });
+    </script>
+</body>
+</html>
