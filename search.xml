@@ -13707,4 +13707,222 @@ Transformation） - 知乎</a>可以围观一下</p>
         <tag>计算机视觉</tag>
       </tags>
   </entry>
+  <entry>
+    <title>给自己的毕业设计做个总结</title>
+    <url>/posts/57543.html</url>
+    <content><![CDATA[<h1 id="项目介绍">项目介绍</h1>
+<p>本项目为我的本科毕业设计（2025届），基于原作者<a
+href="https://gitee.com/jiangzhengshuai">江政帅</a>的<strong><a
+href="https://gitee.com/jiangzhengshuai/small-program-campus-help">小程序校园帮</a></strong>项目进行二次开发。</p>
+<p>该项目包含了(<a href="./miniprogram">用户小程序</a>)和<a
+href="./admin">管理员后台管理系统</a>，两个前端共用同一个<a
+href="./server">后端接口</a>。</p>
+<h2 id="摘要">摘要</h2>
+<p>​
+本系统主要使用了微信标记语言（WXML）、微信样式语言（WXSS）、JavaScript作为用户前端语言开发小程序，使用Vue进行管理员Web前端页面开发，使用Node.js作为后端语言与前端进行数据交互，使用MongoDB作为数据库进行数据存储。基于以上技术，本系统已实现快递代取、打印服务等8个跑腿功能模块，用户可以选择以上任意模块发起订单，在用户身份审核后可以进行接单赚取服务费，用户手机号经授权后可以发起拼车订单，由系统进行匹配相似路线的订单并通知用户。系统经测试，功能可用，使用比较方便。</p>
+<h2 id="技术栈">技术栈</h2>
+<p>用户小程序：微信小程序原生开发</p>
+<p>管理员后台管理系统：Vue.js</p>
+<p>后端接口：Node.js</p>
+<p>数据库：MongoDB</p>
+<h2 id="主要功能">主要功能</h2>
+<p>1.用户操作</p>
+<p>（1）用户信息管理模块：登录、注册、修改用户的个人信息</p>
+<p>（2）生活模块：校园跑腿、拼车匹配。</p>
+<p>2.管理员操作</p>
+<p>（1）管理员信息管理：登录、注册、找回密码。</p>
+<p>（2）拼车模块管理：对于用户在小程序端已提交的拼车贴管理。</p>
+<p>（3）跑腿模块管理：对于用户在小程序端已提交的跑腿贴管理。</p>
+<p>（4）用户信息管理：查询(浏览)全部或所需用户信息</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301604275.png"
+alt="系统功能结构图" />
+<figcaption aria-hidden="true">系统功能结构图</figcaption>
+</figure>
+<p><font color='red'><b>功能详情及页面截图见论文</b></font>，功能演示见<a
+href="https://www.bilibili.com/video/BV1QmjBzQEoo">视频</a></p>
+<h1 id="部署步骤">部署步骤</h1>
+<p>首先请确保系统上已安装Node、npm、MongoDB。如下为我的本地环境与服务器环境：</p>
+<p><img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301604509.png" /></p>
+<p>如果没有小程序上线需求，可以仅本地部署，无需上传到服务器，但是本地部署会受到微信的限制无法使用授权手机号（可以直接修改数据库）、联系官方客服功能，主要功能不受限制。</p>
+<p>温馨提示：若想上线或使用完整功能，需要一台具有公网ip的服务器运行后端程序、一个域名解析到后端程序所在的服务器进行微信小程序的可信域名配置，此外还需要营业执照进行小程序的注册与认证，步骤非常繁琐。</p>
+<h2 id="后端">后端</h2>
+<h3 id="修改数据库文件">修改数据库文件</h3>
+<p>打开<code>model</code>中的<code>db.js</code>文件，修改以下内容：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mongoose.<span class="title function_">connect</span>(<span class="string">&#x27;mongodb://username:password@localhost:27017/schoolRun?authSource=admin&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>username改为自己的数据库用户名，password改为自己的数据库密码，localhost为数据库地址（本地部署无需修改），schoolRun为数据库名，authSource默认即可</p>
+</blockquote>
+<p>然后找到以下内容根据提示修改（openid可以先默认，等用户创建出来去userInfo表查看自己的openid）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一次运行时将下面注释打开，创建一个管理员用户，openid要改成自己的</span></span><br><span class="line"> admin.<span class="title function_">create</span>(&#123; </span><br><span class="line"> openid : <span class="string">&#x27;oa7me7Yqwmce6xFZHOtbzVfyhfH0&#x27;</span>, </span><br><span class="line"> username : <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line"> password : <span class="string">&#x27;123456&#x27;</span>, </span><br><span class="line"> role : <span class="string">&#x27;超级管理员&#x27;</span>, </span><br><span class="line"> nickName : <span class="string">&#x27;王勤磊&#x27;</span>, </span><br><span class="line"> time : <span class="string">&#x27;2024-12-31 23:59:59&#x27;</span> </span><br><span class="line"> &#125;) </span><br></pre></td></tr></table></figure>
+<h3 id="修改邮箱授权码">修改邮箱授权码</h3>
+<p>打开<code>model</code>中的<code>utils.js</code>文件，修改邮箱授权码。（发邮件功能仅拼车匹配模块使用，可根据自身需求二创）</p>
+<h3 id="修改小程序的appid和appsecret">修改小程序的appID和AppSecret</h3>
+<p>打开<code>router</code>中的<code>userRouter.js</code>，修改以下内容为自己的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> appID = <span class="string">`wxdff4801780968d5d`</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">AppSecret</span> = <span class="string">`347d6f58b4e7648ecf4ede072152bb56`</span></span><br></pre></td></tr></table></figure>
+<p>进入到<a href="./server">后端目录</a>，打开命令行窗口，运行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此命令的含义为安装<code>package.json</code>中要求的包，类似于python的<code>pip install -r requirement.txt</code>或maven根据<code>pom.xml</code>文件安装依赖。</p>
+<p>该命令执行后会在当前目录生成一个<code>node_modules</code>文件夹，其中包含了各种项目运行所需的模块。</p>
+</blockquote>
+<p>再运行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行后端启动文件。</p>
+</blockquote>
+<h2 id="后台前端">后台前端</h2>
+<p>进入到<a href="./admin">前端目录</a>，打开命令行窗口，运行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>再运行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行vue启动文件。</p>
+</blockquote>
+<h2 id="小程序端">小程序端</h2>
+<p>使用微信开发者工具打开<a
+href="./miniprogram">小程序端目录</a>，不使用云开发。</p>
+<p>进入后检查<code>app.js</code>中的<code>globalData.server</code>是否和自己部署的接口地址端口相同。</p>
+<p>然后点击编译-&gt;预览即可。</p>
+<h2 id="提示">提示</h2>
+<p>若计划上线或使用完整功能：</p>
+<p>需要修改<code>app.js</code>中的<code>globalData.server</code>为后端接口地址，如<code>https://mini.wq3stone.cn</code>。</p>
+<p>需要修改后端的<code>db.js</code>中的连接地址为自己的。
+（这里我把MongoDB安装在了自己服务器上，创建一个具有以下权限的用户，然后<code>localhost</code>改为自己的服务器公网地址）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">****以下是查看权限命令而不是创建命令****</span><br><span class="line">····自行寻找创建用户的方法····</span><br><span class="line"><span class="meta prompt_">test&gt; </span><span class="language-bash">use admin</span></span><br><span class="line">switched to db admin</span><br><span class="line"><span class="meta prompt_">admin&gt; </span><span class="language-bash">db.auth(<span class="string">&quot;admin&quot;</span>, <span class="string">&quot;xxxxxx&quot;</span>)</span></span><br><span class="line">&#123; ok: 1 &#125;</span><br><span class="line"><span class="meta prompt_">admin&gt; </span><span class="language-bash">db.getUsers()</span></span><br><span class="line">&#123;</span><br><span class="line">  users: [</span><br><span class="line">    &#123;</span><br><span class="line">      _id: &#x27;admin.admin&#x27;,</span><br><span class="line">      userId: UUID(&#x27;d0cee021-6aac-4a33-a3ed-d921e552ae4e&#x27;),</span><br><span class="line">      user: &#x27;admin&#x27;,</span><br><span class="line">      db: &#x27;admin&#x27;,</span><br><span class="line">      roles: [ &#123; role: &#x27;root&#x27;, db: &#x27;admin&#x27; &#125; ],</span><br><span class="line">      mechanisms: [ &#x27;SCRAM-SHA-1&#x27;, &#x27;SCRAM-SHA-256&#x27; ]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  ok: 1</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_">admin&gt; </span></span><br></pre></td></tr></table></figure>
+<p>需要修改<code>model</code>中<code>utils.js</code>文件的邮箱授权码。（发邮件功能仅拼车匹配模块使用，可根据自身需求二创）。</p>
+<p>需要修改小程序的<code>appID</code>和<code>AppSecret</code>：打开<code>router</code>中的<code>userRouter.js</code>，修改以下内容为自己的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> appID = <span class="string">`wxdff4801780968d5d`</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">AppSecret</span> = <span class="string">`347d6f58b4e7648ecf4ede072152bb56`</span></span><br></pre></td></tr></table></figure>
+<p>由于微信小程序源代码上传限制，我将大部分图片文件放在了我的图床，若不进行上线，可以使用本地图片（我放在了<code>./README_files/部分图床文件</code>文件夹中）。若有上线计划，为避免后续图床关闭，建议将文件保存到自己的图床。</p>
+<h3 id="配置nginx">配置nginx</h3>
+<p>进行如下所示的配置，并使用certbot进行https证书申请。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605279.png"
+alt="image-20250530152753722" />
+<figcaption aria-hidden="true">image-20250530152753722</figcaption>
+</figure>
+<h3 id="配置可信域名">配置可信域名</h3>
+<p>在微信公众平台配置为解析到运行后端程序的nginx服务器IP地址才能使用。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605567.png"
+alt="image-20250530141423304" />
+<figcaption aria-hidden="true">image-20250530141423304</figcaption>
+</figure>
+<h1 id="改进与创新">改进与创新</h1>
+<ol type="1">
+<li><p>由于原作者是2022年9月开发的项目，微信官方在 2022 年 10 月 25 日
+24 时后<a
+href="https://developers.weixin.qq.com/community/develop/doc/00022c683e8a80b29bed2142b56c01">对用户头像昵称获取规则进行了调整</a>，由原有的<code>wx.getUserInfo</code>接口获取用户昵称头像更改为<strong>头像昵称填写能力</strong>。本人根据此接口对于用户授权功能进行了处理。</p></li>
+<li><p>新增用户头像昵称填写能力，用户手机号码由手动填写更改为微信官方实时验证组件。</p></li>
+<li><p>新增性别只能设置一次功能。默认性别是暂不设置，当用户从暂不设置切换到男或女时进行提醒，当用户处于男或女时将选择框锁定。（2025-2-18
+01:40）</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605057.png"
+alt="b1c696d8-121c-40a5-8fd0-3b602daf5fd8" />
+<figcaption
+aria-hidden="true">b1c696d8-121c-40a5-8fd0-3b602daf5fd8</figcaption>
+</figure></li>
+<li><p>新增邮件发送功能，便于订单提醒。</p></li>
+<li><p>新增拼车匹配模块。</p></li>
+<li><p>删除“代扔垃圾”模块。</p></li>
+</ol>
+<h1 id="展望">展望</h1>
+<ol type="1">
+<li>用户头像的存取：对于同一openid应仅保存一份头像文件以节省资源。</li>
+<li>原作者写的设置默认地址我测试时不失效，未进行处理。</li>
+<li>拼车匹配模块的出发时间应该回显点击选择器时的时间（目前显示的进入模块的时间）</li>
+<li>根据性别和人数要求进行拼车匹配，需要设计一个合理的算法。目前我只实现了最简单的不限性别的两人匹配。</li>
+<li>订单提交按钮双击会重复提交订单。</li>
+<li>订单数量较多时订单页会显示异常。</li>
+<li>发单者若删除订单会导致接单者的收益也被删除，应该对订单设置状态码而非直接删除记录。</li>
+</ol>
+<h1 id="致谢">致谢</h1>
+<h2 id="谢自己的努力">谢自己的努力</h2>
+<p>在本项目的开发过程中，首先要感谢的就是自己，从大一刚入学时便埋下了一颗种子，想要实现一个解决实际问题的项目。</p>
+<p>和姐姐探讨了下选题意义，进一步明确了此目标。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605632.png"
+alt="当时是微电子专业，毕业设计选题大多为硬件设计，后来转专业到软件工程。" />
+<figcaption
+aria-hidden="true">当时是微电子专业，毕业设计选题大多为硬件设计，后来转专业到软件工程。</figcaption>
+</figure>
+<p>以下是当时发现的问题，后来发现市面上已有众多校园跑腿小程序，但拼车功能的小程序寥寥无几（和市面上的打车程序的拼车不同，那种拼车系统考虑了司机端接单，用户支付的总金额还是要高于一个人打车所使用的金额）</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605607.png"
+alt="image-20250530145407800" />
+<figcaption aria-hidden="true">image-20250530145407800</figcaption>
+</figure>
+<p>从2月9日下午两点到2月10日早上7点通宵做此项目，应该是人生中第一次通宵（过年也就撑到三四点），第二天有实训课，谎称火车晚点未到实则补觉。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605370.png"
+alt="其实是通了宵做此项目" />
+<figcaption aria-hidden="true">其实是通了宵做此项目</figcaption>
+</figure>
+<p>然后往后的日子几乎天天熬夜做这个项目。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605490.jpg"
+alt="几乎天天熬夜在做这个项目" />
+<figcaption aria-hidden="true">几乎天天熬夜在做这个项目</figcaption>
+</figure>
+<p>从完全零基础，摸索着学习微信小程序、Node.js、Vue、MongoDB、Nginx，虽然大多都是比着葫芦画瓢，但是确实有所收获。</p>
+<h2 id="谢原作者">谢原作者</h2>
+<p><a
+href="https://gitee.com/jiangzhengshuai/small-program-campus-help">小程序校园帮:
+校园帮微信小程序</a></p>
+<p>没有此项目的框架，我不可能从0开始完成此项目，正因此项目的代码规范性，我可以轻松的阅读源码进行二次开发。</p>
+<h2 id="谢一路提供帮助的所有人">谢一路提供帮助的所有人</h2>
+<p>从选题到项目完成，一步步的操作，互联网提供了巨大的帮助，包括DeepSeek、通义千问以及众多博客，把项目部署到服务器姐姐为我解决了出现的部分问题，让我基本掌握了项目从撰写到上线的全过程。</p>
+<h1 id="插曲">插曲</h1>
+<p><strong>数据库被黑</strong></p>
+<p>原来的表全被删除。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605374.png"
+alt="数据库被黑" />
+<figcaption aria-hidden="true">数据库被黑</figcaption>
+</figure>
+<p><strong>xshell连的服务器，为啥我把xshell关了我当前那个进程就不运行了？</strong></p>
+<blockquote>
+<p>没用后台启动，启动时使用：
+<code>nohup 启动命令 &amp;</code>，如果要打印日志则使用<code>nohup 启动命令 &gt; output.log 2&gt;&amp;1 &amp;</code></p>
+<p>想关闭只能<code>kill -9 进程号</code>，日志文件覆盖是&gt;
+追加是&gt;&gt;</p>
+</blockquote>
+<p><strong>Linux创建了用户并指定了家目录，不另外授予权限它是不是只能在家目录里进行读写操作，在家目录外只能读不可写</strong></p>
+<blockquote>
+<p>默认是这样的</p>
+</blockquote>
+<p><strong>使用nginx让<code>domain.com:80</code>代理到<code>domain.com:3000</code>，这个过程用户可感知吗</strong></p>
+<p>反向代理感知不到。</p>
+<p>终于体会到了反向代理，nginx太厉害了。比如一个api服务就要占用一个端口，但是api网站却都能够使用80端口去请求，这就肯定用到了反向代理。https上的网页请求http会被浏览器拦截，使用nginx配置好证书也能让资源被正常访问。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202505301605685.png"
+alt="a661d75c7025dc7716a5a8e637161919" />
+<figcaption
+aria-hidden="true">a661d75c7025dc7716a5a8e637161919</figcaption>
+</figure>
+<p>这个问题终于被解决了。</p>
+<p><strong>还遇到了跨域CORS问题，通过Node.js中配置即可</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="comment">// 允许跨域请求</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cors</span>(&#123;</span><br><span class="line">    <span class="attr">origin</span>: <span class="string">&#x27;https://nav.wq3stone.cn&#x27;</span>, <span class="comment">// 允许的域名</span></span><br><span class="line">    <span class="attr">methods</span>: [<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;PUT&#x27;</span>, <span class="string">&#x27;DELETE&#x27;</span>], <span class="comment">// 允许的 HTTP 方法</span></span><br><span class="line">    <span class="attr">allowedHeaders</span>: [<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;Authorization&#x27;</span>, <span class="string">&#x27;X-Custom-Header&#x27;</span>] <span class="comment">// 允许的请求头</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Node.js</tag>
+        <tag>Vue.js</tag>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
 </search>
