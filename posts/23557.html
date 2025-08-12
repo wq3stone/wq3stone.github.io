@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【学习笔记】conda的使用 | 亦晓白笔记</title><meta name="author" content="亦晓白"><meta name="copyright" content="亦晓白"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="学习使用conda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】conda的使用">
+<meta property="og:url" content="https://www.wq3stone.cn/posts/23557.html">
+<meta property="og:site_name" content="亦晓白笔记">
+<meta property="og:description" content="学习使用conda">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/conda.jpeg">
+<meta property="article:published_time" content="2023-07-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-03T04:00:07.842Z">
+<meta property="article:author" content="亦晓白">
+<meta property="article:tag" content="conda">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/conda.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【学习笔记】conda的使用",
+  "url": "https://www.wq3stone.cn/posts/23557.html",
+  "image": "https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/conda.jpeg",
+  "datePublished": "2023-07-25T16:00:00.000Z",
+  "dateModified": "2025-08-03T04:00:07.842Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "亦晓白",
+      "url": "https://www.wq3stone.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/favicon.png"><link rel="canonical" href="https://www.wq3stone.cn/posts/23557.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?30aa49d6dd06497f6c682afb372459f2";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 亦晓白","link":"链接: ","source":"来源: 亦晓白笔记","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【学习笔记】conda的使用',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/bgimg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-th"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/conda.jpeg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">亦晓白笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">【学习笔记】conda的使用</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-th"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">【学习笔记】conda的使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-25T16:00:00.000Z" title="发表于 2023-07-26 00:00:00">2023-07-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-03T04:00:07.842Z" title="更新于 2025-08-03 12:00:07">2025-08-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="指令集合"><a href="#指令集合" class="headerlink" title="指令集合"></a>指令集合</h2><h3 id="设置镜像"><a href="#设置镜像" class="headerlink" title="设置镜像"></a>设置镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置清华镜像</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"><span class="comment">#设置搜索时显示通道地址</span></span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="管理conda"><a href="#管理conda" class="headerlink" title="管理conda"></a>管理conda</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda update conda  <span class="comment"># 更新conda</span></span><br><span class="line">conda update Anaconda  <span class="comment"># 更新整个Anaconda</span></span><br><span class="line">conda clean -p  <span class="comment"># 删除没有用的包</span></span><br><span class="line">conda clean -t  <span class="comment"># 删除tar打包</span></span><br><span class="line">conda clean -a <span class="comment"># 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="管理环境"><a href="#管理环境" class="headerlink" title="管理环境"></a>管理环境</h3><h4 id="设置环境默认安装路径"><a href="#设置环境默认安装路径" class="headerlink" title="设置环境默认安装路径"></a>设置环境默认安装路径</h4><h5 id="方法一：使用-conda-config-命令"><a href="#方法一：使用-conda-config-命令" class="headerlink" title="方法一：使用 conda config 命令"></a>方法一：使用 conda config 命令</h5><p>可以使用 conda config 命令来直接更新 .condarc 文件，设置新的环境和包目录路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --<span class="built_in">set</span> envs_dirs D:/new_envs</span><br><span class="line">conda config --<span class="built_in">set</span> pkgs_dirs D:/new_pkgs</span><br></pre></td></tr></table></figure>
+
+<p>执行这些命令会自动更新 .condarc 文件中的相关设置。</p>
+<h5 id="方法二：手动编辑-condarc-文件"><a href="#方法二：手动编辑-condarc-文件" class="headerlink" title="方法二：手动编辑 .condarc 文件"></a>方法二：手动编辑 .condarc 文件</h5><p>找到用户主目录下的 .condarc 文件，通常路径为 C:\Users\username.condarc。如果文件不存在，可以手动创建一个。使用文本编辑器打开 .condarc 文件，添加以下内容：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">envs_dirs:</span><br><span class="line">- D:/new_envs</span><br><span class="line">pkgs_dirs:</span><br><span class="line">- D:/new_pkgs</span><br></pre></td></tr></table></figure>
+
+<p>这会将环境和包缓存目录更改为指定的新路径。</p>
+<h5 id="方法三：在创建环境时指定路径"><a href="#方法三：在创建环境时指定路径" class="headerlink" title="方法三：在创建环境时指定路径"></a>方法三：在创建环境时指定路径</h5><p>在创建新的 Conda 环境时，可以使用 –prefix 参数指定环境的安装路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --prefix=D:/IDE/Anaconda/prefix_envs python=3.8</span><br></pre></td></tr></table></figure>
+
+<p>该地址不需要提前新建好，如果提前新建了地址，则会提示你已存在一个文件，可以直接继续。</p>
+<h4 id="查看环境"><a href="#查看环境" class="headerlink" title="查看环境"></a>查看环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="built_in">env</span> list</span><br><span class="line">conda info -e</span><br><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+
+<p>以上三条命令都可以。注意最后一个是”–”，而不是“-”</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261052650.png" alt="image-20230726105204603"></p>
+<blockquote>
+<p>所显示的列表中，前面带星号“*“的表示当前活动环境。</p>
+</blockquote>
+<h4 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n xxx  <span class="comment"># 创建环境名为xxx的环境</span></span><br></pre></td></tr></table></figure>
+
+<p>例如创建环境名为py39的环境并安装python3.9</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n py39 python==3.9</span><br></pre></td></tr></table></figure>
+
+<p>这表示创建python版本为3.9、名字为py39的虚拟环境</p>
+<blockquote>
+<p>创建后，py39文件可以在Anaconda安装目录envs文件下找到。在不指定python版本时，自动创建基于最新python版本的虚拟环境。</p>
+</blockquote>
+<p>在创建新的 Conda 环境时，可以使用 –prefix 参数指定环境的安装路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --prefix=D:/IDE/Anaconda/prefix_envs python=3.8</span><br></pre></td></tr></table></figure>
+
+<p>该地址不需要提前新建好，如果提前新建了地址，则会提示你已存在一个文件，可以直接继续。</p>
+<h4 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate xxx  <span class="comment"># 激活环境名为xxx的环境</span></span><br></pre></td></tr></table></figure>
+
+<p>此时使用python –version可以检查当前python版本是否为所想要的（即虚拟环境的python版本）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261055499.png" alt="image-20230726105525458"></p>
+<h4 id="退出环境"><a href="#退出环境" class="headerlink" title="退出环境"></a>退出环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate</span><br><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+
+<p>以上两条命令只中任一条都会让你回到base environment，它们从不同的角度出发到达了同一个目的地。可以这样理解，activate的缺省值是base，deactivate的缺省值是当前环境，因此它们最终的结果都是回到base</p>
+<h4 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h4><p>执行以下命令可以将该指定虚拟环境及其中所安装的包都删除。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove --name env_name --all</span><br></pre></td></tr></table></figure>
+
+<h4 id="导出环境"><a href="#导出环境" class="headerlink" title="导出环境"></a>导出环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获得环境名为env_name中的所有配置并保存配置信息到my_env.yml文件中</span></span><br><span class="line">conda <span class="built_in">env</span> <span class="built_in">export</span> --name env_name &gt; my_env.yml</span><br><span class="line"><span class="comment">#重新还原环境</span></span><br><span class="line">conda <span class="built_in">env</span> create -f my_env.yml</span><br></pre></td></tr></table></figure>
+
+<h3 id="管理包"><a href="#管理包" class="headerlink" title="管理包"></a>管理包</h3><h4 id="查询包"><a href="#查询包" class="headerlink" title="查询包"></a>查询包</h4><p>查看当前环境安装了哪些包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+
+<p>查看Anaconda repository中是否有xxx包（联网查询）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda search xxx</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h4><p>在当前环境中安装package_name包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install package_name</span><br></pre></td></tr></table></figure>
+
+<p>也可以指定安装的包的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install package_name==1.0.0</span><br></pre></td></tr></table></figure>
+
+<p>例如，安装numpy版本为0.20.3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install numpy==0.20.3</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新包"><a href="#更新包" class="headerlink" title="更新包"></a>更新包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda update package_name</span><br></pre></td></tr></table></figure>
+
+<p>将package_name包更新到最新版本</p>
+<h4 id="卸载包"><a href="#卸载包" class="headerlink" title="卸载包"></a>卸载包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda uninstall package_name</span><br></pre></td></tr></table></figure>
+
+<p>卸载包名为package_name的包</p>
+<h2 id="conda与pip"><a href="#conda与pip" class="headerlink" title="conda与pip"></a>conda与pip</h2><h3 id="有什么区别？"><a href="#有什么区别？" class="headerlink" title="有什么区别？"></a>有什么区别？</h3><ol>
+<li>conda可以管理非python包，pip只能管理python包。</li>
+<li>conda自己可以用来创建环境，pip不能，需要依赖virtualenv之类的。</li>
+<li>conda安装的包是编译好的二进制文件，安装包文件过程中会自动安装依赖包；pip安装的包是wheel或源码，装过程中不会去支持python语言之外的依赖项。</li>
+<li>conda安装的包会统一下载到一个目录文件中，当环境B需要下载的包，之前其他环境安装过，就只需要把之间下载的文件复制到环境B中，下载一次多次安装。pip是直接下载到对应环境中。</li>
+<li>conda只能在conda管理的环境中使用，例如比如conda所创建的虚环境中使用。pip可以在任何环境中使用，在conda创建的环境 中使用pip命令，需要先安装pip（conda install pip ），然后可以 环境A 中使用pip 。conda 安装的包，pip可以卸载，但不能卸载依赖包，pip安装的包，只能用pip卸载。</li>
+</ol>
+<h3 id="安装在哪里？"><a href="#安装在哪里？" class="headerlink" title="安装在哪里？"></a>安装在哪里？</h3><ul>
+<li><code>conda install xxx</code>：这种方式安装的库都会放在<code>anaconda3/pkgs</code>目录下，这样的好处就是，当在某个环境下已经下载好了某个库，再在另一个环境中还需要这个库时，就可以直接从<code>pkgs</code>目录下将该库复制至新环境而不用重复下载。</li>
+<li><code>pip install xxx</code>：分两种情况，一种情况就是当前conda环境的python是conda安装的，和系统的不一样，那么<code>xxx</code>会被安装到<code>anaconda3/envs/current_env/lib/python3.x/site-packages</code>文件夹中，如果当前conda环境用的是系统的python，那么<code>xxx</code>会通常会被安装到<code>~/.local/lib/python3.x/site-packages</code>文件夹中</li>
+</ul>
+<h3 id="如何判断conda中某个包是通过conda还是pip安装的？"><a href="#如何判断conda中某个包是通过conda还是pip安装的？" class="headerlink" title="如何判断conda中某个包是通过conda还是pip安装的？"></a>如何判断conda中某个包是通过conda还是pip安装的？</h3><p>执行 <code>conda list</code> ，用pip安装的包显示的build项目为pypi。如下图所示</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261133811.png" alt="image-20230726113303750"></p>
+<h2 id="conda的配置"><a href="#conda的配置" class="headerlink" title="conda的配置"></a>conda的配置</h2><h3 id="condarc文件在哪儿？"><a href="#condarc文件在哪儿？" class="headerlink" title=".condarc文件在哪儿？"></a>.condarc文件在哪儿？</h3><p>执行<code>conda info</code>，如下图所示</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261145690.png" alt="image-20230726114544635"></p>
+<h3 id="channel管理"><a href="#channel管理" class="headerlink" title="channel管理"></a>channel管理</h3><p>追加conda-forge channel:</p>
+<blockquote>
+<p>conda config –add channels conda-forge</p>
+</blockquote>
+<p>移除conda-forge channel:</p>
+<blockquote>
+<p>conda config –remove channels conda-forge</p>
+</blockquote>
+<p>查询当前配置中包含哪些channels</p>
+<blockquote>
+<p>conda config –get channels</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307261147482.png" alt="image-20230726114725437"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.wq3stone.cn">亦晓白</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.wq3stone.cn/posts/23557.html">https://www.wq3stone.cn/posts/23557.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.wq3stone.cn" target="_blank">亦晓白笔记</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/conda/">conda</a></div><div class="post-share"><div class="social-share" data-image="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/conda.jpeg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/10831.html" title="【深度学习】配置深度学习环境"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202308171119775.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【深度学习】配置深度学习环境</div></div><div class="info-2"><div class="info-item-1">配置深度学习环境</div></div></div></a><a class="pagination-related" href="/posts/18992.html" title="【学习笔记】Java设计模式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202307111229109.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【学习笔记】Java设计模式</div></div><div class="info-2"><div class="info-item-1">Java设计模式</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">亦晓白</div><div class="author-info-description">记录学习生活</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://gitee.com/wq3stone"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://gitee.com/wq3stone" rel="external nofollow noreferrer" target="_blank" title="Gitee"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wq3stone@sina.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://music.163.com/#/user/home?id=3336333178" rel="external nofollow noreferrer" target="_blank" title="网易云"><i class="fas fa-music" style="color: #ff0000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">学业繁忙，随缘更新！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E9%9B%86%E5%90%88"><span class="toc-number">1.</span> <span class="toc-text">指令集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F"><span class="toc-number">1.1.</span> <span class="toc-text">设置镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86conda"><span class="toc-number">1.2.</span> <span class="toc-text">管理conda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.</span> <span class="toc-text">管理环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E9%BB%98%E8%AE%A4%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">设置环境默认安装路径</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8-conda-config-%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">方法一：使用 conda config 命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E6%89%8B%E5%8A%A8%E7%BC%96%E8%BE%91-condarc-%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">方法二：手动编辑 .condarc 文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E5%9C%A8%E5%88%9B%E5%BB%BA%E7%8E%AF%E5%A2%83%E6%97%B6%E6%8C%87%E5%AE%9A%E8%B7%AF%E5%BE%84"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">方法三：在创建环境时指定路径</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.2.</span> <span class="toc-text">查看环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.3.</span> <span class="toc-text">创建环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.4.</span> <span class="toc-text">激活环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.5.</span> <span class="toc-text">退出环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.6.</span> <span class="toc-text">删除环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.7.</span> <span class="toc-text">导出环境</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%8C%85"><span class="toc-number">1.4.</span> <span class="toc-text">管理包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%8C%85"><span class="toc-number">1.4.1.</span> <span class="toc-text">查询包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">1.4.2.</span> <span class="toc-text">安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%8C%85"><span class="toc-number">1.4.3.</span> <span class="toc-text">更新包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E5%8C%85"><span class="toc-number">1.4.4.</span> <span class="toc-text">卸载包</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda%E4%B8%8Epip"><span class="toc-number">2.</span> <span class="toc-text">conda与pip</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">安装在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%ADconda%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%8C%85%E6%98%AF%E9%80%9A%E8%BF%87conda%E8%BF%98%E6%98%AFpip%E5%AE%89%E8%A3%85%E7%9A%84%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">如何判断conda中某个包是通过conda还是pip安装的？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">conda的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#condarc%E6%96%87%E4%BB%B6%E5%9C%A8%E5%93%AA%E5%84%BF%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">.condarc文件在哪儿？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#channel%E7%AE%A1%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">channel管理</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/undefined.html" title="【学习笔记】Spring依赖注入详解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202508122335760.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【学习笔记】Spring依赖注入详解"/></a><div class="content"><a class="title" href="/posts/undefined.html" title="【学习笔记】Spring依赖注入详解">【学习笔记】Spring依赖注入详解</a><time datetime="2025-08-11T16:00:00.000Z" title="发表于 2025-08-12 00:00:00">2025-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/39537.html" title="研究生周报"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/defaultcover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="研究生周报"/></a><div class="content"><a class="title" href="/posts/39537.html" title="研究生周报">研究生周报</a><time datetime="2025-07-20T16:00:00.000Z" title="发表于 2025-07-21 00:00:00">2025-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/34437.html" title="【杂谈】读研规划"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/IMU.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【杂谈】读研规划"/></a><div class="content"><a class="title" href="/posts/34437.html" title="【杂谈】读研规划">【杂谈】读研规划</a><time datetime="2025-07-01T16:00:00.000Z" title="发表于 2025-07-02 00:00:00">2025-07-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2021 - 2025 By 亦晓白</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div><div class="footer_custom_text">感谢访问！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜点什么呢？" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
