@@ -170,22 +170,30 @@ btf.addGlobalFn('pjaxComplete', () => {
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><link rel="stylesheet" href="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/bgimg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-th"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031523489.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">亦晓白笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">【学习笔记】计算机组成原理知识点整理</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-th"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">【学习笔记】计算机组成原理知识点整理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-03T07:24:00.000Z" title="发表于 2022-10-03 15:24:00">2022-10-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-02T08:25:33.333Z" title="更新于 2025-08-02 16:25:33">2025-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">17.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>52分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="第一章-计算机系统概述"><a href="#第一章-计算机系统概述" class="headerlink" title="第一章 计算机系统概述"></a>第一章 计算机系统概述</h2><p><em>较简单，不做过多赘述，后面会详细学到</em></p>
-<h3 id="第一节-计算机系统层次结构"><a href="#第一节-计算机系统层次结构" class="headerlink" title="第一节 计算机系统层次结构"></a>第一节 计算机系统层次结构</h3><p>1.计算机系统的基本组成：硬件+软件</p>
+}</script><link rel="stylesheet" href="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/bgimg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-th"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031523489.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">亦晓白笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">【学习笔记】计算机组成原理知识点整理</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-th"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">【学习笔记】计算机组成原理知识点整理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-03T07:24:00.000Z" title="发表于 2022-10-03 15:24:00">2022-10-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-02T08:25:33.333Z" title="更新于 2025-08-02 16:25:33">2025-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">17.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>52分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="第一章-计算机系统概述">第一章 计算机系统概述</h2>
+<p><em>较简单，不做过多赘述，后面会详细学到</em></p>
+<h3 id="第一节-计算机系统层次结构">第一节 计算机系统层次结构</h3>
+<p>1.计算机系统的基本组成：硬件+软件</p>
 <p>2.计算机硬件的基本组成：运算器+存储器+控制器+输入设备+输出设备</p>
 <p>3.系统软件和应用软件</p>
 <table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 88%" />
+</colgroup>
 <thead>
 <tr>
 <th>系统软件</th>
 <th>操作系统、数据库管理系统、语言处理程序、分布式软件系统、网络软件系统、标准库语言、服务性程序</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>应用软件</td>
 <td>科学计算类程序、工程设计类程序、数据统计与处理程序</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>4.（易考）翻译程序：</p>
 <table>
 <thead>
@@ -194,7 +202,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>将汇编语言程序翻译成机器语言程序</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>解释程序（解释器）</td>
 <td>将源程序翻译成机器指令并立即执行</td>
 </tr>
@@ -202,46 +211,59 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>编译程序（编译器）</td>
 <td>将高级语言翻译城机器语言或汇编语言</td>
 </tr>
-</tbody></table>
-<h3 id="第二节-计算机性能指标"><a href="#第二节-计算机性能指标" class="headerlink" title="第二节 计算机性能指标"></a>第二节 计算机性能指标</h3><ul>
+</tbody>
+</table>
+<h3 id="第二节-计算机性能指标">第二节 计算机性能指标</h3>
+<ul>
 <li><strong>吞吐量</strong>：表征一台计算机在某一时间间隔内能够处理的信息量。</li>
 <li><strong>响应时间</strong>：表征从输入有效到系统产生响应之间的时间度量，用时间单位来度量。</li>
 <li><strong>利用率</strong>：在给定的时间间隔系统被实际使用的时间所占的比率，用百分比表示。</li>
-<li><strong>处理机字长</strong>：指处理机运算器中一次能够完成二进制数运算的位数，如 32 位、64 位。</li>
-<li><strong>总线宽度</strong>：一般指 CPU 中运算器与存储器之间进行互连的内部总线二进制位数。</li>
-<li><strong>存储器容量</strong>：存储器中所有存储单元的总数目，通常用 KB、MB、GB、TB 来表示。公式一般是：位数×个数</li>
+<li><strong>处理机字长</strong>：指处理机运算器中一次能够完成二进制数运算的位数，如
+32 位、64 位。</li>
+<li><strong>总线宽度</strong>：一般指 CPU
+中运算器与存储器之间进行互连的内部总线二进制位数。</li>
+<li><strong>存储器容量</strong>：存储器中所有存储单元的总数目，通常用
+KB、MB、GB、TB 来表示。公式一般是：位数×个数</li>
 </ul>
 <p>（MAR×MDR）</p>
 <ul>
-<li><strong>存储器带宽</strong>：单位时间内从存储器读出的二进制数信息量，一般用字节数&#x2F;秒表示。</li>
-<li><strong>主频&#x2F;时钟周期</strong>：CPU 的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟度量单位是 MHz、GHz</li>
+<li><strong>存储器带宽</strong>：单位时间内从存储器读出的二进制数信息量，一般用字节数/秒表示。</li>
+<li><strong>主频/时钟周期</strong>：CPU
+的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟度量单位是
+MHz、GHz</li>
 </ul>
-<p>主频的倒数称为 CPU 时钟周期（T），T&#x3D;1&#x2F;f，度量单位是 μs、ns。</p>
-<p>K&#x3D; 103 ，M&#x3D; 106 ，G&#x3D; 109</p>
+<p>主频的倒数称为 CPU 时钟周期（T），T=1/f，度量单位是 μs、ns。</p>
+<p>K= 103 ，M= 106 ，G= 109</p>
 <p>易错：时钟频率的提高，不能保证CPU执行速度又同倍速的提高，有时候还会减慢。</p>
 <ul>
-<li><strong>CPU 执行时间</strong>：表示 CPU 执行一般程序所占用的 CPU 时间，可用下式计算：</li>
+<li><strong>CPU 执行时间</strong>：表示 CPU 执行一般程序所占用的 CPU
+时间，可用下式计算：</li>
 </ul>
-<p>CPU 执行时间 &#x3D; CPU 时钟周期数 * CPU 时钟周期</p>
+<p>CPU 执行时间 = CPU 时钟周期数 * CPU 时钟周期</p>
 <ul>
 <li><strong>CPI</strong>：执行一条指令所需的平均时钟周期数。用下式计算：</li>
 </ul>
-<p>CPI &#x3D; 执行某段程序所需的 CPU 时钟周期数 &#x2F; 程序包含的指令条数</p>
+<p>CPI = 执行某段程序所需的 CPU 时钟周期数 / 程序包含的指令条数</p>
 <ul>
-<li><strong>MIPS</strong>：（Million Instructions Per Second）的缩写，表示平均每秒执行多少百万条定点指令数，用下式计算：</li>
+<li><strong>MIPS</strong>：（Million Instructions Per
+Second）的缩写，表示平均每秒执行多少百万条定点指令数，用下式计算：</li>
 </ul>
-<p>MIPS &#x3D; 指令数 &#x2F; （程序执行时间 * 10^6）</p>
+<p>MIPS = 指令数 / （程序执行时间 * 10^6）</p>
 <ul>
-<li><strong>FLOPS</strong>：（Floating-point Operations Per Second）的缩写，表示每秒执行浮点操作的次数，用来衡量机器浮点操作的性能。用下式计算：FLOPS &#x3D; 程序中的浮点操作次数 &#x2F; 程序执行时间（s）</li>
+<li><strong>FLOPS</strong>：（Floating-point Operations Per
+Second）的缩写，表示每秒执行浮点操作的次数，用来衡量机器浮点操作的性能。用下式计算：FLOPS
+= 程序中的浮点操作次数 / 程序执行时间（s）</li>
 </ul>
-<h3 id="题目总结："><a href="#题目总结：" class="headerlink" title="题目总结："></a>题目总结：</h3><p>①对于<strong>高级</strong>语言程序员来说，浮点数格式、乘法指令、数据如何在运算器中运算时透明的。对于<strong>汇编语言</strong>程序员，指令格式，机器构造，数据格式则不是透明的。</p>
+<h3 id="题目总结">题目总结：</h3>
+<p>①对于<strong>高级</strong>语言程序员来说，浮点数格式、乘法指令、数据如何在运算器中运算时透明的。对于<strong>汇编语言</strong>程序员，指令格式，机器构造，数据格式则不是透明的。</p>
 <p>②在CPU中，IR、MAR、MDR对各类程序员都是透明的。</p>
 <p>③机器字长，指令字长，存储字长</p>
 <p>机器字长也称字长——是计算机直接处理二进制数据的位数，机器字长一半等于内部寄存器的大小，它决定了计算机的运算精度。</p>
 <p>指令字长——一个指令中包含的二进制代码的位数。</p>
 <p>存储字长——一个存储单元中二进制代码的长度。</p>
 <p>指令字长一般是存储字长的整数倍，若指令字长等于存储字长的2倍，则需要2次访存来取出一条指令，因此取值周期为机器周期的2倍；若指令字长等于存储字长，则取值周期等于机器周期。</p>
-<h2 id="第二章-数据的表示和运算"><a href="#第二章-数据的表示和运算" class="headerlink" title="第二章 数据的表示和运算"></a>第二章 数据的表示和运算</h2><p>一、无符号整数的表示和运算</p>
+<h2 id="第二章-数据的表示和运算">第二章 数据的表示和运算</h2>
+<p>一、无符号整数的表示和运算</p>
 <p>Ⅰ、无符号整数的加法：从最低位开始，按位相加，并往更高位进位。</p>
 <p>Ⅱ、”被减数“不变，”减数“<strong>全部按位取反</strong>，末位+1，<strong>减法变加法。</strong></p>
 <p>二、带符号整数的表示和运算</p>
@@ -253,7 +275,12 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>正数：原码-&gt;补码，不变</p>
 <p>负数：原码-&gt;补码，除符号位外，各位取反，末位+1</p>
 <p>Ⅰ、补码的加法</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031505324.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031505324.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>从最低位开始，然后按位相加，并往高位进位。算出来的结果，转回原码，就可以得到正值。</p>
 <p>补充：补码-&gt;原码：类似，除符号位外，各位取反，末位+1</p>
 <p>Ⅱ、补码的减法</p>
@@ -265,6 +292,13 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>其实啊，这里的运算的逻辑结构和无符号的减法运算是一样的，通用一套电路，省钱！</p>
 <p>三、原码、反码和补码的特性对比</p>
 <table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 37%" />
+</colgroup>
 <thead>
 <tr>
 <th>8bit</th>
@@ -274,26 +308,27 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>真值0的表示</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>带符号原码</td>
 <td>-127~127</td>
 <td>127</td>
 <td>-127</td>
-<td>+0&#x3D;00000000 -0&#x3D;10000000</td>
+<td>+0=00000000 -0=10000000</td>
 </tr>
 <tr>
 <td>带符号反码</td>
 <td>-127~127</td>
 <td>127</td>
 <td>-127</td>
-<td>+0&#x3D;00000000 -0&#x3D;11111111</td>
+<td>+0=00000000 -0=11111111</td>
 </tr>
 <tr>
 <td>带符号补码</td>
 <td>-128~127</td>
 <td>127</td>
 <td>-128</td>
-<td>-&#x2F;+0&#x3D;00000000 只有这一种</td>
+<td>-/+0=00000000 只有这一种</td>
 </tr>
 <tr>
 <td>无符号整数</td>
@@ -307,44 +342,58 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>-128~127</td>
 <td>127</td>
 <td>-128</td>
-<td>0&#x3D;10000000 只有这一种</td>
+<td>0=10000000 只有这一种</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>原码和反码的合法表示范围完全相同，而且都有两种表示真值0的方法。</p>
 <p>补码的合法表示范围多一个负数，原因就是只有一种0的表示方法，因为-0的补码就是00000000</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031506023.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031506023.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>四、移码，定点小数</p>
 <p>移码：在补码的基础上符号位取反。且移码只能表示整数。表示范围和补码相同。</p>
 <p>移码的作用：<em>移码的作用就是方便计算机比较两个数数值的大小。</em></p>
 <p>定点小数的编码表示：原码、反码、补码。</p>
 <p>运算规则和整数的运算规则一模一样。</p>
 <p>五、电路的基本原理和加法器设计</p>
-<p>Ⅰ、补码&#x2F;无符号整数加减法运算器</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031506100.png" alt="img"></p>
+<p>Ⅰ、补码/无符号整数加减法运算器</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031506100.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>减法运算过程：</p>
 <p>①首先Sub信号置为1；</p>
 <p>②多路选择器的值为1，Y（减数）经过非门，都取反；</p>
 <p>③cin来自低位加1；</p>
 <p>Ⅱ、标志位生成</p>
-<p>①进位标志CF (Carry Flag)只对无符号运算有意义<br>当运算结果的最高有效位有进位（加法）或借位（减法）时，进位标志置1，</p>
-<p>即CF &#x3D; 1；否则CF&#x3D; 0。</p>
-<p>49H + 6DH＝B6H，　没有进位：CF &#x3D; 0</p>
-<p>BBH + 6AH＝（1）25H，有进位：CF &#x3D; 1</p>
-<p>②零标志ZF (Zero Flag)<br>若运算结果为0，则ZF &#x3D; 1；否则ZF &#x3D; 0</p>
-<p>49H + 6DH＝B6H，结果不是零：ZF &#x3D; 0</p>
-<p>75H + 8BH＝（1）00H，结果是零：ZF &#x3D; 1</p>
-<p>③符号标志SF (Sign Flag)只对有符号运算有意义<br>运算结果最高位为1，则SF &#x3D; 1；否则SF &#x3D; 0</p>
-<p>49H + 6DH＝B6H&#x3D;10110110B，SF&#x3D;1</p>
-<p>④溢出标志OF (Overflow Flag)只对有符号运算有意义<br>若算术运算的结果有溢出，则OF＝1；否则 OF＝0</p>
-<p>49H + 6DH ＝B6H，产生溢出：OF &#x3D; 1</p>
-<p>75H + 8BH ＝（1）26H，没有溢出：OF &#x3D; 0</p>
+<p>①进位标志CF (Carry Flag)只对无符号运算有意义
+当运算结果的最高有效位有进位（加法）或借位（减法）时，进位标志置1，</p>
+<p>即CF = 1；否则CF= 0。</p>
+<p>49H + 6DH＝B6H，　没有进位：CF = 0</p>
+<p>BBH + 6AH＝（1）25H，有进位：CF = 1</p>
+<p>②零标志ZF (Zero Flag) 若运算结果为0，则ZF = 1；否则ZF = 0</p>
+<p>49H + 6DH＝B6H，结果不是零：ZF = 0</p>
+<p>75H + 8BH＝（1）00H，结果是零：ZF = 1</p>
+<p>③符号标志SF (Sign Flag)只对有符号运算有意义 运算结果最高位为1，则SF =
+1；否则SF = 0</p>
+<p>49H + 6DH＝B6H=10110110B，SF=1</p>
+<p>④溢出标志OF (Overflow Flag)只对有符号运算有意义
+若算术运算的结果有溢出，则OF＝1；否则 OF＝0</p>
+<p>49H + 6DH ＝B6H，产生溢出：OF = 1</p>
+<p>75H + 8BH ＝（1）26H，没有溢出：OF = 0</p>
 <p>进位CF和溢出OF位有什么区别呢？</p>
 <p>进位标志表示无符号数运算结果是否超出范围，运算结果仍然正确，对有符号位加减法无意义。</p>
 <p>溢出标志表示有符号数运算结果是否超出范围，运算结果已经不正确，对无符号加减无意义。</p>
 <p>溢出的判断判断运算结果是否溢出有一个简单的规则：</p>
 <p>只有当两个相同符号数相加（包括不同符号数相减），而运算结果的符号与原数据符号相反时，产生溢出；因为，此时的运算结果显然不正确其他情况下，则不会产生溢出</p>
-<p>1.当两个符号相同的数相加，结果的符号与之相反，则OF&#x3D;1,否则OF&#x3D;0.</p>
-<p>2.当两个符号不同的数相减，结果的符号与减数相同，则OF&#x3D;1,否则OF&#x3D;0.</p>
+<p>1.当两个符号相同的数相加，结果的符号与之相反，则OF=1,否则OF=0.</p>
+<p>2.当两个符号不同的数相减，结果的符号与减数相同，则OF=1,否则OF=0.</p>
 <p>六、定点数的移位运算</p>
 <ul>
 <li>左移1位相当于×2，右移1位相当于÷2</li>
@@ -354,19 +403,26 @@ btf.addGlobalFn('pjaxComplete', () => {
 </ul>
 <p>七、原码补码的乘法除法运算</p>
 <p>Ⅰ、原码的一位乘法</p>
-<p>符号位通过异或确定；数值部分通过被乘数和乘数绝对值的n轮加法、移位完成，根据当前乘数中参与运算的位确定（ACC）加什么。若当运算位&#x3D;1，则（ACC）+[|x|],若为0，则(ACC)+1。每轮加法完成后，ACC,MQ的内容统一逻辑右移。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/!%5Bimg%5D(https:/pic1.zhimg.com/80/v2-391e106f8411d22834924628fce767cc_720w.webp" alt="img"></p>
+<p>符号位通过异或确定；数值部分通过被乘数和乘数绝对值的n轮加法、移位完成，根据当前乘数中参与运算的位确定（ACC）加什么。若当运算位=1，则（ACC）+[|x|],若为0，则(ACC)+1。每轮加法完成后，ACC,MQ的内容统一逻辑右移。</p>
+<p>![img](<img
+src="https://pic1.zhimg.com/80/v2-391e106f8411d22834924628fce767cc_720w.webp"
+alt="img" /></p>
 <p>先ACC初始化。x置于通用寄存器中，y置于MQ。</p>
 <p>Ⅱ、补码的一位乘法</p>
 <p>原码一位乘法和补码一位乘法的不同点</p>
 <table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
 <thead>
 <tr>
 <th>原码一位乘法</th>
 <th>补码一位乘法</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>进行n轮的加法、移位</td>
 <td>进行n轮加法，移位，最后再多来一次加法</td>
 </tr>
@@ -382,14 +438,20 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>符号位不参与运算</td>
 <td>符号位参与运算</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>会添加一位辅助位</li>
-<li>辅助位-MQ中“最低位”&#x3D;1时，(ACC)+[X)]补</li>
-<li>辅助位-MQ中“最低位”&#x3D;0时，(ACC)+0</li>
-<li>辅助位-MQ中“最低位”&#x3D;-1时，(ACC)+[-X]补</li>
+<li>辅助位-MQ中“最低位”=1时，(ACC)+[X)]补</li>
+<li>辅助位-MQ中“最低位”=0时，(ACC)+0</li>
+<li>辅助位-MQ中“最低位”=-1时，(ACC)+[-X]补</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031507791.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031507791.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>八、C语言类型转换和数据存储排列</p>
 <ul>
 <li>C语言中定点整数是用”补码“存储的。</li>
@@ -397,62 +459,107 @@ btf.addGlobalFn('pjaxComplete', () => {
 <li>长整数变为短整数：高位截断，保留低位。</li>
 <li>短整数变长整数：若为有符号数，在符号位和数值位添1，若为无符号，直接在高位添0。</li>
 <li>大小端模式：大端方式便于人类阅读；小段方式便于机器处理，因为机器最先读入的就是最应被处理的数据。</li>
-<li>边界对齐：假设存储字长为32位，则1个字&#x3D;32bit,半字&#x3D;16bit。每次访存只能读&#x2F;写1个字。若采用边界对齐的方式，则访问一个字&#x2F;半字都需要一次访存，虽然会造成一点点的空间浪费。采用不对齐的方式，对空间利用率高，但是可能会涉及到两次访存时间大大增加。</li>
+<li>边界对齐：假设存储字长为32位，则1个字=32bit,半字=16bit。每次访存只能读/写1个字。若采用边界对齐的方式，则访问一个字/半字都需要一次访存，虽然会造成一点点的空间浪费。采用不对齐的方式，对空间利用率高，但是可能会涉及到两次访存时间大大增加。</li>
 </ul>
 <p>九、浮点数的表示和运算</p>
 <p>Ⅰ、概念：之前我们学习了定点数，其中「定点」指的是约定小数点位置固定不变。那浮点数的「浮点」就是指，其小数点的位置是可以是<strong>漂浮不定</strong>的。</p>
 <p>Ⅱ、表示：阶符表示的是阶码正负，尾数的数符表示的是尾数正负。</p>
 <p>阶码：常用补码或移码表示的定点整数，反映表示范围。</p>
 <p>尾数：常用原码或补码表示的定点小数，反映精度。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031508462.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031508462.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>Ⅲ、<strong>规格化：规定尾数的最高位必须是有效位</strong>。</p>
 <p>①”有效位“又分两种情况。分为尾数是补码表示还是原码表示</p>
 <p>原码表示的尾数视格化：<strong>尾数的最高数值位必须是1</strong></p>
 <p>补码表示的尾数规格化：<strong>尾数最高数值位必须和尾数符号位相反</strong></p>
 <p>②左规：当浮点数运算的结果为非规格化时要进行规格化处理，将尾数算数左移一位，阶码减1。</p>
 <blockquote>
-<p>b&#x3D; 22×(+0.01001)&#x3D;21×(+0.10010) #尾数最高位为0，左规</p>
+<p>b= 22×(+0.01001)=21×(+0.10010) #尾数最高位为0，左规</p>
 </blockquote>
 <p>右规：当<strong>浮点数运算的结果尾数出现溢出（双符号位为01或10）时</strong>，将尾数算数右移一位，阶码加1。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031509567.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031509567.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>采用双符号位，当发生溢出时（双符号位为01或10），可以采用右规，更高位的符号位是正确的符号位。</p>
 <p>③虽然浮点数的范围和精度也有限，但其范围和精度都已非常之大，所以在计算机中，对于小数的表示我们通常会使用浮点数来存储。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031509929.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031509929.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>十、IEEE 754</p>
-<p>背景：在浮点数提出的早期，各个计算机厂商各自制定自己的浮点数规则，导致不同厂商对于同一个数字的浮点数表示各不相同，在计算时还需要先进行转换才能进行计算。后来 IEEE 组织提出了浮点数的标准，统一了浮点数的格式，并规定了单精度浮点数 float 和双精度浮点数 double，从此以后各个计算机厂商统一了浮点数的格式，一直延续至今。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031510372.png" alt="img"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031510737.png" alt="img"></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031511298.png" alt="img"></p>
+<p>背景：在浮点数提出的早期，各个计算机厂商各自制定自己的浮点数规则，导致不同厂商对于同一个数字的浮点数表示各不相同，在计算时还需要先进行转换才能进行计算。后来
+IEEE 组织提出了浮点数的标准，统一了浮点数的格式，并规定了单精度浮点数
+float 和双精度浮点数
+double，从此以后各个计算机厂商统一了浮点数的格式，一直延续至今。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031510372.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031510737.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031511298.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>十一、浮点数运算（重点）</p>
 <p>现代计算机表示数的方法通常都是浮点数了，所以这节很重要。</p>
 <p>①对阶：小阶向大阶靠齐，方便计算机对尾数进行处理。</p>
 <p>②尾数加减：尾数常规加减。</p>
 <p>③规格化：如果尾数加减出现类似0.0099517× 1012 时，需要“左规”；</p>
 <p>如果尾数加减出现类似99.517107× 1012 时，需要“右规”。</p>
-<p>④舍入：尾数位数有限，若规定只能保留6位有效尾数，则9.9517107× 1012 →9.95171× 1012 (多余的直接砍掉)或者，9.9517107× 1012 →9.95172× 1012 （若砍掉分非0，则入1)或者，也可以采用四舍五入的原则，当舍弃位≥5时，高位入1。</p>
+<p>④舍入：尾数位数有限，若规定只能保留6位有效尾数，则9.9517107× 1012
+→9.95171× 1012 (多余的直接砍掉)或者，9.9517107× 1012 →9.95172× 1012
+（若砍掉分非0，则入1)或者，也可以采用四舍五入的原则，当舍弃位≥5时，高位入1。</p>
 <p>⑤判溢出：若规定阶码不能超过两位，则运算后阶码超出范围，则溢出。</p>
-<p>如：9.85211× 1099 +9.96007× 1099 &#x3D;19.81218× 1099 规格化并用四舍五入的原则保留6位尾数，得1.98122× 10100 ,阶码超过两位，溢出。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031511692.png" alt="img"></p>
+<p>如：9.85211× 1099 +9.96007× 1099 =19.81218× 1099
+规格化并用四舍五入的原则保留6位尾数，得1.98122× 10100
+,阶码超过两位，溢出。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031511692.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>强制类型转化：</p>
 <p>无损：char-&gt;int-&gt;long-&gt;double</p>
 <p>float-&gt;double</p>
 <p>有损：int-&gt;float,可能会损失精度</p>
 <p>float-&gt;int，可能会溢出，也可能会损失精度</p>
-<h2 id="第三章-存储系统"><a href="#第三章-存储系统" class="headerlink" title="第三章 存储系统"></a>第三章 存储系统</h2><h3 id="第一节-存储器概述"><a href="#第一节-存储器概述" class="headerlink" title="第一节 存储器概述"></a>第一节 存储器概述</h3><p>一、存储器的层次结构</p>
+<h2 id="第三章-存储系统">第三章 存储系统</h2>
+<h3 id="第一节-存储器概述">第一节 存储器概述</h3>
+<p>一、存储器的层次结构</p>
 <p>寄存器-&gt;Cache-&gt;主存-&gt;辅存-&gt;外存</p>
 <p>Cache-主存：解决了主存与CPU速度不匹配的问题。</p>
 <p>主存-辅存：实现虚拟存储系统，解决了主存容量不够的问题。</p>
 <p>※辅存中的数据要调入到主存才能被CPU访问</p>
 <p>二、存储器的分类</p>
 <p>Ⅰ、按照存取方式：分为随机存取存储器（RAM），如内存；顺序存取存储器（SAM），如磁带；直接存取存储器（DAM），如磁盘；相联存储器（可按内容访问的存储器，CAM），如快表。</p>
-<p>Ⅱ、按信息是否可改：分为读&#x2F;写存储器和只读存储器（ROM）</p>
+<p>Ⅱ、按信息是否可改：分为读/写存储器和只读存储器（ROM）</p>
 <p>Ⅲ、断电后是否消失：分为易失性存储器，如内存、Cache；非易失性存储器，如磁盘、光盘</p>
 <p>三、存储器的性能指标</p>
 <p>1.存储容量：存储字数×字长</p>
-<p>2.单位成本：每位价格&#x3D;总成本&#x2F;总容量</p>
-<p>3.存储速度：数据传输率&#x3D;数据的宽带&#x2F;存储周期</p>
-<p>存储周期&#x3D;存取时间+恢复时间</p>
-<h3 id="第二节-主存储器"><a href="#第二节-主存储器" class="headerlink" title="第二节 主存储器"></a>第二节 主存储器</h3><p>一、SRAM和DRAM</p>
+<p>2.单位成本：每位价格=总成本/总容量</p>
+<p>3.存储速度：数据传输率=数据的宽带/存储周期</p>
+<p>存储周期=存取时间+恢复时间</p>
+<h3 id="第二节-主存储器">第二节 主存储器</h3>
+<p>一、SRAM和DRAM</p>
 <p>一个静态RAM，一个动态RAM。动态的用于主存，静态的用于Cache</p>
 <p>SRAM和DRAM的差别</p>
 <table>
@@ -463,7 +570,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>DRAM</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>存储信息</td>
 <td>触发器</td>
 <td>电容</td>
@@ -513,35 +621,56 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>常用作Cache</td>
 <td>常用作主存</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>二、ROM只读存储器</p>
 <p>RAM芯片——易失性，断电后数据消失</p>
 <p>ROM芯片——非易失性，断电后数据不会消失</p>
 <p>①MROM——掩模式只读存储器：任何人都不可重写</p>
 <p>②PROM——可编程只读存储器：写一次后就不可更改</p>
 <p>③EPROM——可擦除可编程只读存储器：可进行多次重写，写入时间很长</p>
-<p>④Flash Memory——闪速存储器：可进行多次快速擦除重写，但写的速度比读的速度慢</p>
+<p>④Flash
+Memory——闪速存储器：可进行多次快速擦除重写，但写的速度比读的速度慢</p>
 <p>⑤SSD——固态硬盘：可进行多次快速擦除重写，目前个人电脑大都市这种。速度快，功耗低，价格高。</p>
-<h3 id="第三节-主存储器与CPU的连接"><a href="#第三节-主存储器与CPU的连接" class="headerlink" title="第三节 主存储器与CPU的连接"></a>第三节 主存储器与CPU的连接</h3><p>一、单块存储器与CPU连接</p>
+<h3 id="第三节-主存储器与cpu的连接">第三节 主存储器与CPU的连接</h3>
+<p>一、单块存储器与CPU连接</p>
 <p>Ⅰ、连接原理：主存器通过数据总线，地址总线和控制总线与CPU连接。</p>
 <p>地址总线的位数决定了可寻址的最大内存空间。</p>
 <p>控制总线指出总线周期类型和本次输入输出操作完成的时刻。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031511879.png" alt="img">主存储器的线路</p>
+<p><img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031511879.png"
+alt="img" />主存储器的线路</p>
 <p>二、多块存储器与CPU连接</p>
 <p>Ⅰ、位扩展法</p>
 <p>原理：CPU的数据线与存储芯片的数据位数不相等，此时必须使用多个存储器件对字长进行扩位。每个存储器的数据线都并行连接在CPU的数据总线上，而地址位数是串行相连。那CPU传一个地址过来，怎么知道是使用哪个存储芯片呢，此时就要WE来控制使用哪个存储芯片。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512108.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512108.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>Ⅱ、字扩展法</p>
-<p>原理：当主存储器位数不足，字数足够时，我们会通过位扩展的方法来扩展主存储器，将多个字数相同的存储芯片并联起来，增加位数，并且存储空间是连续的。里面还会涉及译码器，主要功能就是增加控制存储器的个数，如有两位地址线连接了译码器，那么译码器可以控制 22 个存储器。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512107.png" alt="img"></p>
+<p>原理：当主存储器位数不足，字数足够时，我们会通过位扩展的方法来扩展主存储器，将多个字数相同的存储芯片并联起来，增加位数，并且存储空间是连续的。里面还会涉及译码器，主要功能就是增加控制存储器的个数，如有两位地址线连接了译码器，那么译码器可以控制
+22 个存储器。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512107.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 44%" />
+</colgroup>
 <thead>
 <tr>
 <th>线选法</th>
 <th>译码片选法</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>n条线n个片选信号</td>
 <td>n条线2的n次方个片选信号</td>
 </tr>
@@ -553,7 +682,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>地址不连续（两位举例，00和11的地址用不到）</td>
 <td>地址连续（00和11的地址也都用到了）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>Ⅲ、字位同时扩展</p>
 <p>原理：而当字数和位数都不足时，我们会通过字位同时扩展的方法来扩展存储器，将多个字数和位数都相同的存储芯片连接起来，同时增加字数和位数。</p>
 <p>Ⅳ、三者比较</p>
@@ -562,8 +692,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>【2018统考真题】假定DRAM芯片中存储阵列的行数为r、列数为c,对于一个2K×1位的DRAM芯片，为保证其地址引脚数最少，并尽量减少刷新开销，则r、c的取值分别是()。</p>
 <p>解：r是行，c是列，为了保证地址引脚数最少，就要求，行列相差小，并且减少刷新开销，则要求行数越小越好。故最终行数位32，列数位64。</p>
 <p>三、多模块存储器</p>
-<p>背景：随着CPU的功能不断增强，I&#x2F;O设备数量不断增多，这也导致了主存的存取速度已成为计算机系统的发展瓶颈。为了解决此问题，除了寻找更高速的原件和采用存储器层次结构外，调整主存的结构也可以提高访存速度，这就涉及到了多模块存储器。</p>
-<p>由于取值周期&#x3D;存取时间+恢复时间。DRAM芯片恢复时间较短，有可能是存取时间的几倍。那怎么半，不能让设备停着吧。那太浪费资源了。</p>
+<p>背景：随着CPU的功能不断增强，I/O设备数量不断增多，这也导致了主存的存取速度已成为计算机系统的发展瓶颈。为了解决此问题，除了寻找更高速的原件和采用存储器层次结构外，调整主存的结构也可以提高访存速度，这就涉及到了多模块存储器。</p>
+<p>由于取值周期=存取时间+恢复时间。DRAM芯片恢复时间较短，有可能是存取时间的几倍。那怎么半，不能让设备停着吧。那太浪费资源了。</p>
 <p>Ⅰ、双端口RAM</p>
 <p>顾名思义，就是利用两个端口实现多核CPU存储，需要有两组完全独立的数据线，地址线，控制线。支持两个CPU同时访问。</p>
 <p>两个端口可以同时对不同单元的地址中取数据，也可以对同一地址单元中读出数据，但是不行同时对同一单元中写入数据，也不能对同一单元一边读一边写入数据。</p>
@@ -571,44 +701,86 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>Ⅱ、单体多字存储器</p>
 <p>原理：原来每行只存放一个存储字，变为每行存放多个存储字，这样原来一次只能读取一个存储字，变为一次能读取多个存储字，这需要数据总线根数变大。</p>
 <p>限制：指令和数据在主存必须是连续存放的。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512562.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512562.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>Ⅲ、多体并行存储器（重点）</p>
-<p>原理：每个模块都有相同的容量和存取速度，各模块都有独立的读写控制电路，地址<a href="https://link.zhihu.com/?target=https://so.csdn.net/so/search?q=%E5%AF%84%E5%AD%98%E5%99%A8&spm=1001.2101.3001.7020" rel="external nofollow noreferrer">寄存器</a>，和数据寄存器，既能并行工作，又能交叉工作（一个模块进入恢复时间，另一个模块进行存取）。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512723.png" alt="img"></p>
-<p>区别：在高位交叉中，由于下一个访问的地址还是在这个存储体上，所以必须等到恢复时间结束后才能继续访问，故不能并行访问。效果也仅仅是扩容。而在低位交叉编制中，下一个访问地址不在同一个存储体上，所以可以交叉访问，不仅扩容还加快了访问速度。当块数m ≥ T&#x2F;r时，能达到最佳存储效率。T为存取周期，r为存取时间。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031513740.png" alt="img"></p>
-<h3 id="第四节-外部存储器"><a href="#第四节-外部存储器" class="headerlink" title="第四节 外部存储器"></a>第四节 外部存储器</h3><p>一、磁盘存储器</p>
+<p>原理：每个模块都有相同的容量和存取速度，各模块都有独立的读写控制电路，地址<a
+href="https://link.zhihu.com/?target=https%3A//so.csdn.net/so/search%3Fq%3D%E5%AF%84%E5%AD%98%E5%99%A8%26spm%3D1001.2101.3001.7020">寄存器</a>，和数据寄存器，既能并行工作，又能交叉工作（一个模块进入恢复时间，另一个模块进行存取）。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031512723.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>区别：在高位交叉中，由于下一个访问的地址还是在这个存储体上，所以必须等到恢复时间结束后才能继续访问，故不能并行访问。效果也仅仅是扩容。而在低位交叉编制中，下一个访问地址不在同一个存储体上，所以可以交叉访问，不仅扩容还加快了访问速度。当块数m
+≥ T/r时，能达到最佳存储效率。T为存取周期，r为存取时间。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031513740.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h3 id="第四节-外部存储器">第四节 外部存储器</h3>
+<p>一、磁盘存储器</p>
 <p>优点：存储容量大，价格低，长期保存而不丢失。</p>
 <p>缺点：存取速度慢，机械结构复杂，对环境要求高。</p>
 <p>磁盘最小的读写单位是一个扇区。</p>
 <p>二、固态存储器SSD（新增考点）</p>
 <p>优点：读写速度快。若要写的页有数据，则不能写入，需要将块内其他页全部复制到一个新的块中，再写入新的页。</p>
 <p>缺点：价格高，一个块被写入多次可能会坏掉（采用平均磨损，对我们来说仍然很耐用）而磁盘不会。</p>
-<h3 id="第五节-高速缓冲存储器（重点）"><a href="#第五节-高速缓冲存储器（重点）" class="headerlink" title="第五节 高速缓冲存储器（重点）"></a>第五节 高速缓冲存储器（重点）</h3><p>一、什么是Cache，为什么要引入Cache？</p>
-<p>Cache存储器也被称为高速缓冲存储器，位于CPU和主存储器之间。之所以在CPU和主存之间要加cache是因为现代的CPU频率大大提高，内存的发展已经跟不上CPU访存的速度。在2001 – 2005年间，处理器时钟频率以每年55%的速度增长，而主存的增长速度只是7%。<strong>在现在的系统中，处理器需要上百个时钟周期才能从主存中取到数据。如果没有cache，处理器在等待数据的大部分时间内将会停滞不动</strong>。</p>
+<h3 id="第五节-高速缓冲存储器重点">第五节 高速缓冲存储器（重点）</h3>
+<p>一、什么是Cache，为什么要引入Cache？</p>
+<p>Cache存储器也被称为高速缓冲存储器，位于CPU和主存储器之间。之所以在CPU和主存之间要加cache是因为现代的CPU频率大大提高，内存的发展已经跟不上CPU访存的速度。在2001
+–
+2005年间，处理器时钟频率以每年55%的速度增长，而主存的增长速度只是7%。<strong>在现在的系统中，处理器需要上百个时钟周期才能从主存中取到数据。如果没有cache，处理器在等待数据的大部分时间内将会停滞不动</strong>。</p>
 <p>二、原理</p>
 <p>采用了程序访问的时间局部性原理和空间局部性原理</p>
 <p>时间局部性：<strong>如果一个数据现在被访问了，那么以后很有可能也会被访问</strong></p>
 <p>空间局部性：<strong>如果一个数据现在被访问了，那么它周围的数据在以后可能也会被访问</strong></p>
 <p>三、多级Cache的由来？</p>
-<p>cache分为L1，L2，L3甚至L4等多级。为什么不能把L1的容量做大，不要其它的cache了？原因在于性能&#x2F;功耗&#x2F;面积（PPA）权衡考虑。L1 cache一般工作在CPU的时钟频率，要求的就是够快，可以在2-4时钟周期内取到数据。L2 cache相对来说是为提供更大的容量而优化的。虽然L1和L2往往都是SRAM，但构成存储单元的晶体管并不一样。L1是为了更快的速度访问而优化过的，它用了更多&#x2F;更复杂&#x2F;更大的晶体管，从而更加昂贵和更加耗电；L2相对来说是为提供更大的容量优化的，用了更少&#x2F;更简单的晶体管，从而相对便宜和省电。在有一些CPU设计中，会用DRAM实现大容量的L3 cache。</p>
+<p>cache分为L1，L2，L3甚至L4等多级。为什么不能把L1的容量做大，不要其它的cache了？原因在于性能/功耗/面积（PPA）权衡考虑。L1
+cache一般工作在CPU的时钟频率，要求的就是够快，可以在2-4时钟周期内取到数据。L2
+cache相对来说是为提供更大的容量而优化的。虽然L1和L2往往都是SRAM，但构成存储单元的晶体管并不一样。L1是为了更快的速度访问而优化过的，它用了更多/更复杂/更大的晶体管，从而更加昂贵和更加耗电；L2相对来说是为提供更大的容量优化的，用了更少/更简单的晶体管，从而相对便宜和省电。在有一些CPU设计中，会用DRAM实现大容量的L3
+cache。</p>
 <p>四、如何区分Cache和主存的数据块对应关系？</p>
 <p>每次被访问的主存块，一定会被立即调入Cache，而且是以块为单位进行调入。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031514944.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031514944.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>那是采用什么方式将主存块号调入到Cache呢？有三种方式</p>
 <p>①全相联映射——主存块可以放在Cache的任意位置。</p>
 <p><strong>那它是如何来访问主存的呢？</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031514675.png" alt="img">)</p>
+<p><img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031514675.png"
+alt="img" />)</p>
 <p>对以上图只要能看懂，对于全相联映射就没什么问题了。做几点说明，CPU在访问主存时，会先对比Cache所有块中的标记Tag，Tag就是在主存中的主存块号，占22位。</p>
-<p>②直接映射——每个主存块只能放在一个特定的位置。Cache块号&#x3D;主存块号%Cache块总数</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031514818.png" alt="img"></p>
+<p>②直接映射——每个主存块只能放在一个特定的位置。Cache块号=主存块号%Cache块总数</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031514818.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>做以下几点说明</p>
 <ul>
 <li>相对于全相联映射，直接映射对<strong>Tag进行了优化</strong>，因为主存块号最后三位地址就是Cache中的位置，所以将主存块号其余位作为标记即可。</li>
-<li>若Cache总块数&#x3D; 2n ,则主存块号末尾n位直接反映它在Cache的位置，所以将主存块号其余位作为标志位即可。</li>
+<li>若Cache总块数= 2n
+,则主存块号末尾n位直接反映它在Cache的位置，所以将主存块号其余位作为标志位即可。</li>
 </ul>
-<p>③组相联映射——Cache块分为若干组，每个主存块可以放到特定分组中的任意一个位置。组号&#x3D;主存块号%分组数</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515265.png" alt="img"></p>
+<p>③组相联映射——Cache块分为若干组，每个主存块可以放到特定分组中的任意一个位置。组号=主存块号%分组数</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515265.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>做以下几点说明</p>
 <ul>
 <li>相对于全相联映射，直接映射对<strong>Tag进行了优化</strong>，因为主存块号最后两位地址就是Cache中的位置，所以将主存块号其余位作为标记即可。</li>
@@ -616,6 +788,12 @@ btf.addGlobalFn('pjaxComplete', () => {
 </ul>
 <p>④三种映射方法对比总结</p>
 <table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 31%" />
+<col style="width: 36%" />
+<col style="width: 18%" />
+</colgroup>
 <thead>
 <tr>
 <th></th>
@@ -624,7 +802,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>组相联</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>特点</td>
 <td>任意位置</td>
 <td>特定位置</td>
@@ -646,9 +825,10 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>缺点</td>
 <td>可以会对比所有行的标记，速度慢</td>
 <td>Cache空间利用不充分</td>
-<td>&#x2F;</td>
+<td>/</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>五、Cache很小，而主存很大，如果Cache满了，是利用了什么替换算法？</p>
 <p>替换条件：对于全相联映射，需要在全局中选择替换哪一块，对于直接映射，若非空，则直接替换，对于组相联，组内满了，则在组内选择替换哪一块。</p>
 <p>Ⅰ、随机算法(RAND)</p>
@@ -659,7 +839,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>Ⅲ、近期最少使用(LRU)</p>
 <p>为每个Cache块设置一个”计数器“，用于记录每个Cache块多久没有被访问了。然后替换”计数器“值最大的。</p>
 <ul>
-<li>计数器的位数&#x3D;Cache块的总数&#x3D; 2n ，只需要n位，且Cache装满后所有计数器的值一定不重复。</li>
+<li>计数器的位数=Cache块的总数= 2n
+，只需要n位，且Cache装满后所有计数器的值一定不重复。</li>
 <li>基于局部性原理，近期被访问的主存块，未来可能仍会被使用，LRU算法实际运行效果优秀。</li>
 <li>若频繁访问的主存块数量&gt;Cache行的数量，则有可能发生”抖动“</li>
 </ul>
@@ -674,24 +855,40 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>Ⅱ、写不命中——写入的时候，不在Cache中</p>
 <p>①写分配法——当CPU对Cache不命中时，把主存中的块调入Cache，在Cache中修改。通常搭配<strong>回写法</strong>使用，改完后要被换出，才在主存中修改。</p>
 <p>②非写分配法——当CPU对Cache写不命中时，只写入主存，不调入Cache，搭配全写法使用。</p>
-<h3 id="第六节-虚拟存储器"><a href="#第六节-虚拟存储器" class="headerlink" title="第六节 虚拟存储器"></a>第六节 虚拟存储器</h3><p>虚拟存储器：在操作系统的管理下，只把当前需要的部分数据调入主存，暂不需要的部分留在辅存中。在用户看来，似乎获得了一个超大的主存。（虚拟性）</p>
+<h3 id="第六节-虚拟存储器">第六节 虚拟存储器</h3>
+<p>虚拟存储器：在操作系统的管理下，只把当前需要的部分数据调入主存，暂不需要的部分留在辅存中。在用户看来，似乎获得了一个超大的主存。（虚拟性）</p>
 <p>一、页式虚拟存储器</p>
 <p>背景：CPU执行的机器指令中，使用的是”逻辑地址“，因此需要通过”页表“将逻辑地址转为物理地址。</p>
 <p>一个程序在逻辑上被分为若干个大小相等的”页面“，”页面“大小与”块“的大小相同。每个页面可以离散的存放在不同主存块中。</p>
 <p>页表的作用：记录了每个逻辑页面存放在哪个主存块中。</p>
 <p>无快表：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515837.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515837.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <ul>
-<li>逻辑地址&#x3D;逻辑页号+页内地址</li>
-<li>物理地址&#x3D;主存块号+页内地址</li>
+<li>逻辑地址=逻辑页号+页内地址</li>
+<li>物理地址=主存块号+页内地址</li>
 </ul>
 <p>增加快表（存放在Cache中，先访问快表，若未命中，则去访问主存中的慢表）</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515658.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515658.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <ul>
 <li>快表查询速度很快，若快表中无，则会去慢表中查找，会把相应的内容存入快表中</li>
 </ul>
 <p><strong>清楚整个查找流程</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515288.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031515288.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>二、段式虚拟存储（按功能拆分成大小不同的模块）</p>
 <p>按照功能模块拆分不同的模块大小。</p>
 <p>虚拟地址：段号+段内地址</p>
@@ -703,13 +900,18 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>优点是兼具段式和页式的优点缺点是需要查两次表，系统开销较大。</p>
 <p>四、虚拟存储器与Cache的比较</p>
 <table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 60%" />
+</colgroup>
 <thead>
 <tr>
 <th>Cache</th>
 <th>虚拟存储器</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>解决CPU与主存速度不匹配的问题</td>
 <td>解决主存容量的问题</td>
 </tr>
@@ -725,16 +927,22 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>不命中时，主存直接与CPU通信</td>
 <td>不命中时，不能直接和CPU通信，要先硬盘调入主存</td>
 </tr>
-</tbody></table>
-<h3 id="题目总结：-1"><a href="#题目总结：-1" class="headerlink" title="题目总结："></a>题目总结：</h3><p>【2015统考真题】假定主存地址为32位，按字节编址，主存和Cache之间采用直接映射方式，主存块大小为4个字，每字32位，采用回写方式，则能存放4K字数据的Cache的总容量的位数至少是()</p>
+</tbody>
+</table>
+<h3 id="题目总结-1">题目总结：</h3>
+<p>【2015统考真题】假定主存地址为32位，按字节编址，主存和Cache之间采用直接映射方式，主存块大小为4个字，每字32位，采用回写方式，则能存放4K字数据的Cache的总容量的位数至少是()</p>
 <ul>
 <li>Cache的容量分为两个部分一个是数据存储容量+标记阵列容量</li>
-<li>标记阵列中一定包含有效位和标记位，若为回写法，则还存在一位的”脏位“，若为LRU、LFU替换算法，则还存在替换算法位（计数器）位数为 log2n ,n为Cache的个数。</li>
-<li>本题按照字节编址，则块内地址占4位，采用直接映射方法中的标志位为32-4-10&#x3D;18，Tag&#x3D;18。</li>
-<li>采用回写法，有一位脏位，故最终标记项有18+1+1&#x3D;20</li>
-<li>标记阵列容量为 210 ×20&#x3D;20K，数据储存容量为4K×32&#x3D;128K，故总的为148K。</li>
+<li>标记阵列中一定包含有效位和标记位，若为回写法，则还存在一位的”脏位“，若为LRU、LFU替换算法，则还存在替换算法位（计数器）位数为
+log2n ,n为Cache的个数。</li>
+<li>本题按照字节编址，则块内地址占4位，采用直接映射方法中的标志位为32-4-10=18，Tag=18。</li>
+<li>采用回写法，有一位脏位，故最终标记项有18+1+1=20</li>
+<li>标记阵列容量为 210
+×20=20K，数据储存容量为4K×32=128K，故总的为148K。</li>
 </ul>
-<h2 id="第四章-指令系统"><a href="#第四章-指令系统" class="headerlink" title="第四章 指令系统"></a>第四章 指令系统</h2><h3 id="第一节-指令格式"><a href="#第一节-指令格式" class="headerlink" title="第一节 指令格式"></a>第一节 指令格式</h3><p>指令概念：又称机器指令，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。</p>
+<h2 id="第四章-指令系统">第四章 指令系统</h2>
+<h3 id="第一节-指令格式">第一节 指令格式</h3>
+<p>指令概念：又称机器指令，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。</p>
 <p>一条指令就是机器语言的一个语句，一条指令通常要包括操作码和地址码两部分：操作码主要指明用户干什么，地址码主要指明对谁操作。</p>
 <p>一、指令分类</p>
 <p>按操作数个数分：</p>
@@ -752,7 +960,12 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>二、扩展操作码指令格式（考点：会设计指令系统）</p>
 <p>概念：指令是定长的，但是操作码的长度可变。</p>
 <p>通常情况下，使用频率高的指令使用短的操作码，减少指令译码和分析的时间。而使用频率低的指令使用长的操作码</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516505.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516505.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>定长指令和扩展操作码的比较</p>
 <table>
 <thead>
@@ -762,7 +975,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>扩展操作码</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>优点</td>
 <td>硬件设计简单，识别速度快</td>
 <td>在指令长度限制下仍有丰富指令</td>
@@ -772,10 +986,12 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>指令难以增加，不灵活</td>
 <td>增加指令译码和分析难度，速度慢</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>【2017统考真题】某计算机按字节编址，指令字长固定且只有两种指令格式，其中三地址指令29条、二地址指令107条，每个地址字段为6位，则指令字长至少应该是()。</p>
-<p>解答：三地址29条需要的位数是5位，多出3位，而107条需要6位。故总共5+6+12&#x3D;23，因为按照字节编址，所以最少需要24位。</p>
-<h3 id="第二节-寻址方式（重点）"><a href="#第二节-寻址方式（重点）" class="headerlink" title="第二节 寻址方式（重点）"></a>第二节 寻址方式（重点）</h3><p>一、指令寻址（由PC指出）</p>
+<p>解答：三地址29条需要的位数是5位，多出3位，而107条需要6位。故总共5+6+12=23，因为按照字节编址，所以最少需要24位。</p>
+<h3 id="第二节-寻址方式重点">第二节 寻址方式（重点）</h3>
+<p>一、指令寻址（由PC指出）</p>
 <p>Ⅰ、顺序寻址</p>
 <p>PC+”1“，这里的1指指令字长，每次取值结束后PC会+1</p>
 <p>Ⅱ、跳跃寻址</p>
@@ -783,6 +999,13 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>二、数据寻址（由本条指令的地址码指明真实地址）</p>
 <p>非偏移指令</p>
 <table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 28%" />
+<col style="width: 16%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
 <thead>
 <tr>
 <th>寻址方式</th>
@@ -792,7 +1015,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>访存次数（指令执行期间）</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>直接寻址</td>
 <td>操作数的真实地址</td>
 <td>简单</td>
@@ -834,33 +1058,54 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>限制操作数范围</td>
 <td>0</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>偏移寻址（重中之重）</p>
 <p>指令执行过程中，都会在将运算结果放入主存中，涉及一次访存。</p>
 <p>Ⅰ、基址寻址</p>
-<p>将CPU中基址寄存器(BR)&#x2F;通用寄存器的内容加上指令格式中的形式地址A，而形成操作数的有效地址，即EA&#x3D;(BR)+A</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516686.png" alt="img"></p>
-<p>※采用通用寄存器作为基址寄存器 R0 的位数，根据通用寄存器的总数判断，程序运行前，CPU将BR的值修改为该程序的起始地址。</p>
+<p>将CPU中基址寄存器(BR)/通用寄存器的内容加上指令格式中的形式地址A，而形成操作数的有效地址，即EA=(BR)+A</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516686.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>※采用通用寄存器作为基址寄存器 R0
+的位数，根据通用寄存器的总数判断，程序运行前，CPU将BR的值修改为该程序的起始地址。</p>
 <ul>
 <li>基址寄存器是面向操作系统的，其内容由<strong>操作系统或管理程序</strong>确定。用户无法修改，在程序执行过程中，基址寄存器的内容不变（作为基地址），形式地址可变（作为偏移量）。</li>
 <li>当采用通用寄存器作为基址寄存器时，可由用户决定哪个寄存器作为基址寄存器，但其内容仍由<strong>操作系统</strong>确定。</li>
 <li>优点：可扩大寻址范围（基址寄存器的位数大于形式地址A的位数）</li>
 </ul>
 <p>Ⅱ、变址寻址</p>
-<p>有效地址EA等于指令字中的形式地址A与变址寄存器IX的内容相加之和，即EA&#x3D; (IX)+A，其中IX可为变址寄存器（专用），也可用通用寄存器作为变址寄存器 。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516473.png" alt="img"></p>
+<p>有效地址EA等于指令字中的形式地址A与变址寄存器IX的内容相加之和，即EA=
+(IX)+A，其中IX可为变址寄存器（专用），也可用通用寄存器作为变址寄存器
+。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516473.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <ul>
 <li>变址寄存器是面向用户的，在执行过程中，变址寄存器的内容可由用户改变（IX作为偏移量），形式地址A不变（作为基地址）。刚好与基址寻址相反。</li>
 <li>在针对<strong>数组处理</strong>过程中，不断改变IX的值，便很容易形成数组中任一数据的地址，特别适合<strong>编制循环程序</strong>。</li>
-<li>基址变址复合执行。EA&#x3D;(IX)+(BR)+A。</li>
+<li>基址变址复合执行。EA=(IX)+(BR)+A。</li>
 </ul>
 <p>Ⅲ、相对寻址</p>
-<p>相对寻址：把程序计数器PC的内容加上指令格式中的形式地址A而形成操作数的有效地址，即EA&#x3D;(PC)+A，其中A是相对于PC所指地址的位移量，可正可负，补码表示 。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516876.png" alt="img"></p>
+<p>相对寻址：把程序计数器PC的内容加上指令格式中的形式地址A而形成操作数的有效地址，即EA=(PC)+A，其中A是相对于PC所指地址的位移量，可正可负，补码表示
+。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031516876.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <ul>
 <li>优点：这段代码在程序内浮动时不用更改跳转指令的地址码</li>
 <li>相对寻址广泛应用于转移指令</li>
-<li>注意：对于JMP A转移指令，当从CPU中取出一字节时，会自动执行PC+1。若指令的地址为X，且占2B，在取出该指令后，会自定跳转到X+2+A。</li>
+<li>注意：对于JMP
+A转移指令，当从CPU中取出一字节时，会自动执行PC+1。若指令的地址为X，且占2B，在取出该指令后，会自定跳转到X+2+A。</li>
 </ul>
 <p>堆栈寻址</p>
 <p>操作数存放在堆栈中，隐含使用堆栈指针作为操作数地址。</p>
@@ -868,11 +1113,14 @@ btf.addGlobalFn('pjaxComplete', () => {
 <li>硬堆栈是将寄存器作为栈，成本很高；软堆栈是将主存作为栈，成本低。</li>
 <li>硬堆栈不访存，软堆栈访存一次</li>
 </ul>
-<h3 id="第三节-高级语言程序与机器级代码之间的对应"><a href="#第三节-高级语言程序与机器级代码之间的对应" class="headerlink" title="第三节 高级语言程序与机器级代码之间的对应"></a>第三节 高级语言程序与机器级代码之间的对应</h3><p>一、基本概念</p>
+<h3 id="第三节-高级语言程序与机器级代码之间的对应">第三节
+高级语言程序与机器级代码之间的对应</h3>
+<p>一、基本概念</p>
 <ul>
 <li>对操作数的操作地址只涉及三种：寄存器到寄存器，主存到寄存器，立即数到寄存器。</li>
 <li>dword 32bit ；word 16bit ；byte 8bit</li>
-<li>通用寄存器 eax ebx ecx edx 变址寄存器 esi edi 堆栈寄存器 ebp esp。</li>
+<li>通用寄存器 eax ebx ecx edx 变址寄存器 esi edi 堆栈寄存器 ebp
+esp。</li>
 </ul>
 <p>二、选择结构语句的机器级表示</p>
 <table>
@@ -882,7 +1130,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>jump when equal,</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>jne</td>
 <td>jump when not equal,</td>
 </tr>
@@ -902,17 +1151,34 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>jle</td>
 <td>jump when less or equal</td>
 </tr>
-</tbody></table>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517444.png" alt="img"></p>
+</tbody>
+</table>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517444.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>例如</p>
 <blockquote>
-<p>cmp eax ,ebx #比较寄存器eax和ebx里的值<br>jg NEXT #若eax&gt;ebx，则跳转到NEXT</p>
+<p>cmp eax ,ebx #比较寄存器eax和ebx里的值 jg NEXT
+#若eax&gt;ebx，则跳转到NEXT</p>
 </blockquote>
 <p>三、循环结构语句的机器级表示</p>
 <p>用条件指令实现循环</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517116.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517116.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>用loop指令实现循环</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517380.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517380.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>就是将”某些处理“封装到了Looptop内，使得代码更加简洁。</p>
 <p>四、CISC和RISC</p>
 <table>
@@ -923,7 +1189,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>RISC</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>指令系统</td>
 <td>复杂，庞大</td>
 <td>简单，精简</td>
@@ -941,7 +1208,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <tr>
 <td>可访存指令</td>
 <td>没有限制</td>
-<td>只有Load&#x2F;Store指令</td>
+<td>只有Load/Store指令</td>
 </tr>
 <tr>
 <td>各种指令执行时间</td>
@@ -968,38 +1235,72 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>可以通过一定方式实现</td>
 <td>必须实现</td>
 </tr>
-</tbody></table>
-<h2 id="第五章-中央处理器"><a href="#第五章-中央处理器" class="headerlink" title="第五章 中央处理器"></a>第五章 中央处理器</h2><h3 id="第一节-CPU"><a href="#第一节-CPU" class="headerlink" title="第一节 CPU"></a>第一节 CPU</h3><p>一、CPU的结构</p>
+</tbody>
+</table>
+<h2 id="第五章-中央处理器">第五章 中央处理器</h2>
+<h3 id="第一节-cpu">第一节 CPU</h3>
+<p>一、CPU的结构</p>
 <p>CPU由运算器和控制器组成。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517284.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517284.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>二、CPU的功能</p>
 <p>指令控制、操作控制、时间控制、数据加工、中断处理。</p>
 <p>运算器的功能：对数据加工</p>
 <p>控制器的功能：取指令、分析指令、执行指令</p>
-<h3 id="第二节-指令执行过程"><a href="#第二节-指令执行过程" class="headerlink" title="第二节 指令执行过程"></a>第二节 指令执行过程</h3><p>在指令周期中，包含了：取指周期，在取指周期后需要判断是否有间址周期，如果没有就进入到执行周期，在执行周期后又需要判断是否有中断程序，如果有就响应中断并保存断点生成中断服务程序入口；如果没有就进入下一个取指周期。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517776.png" alt="img"></p>
+<h3 id="第二节-指令执行过程">第二节 指令执行过程</h3>
+<p>在指令周期中，包含了：取指周期，在取指周期后需要判断是否有间址周期，如果没有就进入到执行周期，在执行周期后又需要判断是否有中断程序，如果有就响应中断并保存断点生成中断服务程序入口；如果没有就进入下一个取指周期。</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031517776.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <blockquote>
 <p>四个周期都有CPU访存操作，只是访存目的不同。取值周期是取指令；间址周期是取有效地址；执行周期是为了取操作数；中断周期是为了保存程序断点。</p>
 </blockquote>
 <p>指令周期常常有若干个机器周期，机器周期里面又包含若干个时钟周期。每个指令周期内的机器周期可以不同，机器周期内的时钟周期也可以不同。时钟周期是CPU操作的最基本单位。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518441.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518441.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>一、取值周期</p>
 <p>取指周期：取指周期的任务是根据PC中的内容从主存中取出指令代码并存放在IR中。而PC中存放的是指令的地址，根据这个地址从内存单元取出的是指令，并放在指令寄存器IR中，取指令的同时，PC加1。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518073.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518073.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>二、间址周期</p>
 <p>间址周期：间址周期的任务是取操作数有效地址，以一次间址为例，将指令中的地址码送到MAR并送至地址总线，此后CU向存储器发读命令，以获取有效地址并存至MDR。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518137.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518137.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>三、执行周期</p>
 <p>执行周期：执行周期的任务是根据IR中的指令字的操作码和操作数通过ALU操作产生执行结果。不同指令的执行周期操作不同，因此没有统一的数据流向。</p>
 <p>指令执行方案：</p>
 <table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 85%" />
+</colgroup>
 <thead>
 <tr>
 <th>单指令周期</th>
 <th>所有指令选用相同的执行时间（取决于最长指令执行时间），指令间串行，但原本只需要很短时间完成指令也分配了很长时间，降低整个系统运行速度</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>多指令周期</td>
 <td>对不同指令选用不同的执行时间，需要更复杂的硬件设计，指令间是串行</td>
 </tr>
@@ -1007,13 +1308,21 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>流水线</td>
 <td>在每个时钟周期让多个指令同时运行，指令间是并行</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>四、中断周期</p>
 <p>中断周期：中断周期的任务是处理中断请求。假设程序断点存入堆栈中，并用SP指示栈顶地址，而且进栈操作是先修改栈顶指针，后存入数据。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518284.png" alt="img"></p>
-<h3 id="第三节-数据通路的功能和基本结构"><a href="#第三节-数据通路的功能和基本结构" class="headerlink" title="第三节 数据通路的功能和基本结构"></a>第三节 数据通路的功能和基本结构</h3><p>一、数据通路的基本结构</p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518284.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h3 id="第三节-数据通路的功能和基本结构">第三节
+数据通路的功能和基本结构</h3>
+<p>一、数据通路的基本结构</p>
 <p>Ⅰ：CPU内部单总线方式。将所有寄存器的输入端和输出端都连接在一条公共通路上。易发生冲突。</p>
-<p>Ⅱ：双总线&#x2F;多总线方式。多个总线上传不同的数据，提高效率。</p>
+<p>Ⅱ：双总线/多总线方式。多个总线上传不同的数据，提高效率。</p>
 <p>Ⅲ：专用数据通路方式。专门给某些部件设计通路。性能很高但是硬件量大。</p>
 <p>说明：</p>
 <p>①对于单总线的连接方式来说，ALU只能有一端与总线相连，因为两端相连就必会发生冲突。所以另一段要设计一个暂存器，先把数据放入暂存器，暂存器再与总线相连。</p>
@@ -1025,15 +1334,24 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>是指同一部件，如CPU内部连接各个寄存器及运算部件之间的总线</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>系统总线</td>
-<td>指同一台计算机的各部件，如CPU，主存，I&#x2F;O之间连接的总线</td>
+<td>指同一台计算机的各部件，如CPU，主存，I/O之间连接的总线</td>
 </tr>
-</tbody></table>
-<h3 id="第四节-控制器的功能和工作原理"><a href="#第四节-控制器的功能和工作原理" class="headerlink" title="第四节 控制器的功能和工作原理"></a>第四节 控制器的功能和工作原理</h3><p>一、硬布线控制器</p>
+</tbody>
+</table>
+<h3 id="第四节-控制器的功能和工作原理">第四节
+控制器的功能和工作原理</h3>
+<p>一、硬布线控制器</p>
 <p><em>多提一嘴，一定要看看王道视频是如何设计出组合逻辑图的，我保证看完一定会有颠覆性的收获。</em></p>
 <p><strong>根据指令操作码、目前的机器周期、节拍信号、机器状态条件，即可确定现在这个节拍应该发出哪些”微命令“</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518649.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031518649.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>硬布线控制器的特点：</p>
 <ul>
 <li>指令越多，设计和实现就越复杂（逻辑图很复杂），因此一般使用RISC。</li>
@@ -1044,18 +1362,21 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>要求：会基本概念微命令与微操作，微指令与微周期，主存储器与控制存储器，程序与微程序，MAR与CMAR，IR与CMDR。还会一些基本结构，比如为地址形成部件，微地址寄存器CMAR，微指令寄存器CMDR,控制存储器CM。</p>
 <ul>
 <li><strong>微命令</strong>：控制器部件向执行部件发出的控制命令，是构成控制序列的最小单位，例如打开或者关闭控制门的电位信号。是各部件完成某个基本微操作的命令</li>
-<li><strong>微操作</strong>：执行部件接受微命令后所进行的操作，和微操作是一一对应的。 （实际上，微命令是微操作的控制信号，微操作是微命令的执行过程，微操作是执行部件中最基本的操作）</li>
+<li><strong>微操作</strong>：执行部件接受微命令后所进行的操作，和微操作是一一对应的。
+（实际上，微命令是微操作的控制信号，微操作是微命令的执行过程，微操作是执行部件中最基本的操作）</li>
 <li><strong>微指令</strong>：若干微命令的集合，存放在一个控制存储器中，而<strong>存放微指令的控制存储器的单元成为微地址</strong>。在同一CPU周期内，<strong>并行执行的一组微命令，存储在控制存储器上面，称为一条微指令</strong>。</li>
 <li><strong>微周期</strong>：从读取一条微指令，到执行执行完毕所需要的时间称为微周期。</li>
 <li><strong>控制存储器</strong>：<strong>主存储器</strong>，主要用来存放程序和数据，位于CPU的外部，使用的是RAM。而<strong>控制存储器，则主要用于存储微程序，位于CPU内部，采用的是ROM</strong>。</li>
 <li><strong>微程序</strong>：实现一条机器指令功能的微指令序列。</li>
 <li><strong>程序与微程序</strong>：程序由机器指令构成，编写好以后放到主存中运行，可以改写。而微程序由微指令构成，事先编写好在CM（控制存储器）中，一般是不可改写的。微程序的作用就是实现一条对应的机器指令。</li>
-<li>微程序&gt;微指令&gt;微命令&#x3D;微操作是微命令的执行过程。</li>
+<li>微程序&gt;微指令&gt;微命令=微操作是微命令的执行过程。</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519580.png" alt="img">秒懂哦</p>
+<p><img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519580.png"
+alt="img" />秒懂哦</p>
 <ul>
 <li>一台计算机可以分为控制部件和执行部件。其中控制部件有指令寄存器，程序计数器，操作控制器，执行部件有运算器，存储器，外围设备，状态条件寄存器。</li>
-<li>汇编程序员可见的寄存器有基址寄存器和状态&#x2F;标志寄存器，程序计数器PC及通用寄存器。而MAR,MDR,IR,是CPU内部寄存器，汇编程序员不可见，微指令相关的汇编程序员也不可见。</li>
+<li>汇编程序员可见的寄存器有基址寄存器和状态/标志寄存器，程序计数器PC及通用寄存器。而MAR,MDR,IR,是CPU内部寄存器，汇编程序员不可见，微指令相关的汇编程序员也不可见。</li>
 </ul>
 <p>水平型微指令的编码方式（重点会考）</p>
 <p><strong>①字段直接编码</strong>对于直接编码的方式最大的好处就是能够并行微操作，缩短了微命令的字段长度。有个题能很好的解释这其中的原因。某计算机的控制器采用微程序控制方式，微指令中的操作控制字段采用字段直接编码方式，共有33歌微命令，构成5个互斥类，分别包含7，3，12，5和6个微命令，则操作控制字段至少有几位？</p>
@@ -1063,22 +1384,31 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>优点明显，缺点也明显啊。增加了译码，执行时间会增长，而却增大成本。</p>
 <p>②<strong>直接编码</strong>就是每个控制字段位，就代表一个微命令，优点就是快，电力嘎嘎简单。但是若微命令要是多达几百条。那不是要几百位了。因此指令位数太长。</p>
 <p>③某带有中断的指令系统有101中操作，采用微程序控制方式，存储器中相应最少有103个微程序。</p>
-<p><strong>要加上取值操作和终端操作，<strong>若有n条操作，则有</strong>n+2个微程序</strong></p>
+<p><strong>要加上取值操作和终端操作，</strong>若有n条操作，则有<strong>n+2个微程序</strong></p>
 <p>④下一条微指令的形成方法常考的：<strong>断定法（根据当前执行的微指令寻找到下一条微指令）和计数器法（类似PC）</strong></p>
-<h3 id="第五节-异常和中断机制"><a href="#第五节-异常和中断机制" class="headerlink" title="第五节 异常和中断机制"></a>第五节 异常和中断机制</h3><p><em>这节会在后面第七章一起讲</em></p>
-<h3 id="第六节-指令流水线"><a href="#第六节-指令流水线" class="headerlink" title="第六节 指令流水线"></a>第六节 指令流水线</h3><p>讲在前面，为什么要引入指令流水线。相信都听说过华强北的流水线运作方式吧。最明显的优点就是相较于顺序执行的吞吐量更大（单位时间内）运行相同数量的指令也更快。效率也更高。</p>
+<h3 id="第五节-异常和中断机制">第五节 异常和中断机制</h3>
+<p><em>这节会在后面第七章一起讲</em></p>
+<h3 id="第六节-指令流水线">第六节 指令流水线</h3>
+<p>讲在前面，为什么要引入指令流水线。相信都听说过华强北的流水线运作方式吧。最明显的优点就是相较于顺序执行的吞吐量更大（单位时间内）运行相同数量的指令也更快。效率也更高。</p>
 <p>这里就可以知道指令流水线的概念：<strong>把指令执行过程划分为不同的阶段，占用不同的资源，就能使多条指令同时执行</strong>。</p>
 <p>①在流水执行的过程中，会经常遇到冲突，包括结构冲突，<strong>数据冲突</strong>，控制冲突。</p>
 <table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 35%" />
+<col style="width: 23%" />
+<col style="width: 35%" />
+</colgroup>
 <thead>
 <tr>
 <th></th>
-<th>结构相关&#x2F;冲突&#x2F;冒险</th>
-<th>数据相关&#x2F;冲突&#x2F;冒险</th>
-<th>控制相关&#x2F;冲突&#x2F;冒险</th>
+<th>结构相关/冲突/冒险</th>
+<th>数据相关/冲突/冒险</th>
+<th>控制相关/冲突/冒险</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>概念</td>
 <td>多条指令在同一时刻争用同一资源</td>
 <td>下一条指令会用到当前指令计算的结果</td>
@@ -1086,13 +1416,21 @@ btf.addGlobalFn('pjaxComplete', () => {
 </tr>
 <tr>
 <td>处理办法</td>
-<td>1.单独设置数据存储器和指令存储器，使取数和取值操作在不同的存储器中进行 2.暂停时钟周期</td>
+<td>1.单独设置数据存储器和指令存储器，使取数和取值操作在不同的存储器中进行
+2.暂停时钟周期</td>
 <td>1.暂停时钟周期 2.数据旁路技术 3.编译优化</td>
-<td>1.早判断，早生成 2.预取转移成功和不成功两个控制流方向的目标指令 3.加快和提前形成条件码 4.提高转移方向的猜准率</td>
+<td>1.早判断，早生成 2.预取转移成功和不成功两个控制流方向的目标指令
+3.加快和提前形成条件码 4.提高转移方向的猜准率</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>②<strong>五段式指令流水线（超重要）</strong></p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519289.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519289.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>顾名思义，五段分为IF(取值),ID(译码&amp;取数),EX(执行),M(访存),WB(写回寄存器)</p>
 <p>只有上一条指令进入ID段后，下一条指令才能开始IF段，否则会覆盖IF段锁存器的内容</p>
 <p>考试中常见的五类指令：</p>
@@ -1110,7 +1448,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>M：从数据Cache中取数并放入锁存器</p>
 <p>WB：将运算结果写回指定的寄存器</p>
 <p><strong>Ⅲ、STORE指令执行过程</strong></p>
-<p>**作用：**将数据从寄存器中，复制到存储器中，会访存</p>
+<p><strong>作用：</strong>将数据从寄存器中，复制到存储器中，会访存</p>
 <p>IF：根据PC从指令Cache取指令至IF段的锁存器</p>
 <p>ID：将基址寄存器的值放到锁存器A，将偏移量的值放到lmm。将要存的数放到B</p>
 <p>EX：运算，得到有效地址。并将锁存器B的内容放到锁存器Store</p>
@@ -1129,15 +1467,26 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>M：空段</p>
 <p>WB：空段</p>
 <p>针对条件转移指令和无条件转移指令做以下说明：写入PC的好事比EX更短，可以安排在EX段时间内完成。越<strong>早完成就越能避免控制冲突</strong>。当然也有在WB段修改PC值的</p>
-<h3 id="题目总结：-2"><a href="#题目总结：-2" class="headerlink" title="题目总结："></a>题目总结：</h3><p>①流水CPU是由一系列叫做“段”的处理线路组成的。一个m段流水线稳定时的CPU的吞吐能力，与m个并行部件的CPU的吞吐能力相比<strong>具有相同的吞吐能力</strong></p>
+<h3 id="题目总结-2">题目总结：</h3>
+<p>①流水CPU是由一系列叫做“段”的处理线路组成的。一个m段流水线稳定时的CPU的吞吐能力，与m个并行部件的CPU的吞吐能力相比<strong>具有相同的吞吐能力</strong></p>
 <p>原因是当流水线稳定后，说明已经进行了一条指令，往后每多一个时钟周期就多一条指令执行成功。</p>
 <p>m个并行平均下来也是一个时针周期就多条指令</p>
 <p>故具有相同的吞吐能力，但是流水线的方式，结构实现较为简单。</p>
-<h3 id="第七节-多处理器的基本概念（选择题）"><a href="#第七节-多处理器的基本概念（选择题）" class="headerlink" title="第七节 多处理器的基本概念（选择题）"></a>第七节 多处理器的基本概念（选择题）</h3><p>这节的要求就是明白基本概念</p>
+<h3 id="第七节-多处理器的基本概念选择题">第七节
+多处理器的基本概念（选择题）</h3>
+<p>这节的要求就是明白基本概念</p>
 <p>①SISD（单指令流单数据流）</p>
 <p>特点：只能并发，不能并行，每条指令处理一个指令</p>
 <p>不是数据级并行技术</p>
 <table>
+<colgroup>
+<col style="width: 2%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+</colgroup>
 <thead>
 <tr>
 <th></th>
@@ -1148,7 +1497,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>多计算机系统</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>特点</td>
 <td>不是数据级并行技术</td>
 <td>是一种数据级并行技术</td>
@@ -1164,19 +1514,33 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>多个处理器+一个主存储器</td>
 <td>多个处理器+多个主存储器</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>并发（concurrency）：把任务在不同的时间点交给处理器进行处理。在同一时间点，任务并不会同时运行。</li>
 <li>并行（parallelism）：把每一个任务分配给每一个处理器独立完成。在同一时间点，任务一定是同时运行。</li>
 </ul>
 <p>并发不是并行。并行是让不同的代码片段同时在不同的物理处理器上执行。并行的关键是同时做很多事情，而并发是指同时管理很多事情，这些事情可能只做了一半就被暂停去做别的事情了。（你学废了吗？）</p>
-<h2 id="第六章-总线"><a href="#第六章-总线" class="headerlink" title="第六章 总线"></a>第六章 总线</h2><h3 id="第一节-总线的概述"><a href="#第一节-总线的概述" class="headerlink" title="第一节 总线的概述"></a>第一节 总线的概述</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519278.png" alt="img"></p>
+<h2 id="第六章-总线">第六章 总线</h2>
+<h3 id="第一节-总线的概述">第一节 总线的概述</h3>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519278.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <ul>
 <li>片内总线：芯片内部的总线，是CPU芯片内部寄存器与寄存器之间，寄存器与ALU之间的公共连接线</li>
-<li>系统总线：计算机系统内部功能部件（CPU、主存、I&#x2F;O接口）之间相互连接的总线，可分为三类，数据总线，地址总线，控制总线</li>
+<li>系统总线：计算机系统内部功能部件（CPU、主存、I/O接口）之间相互连接的总线，可分为三类，数据总线，地址总线，控制总线</li>
 <li>通信总线：计算机系统之间或计算机系统与其它系统之间的信息传送的总线</li>
 </ul>
 <table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
 <thead>
 <tr>
 <th></th>
@@ -1185,7 +1549,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>控制总线</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>功能</td>
 <td>传输数据信息</td>
 <td>传输地址信息</td>
@@ -1203,8 +1568,15 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>单向</td>
 <td>既有双向也有单向</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 22%" />
+<col style="width: 38%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
 <tr>
 <th>总线结构</th>
@@ -1213,23 +1585,24 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>三总线</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>内容</td>
 <td>系统总线</td>
-<td>主存总线、I&#x2F;O总线</td>
-<td>主存总线、I&#x2F;O总线、DMA总线</td>
+<td>主存总线、I/O总线</td>
+<td>主存总线、I/O总线、DMA总线</td>
 </tr>
 <tr>
 <td>结构</td>
-<td>CPU、主存、I&#x2F;O设备都连接在一组总线上</td>
-<td>主存总线用于CPU，主存之间的传送；I&#x2F;O总线用于多个外部设备与通道之间进行传送</td>
+<td>CPU、主存、I/O设备都连接在一组总线上</td>
+<td>主存总线用于CPU，主存之间的传送；I/O总线用于多个外部设备与通道之间进行传送</td>
 <td>多加的一条DMA总线是用于主存访问高速外设</td>
 </tr>
 <tr>
 <td>优点</td>
 <td>结构简单，成本低，易于接入新的设备</td>
-<td>将较低速的I&#x2F;O设备从单总线分离出来，实现存储器总线和I&#x2F;O总线分离</td>
-<td>更加提高了I&#x2F;O设备的性能，更快响应命令，提高系统吞吐量</td>
+<td>将较低速的I/O设备从单总线分离出来，实现存储器总线和I/O总线分离</td>
+<td>更加提高了I/O设备的性能，更快响应命令，提高系统吞吐量</td>
 </tr>
 <tr>
 <td>缺点</td>
@@ -1237,9 +1610,19 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>需要增加硬件设备</td>
 <td>系统工作效率低，同一时刻只能一个总线工作</td>
 </tr>
-</tbody></table>
-<h3 id="第二节-性能指标"><a href="#第二节-性能指标" class="headerlink" title="第二节 性能指标"></a>第二节 性能指标</h3><p>写一些会考的性能指标，配合相应的题</p>
-<h3 id="第三节-总线定时方式"><a href="#第三节-总线定时方式" class="headerlink" title="第三节 总线定时方式"></a>第三节 总线定时方式</h3><table>
+</tbody>
+</table>
+<h3 id="第二节-性能指标">第二节 性能指标</h3>
+<p>写一些会考的性能指标，配合相应的题</p>
+<h3 id="第三节-总线定时方式">第三节 总线定时方式</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 20%" />
+<col style="width: 38%" />
+<col style="width: 12%" />
+<col style="width: 25%" />
+</colgroup>
 <thead>
 <tr>
 <th></th>
@@ -1249,7 +1632,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>分离式通信</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>特点</td>
 <td>由统一时钟控制数据传送</td>
 <td>采用应答方式，没有公共时钟的标准</td>
@@ -1270,12 +1654,20 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>补充：关于异步通信还分为三类：不互锁，速度最快，可靠性最差；半互锁；全互锁。速度最慢，可靠性最好。</p>
-<h2 id="第七章-I-O系统"><a href="#第七章-I-O系统" class="headerlink" title="第七章 I&#x2F;O系统"></a>第七章 I&#x2F;O系统</h2><h3 id="第一节-I-O接口"><a href="#第一节-I-O接口" class="headerlink" title="第一节 I&#x2F;O接口"></a>第一节 I&#x2F;O接口</h3><p>简单来说，<strong>I&#x2F;O接口就是负责协调主机与外部设备之间的数据传输</strong>。</p>
+<h2 id="第七章-io系统">第七章 I/O系统</h2>
+<h3 id="第一节-io接口">第一节 I/O接口</h3>
+<p>简单来说，<strong>I/O接口就是负责协调主机与外部设备之间的数据传输</strong>。</p>
 <p>可以这样理解就是你的电脑，怎么控制你的U盘上，做一些读写操作。U盘不是“亲儿子”啊，所以要单独给它设置接口来控制它。</p>
 <p>CPU那如何确定要操作的是主存还是外部设备呢。这就引出了编制方式——统一编制和独立编址</p>
 <table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
 <thead>
 <tr>
 <th></th>
@@ -1283,33 +1675,39 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>独立编制</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>内容</td>
 <td>把外部设备的存储当成内存进行分配，有统一的地区分配，靠不同的地址区别内存和外部设备</td>
-<td>独立编制，专门为输入&#x2F;输出指令设置访问端口，靠不同指令区别内存和外部设备</td>
+<td>独立编制，专门为输入/输出指令设置访问端口，靠不同指令区别内存和外部设备</td>
 </tr>
 <tr>
 <td>优点</td>
-<td>1.不需要专门的指令表示访问外存 2.读写控制电路简单 3，程序设计灵活性高</td>
+<td>1.不需要专门的指令表示访问外存 2.读写控制电路简单
+3，程序设计灵活性高</td>
 <td>1.地址译码快 2.不占用主存地址空间</td>
 </tr>
 <tr>
 <td>缺点</td>
-<td>1.端口占用了主存地址空间，使主存地址空间变小 2.寻址时间长（外部设备）</td>
+<td>1.端口占用了主存地址空间，使主存地址空间变小
+2.寻址时间长（外部设备）</td>
 <td>1.程序设计灵活差 2.指令增加，控制电路复杂</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>补充个会考的内容，关于显存VRAM（就是显示存储器）</p>
 <p>显存是为了提高刷新图像的信号，会提前把需要显示的数据放入显存中。如今的计算机很多都有独立显存，就这可以避免，显存占用主存的空间。</p>
 <p>显存会考的计算：</p>
-<p>容量&#x3D;分辨率×灰度级位数</p>
-<p>带宽&#x3D;分辨率×灰度级位数×帧数</p>
-<h3 id="第二节-主机访问I-O设备的控制方式"><a href="#第二节-主机访问I-O设备的控制方式" class="headerlink" title="第二节 主机访问I&#x2F;O设备的控制方式"></a>第二节 主机访问I&#x2F;O设备的控制方式</h3><p><strong>一、程序查询方式</strong></p>
-<p>特点：CPU与I&#x2F;O串行工作，CPU不断查询I&#x2F;O设备状态，直到外设准备就绪。</p>
+<p>容量=分辨率×灰度级位数</p>
+<p>带宽=分辨率×灰度级位数×帧数</p>
+<h3 id="第二节-主机访问io设备的控制方式">第二节
+主机访问I/O设备的控制方式</h3>
+<p><strong>一、程序查询方式</strong></p>
+<p>特点：CPU与I/O串行工作，CPU不断查询I/O设备状态，直到外设准备就绪。</p>
 <p>优点：接口设计简单，设备量少。</p>
 <p>缺点：CPU信息传送过程中要花费很多时间用于查询和等待，而且在一段时间内只能和一台外设交换信息，效率低。</p>
-<p>独占查询：CPU100%的时间都在查询I&#x2F;O状态，完全串行。</p>
-<p>定时查询：每隔一段时间CPU就查询I&#x2F;O状态，查询的间隔内CPU可以执行其他程序。</p>
+<p>独占查询：CPU100%的时间都在查询I/O状态，完全串行。</p>
+<p>定时查询：每隔一段时间CPU就查询I/O状态，查询的间隔内CPU可以执行其他程序。</p>
 <p><strong>二、中断方式</strong></p>
 <p>Ⅰ、程序中断是指在计算机执行现行程序的过程中，出现某些急需处理的异常情况或特殊请求，CPU暂时中断现行程序，而转去执行这些异常情况或特殊请求进行处理。处理完毕后又自动返回到现行程序的断点处，继续执行原程序。</p>
 <p>引出几个问题：</p>
@@ -1319,8 +1717,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>问题四、如何判断是哪个设备发来的中断信号？</p>
 <p>Ⅱ、*<strong>整个中断方式的流程（重点）*</strong></p>
 <p>1.中断请求</p>
-<p><em>“先说明开中断和关中断的作用，关中断保证原子操作，不会被打断，标志位IF&#x3D;1为开中断（允许中断）”</em></p>
-<p>CPU在统一时刻每条指令执行阶段结束前向接口发出中断查询信号，获取I&#x2F;O的中断请求，也就是说，CPU响应中断的时间是在每条指令执行阶段的结束时刻。</p>
+<p><em>“先说明开中断和关中断的作用，关中断保证原子操作，不会被打断，标志位IF=1为开中断（允许中断）”</em></p>
+<p>CPU在统一时刻每条指令执行阶段结束前向接口发出中断查询信号，获取I/O的中断请求，也就是说，CPU响应中断的时间是在每条指令执行阶段的结束时刻。</p>
 <p>如何判断是哪个设备发来的中断信号？</p>
 <p>会存在一个中断请求标记寄存器，里面不同位代表不同的设备中断。状态位为1的话，代表处理中断申请。</p>
 <p>CPU响应中断必须满足以下3个条件：</p>
@@ -1335,7 +1733,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>中断的优先级：</p>
 <p>硬件故障中断&gt;软件中断</p>
 <p>非屏蔽中断&gt;可屏蔽中断</p>
-<p>DMA请求&gt;I&#x2F;O设备传送的中断请求</p>
+<p>DMA请求&gt;I/O设备传送的中断请求</p>
 <p>有再补充</p>
 <p>3.中断处理</p>
 <p>接收到中断信号后是怎么转到执行中断程序的？</p>
@@ -1349,14 +1747,21 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>中断处理过程—硬件向量法。为什么要用向量地址去寻找中断的入口，而不是直接去寻找中断入口？</p>
 <p>1.若是通过中断向量地址形成部件直接去入口地址的话，会造成中断程序有时候长短不一，就要频繁修改中断向量地址形成部件。</p>
 <p>2.若是先通过向量地址，在内存中找到中断地址的话，只需修改内存的地址就可以。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519609.png" alt="img"></p>
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519609.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p><strong>中断服务程序的任务</strong></p>
 <p><strong>①保护现场。保存通用寄存器和状态寄存器的内容。</strong></p>
 <p><strong>②中断服务。主体部分。例如将需要打印的字符传送到打印机的缓冲存储器中。</strong></p>
 <p><strong>③恢复现场。通过出栈或取值把之前保存的信息传送回寄存器中。</strong></p>
 <p><strong>④中断返回。通过中断返回指令回到原程序断点处。</strong></p>
-<p>总结：中断处理过程&#x3D;中断隐指令+中断服务程序</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519437.png" alt="img">中断流程</p>
+<p>总结：中断处理过程=中断隐指令+中断服务程序</p>
+<p><img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519437.png"
+alt="img" />中断流程</p>
 <p>Ⅲ、单重中断和多重中断</p>
 <p>单重中断：执行中断服务程序时不响应新的中断请求。</p>
 <p>多重中断：又称中断嵌套，执行中断服务程序时可响应新的中断请求。</p>
@@ -1365,7 +1770,9 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>有以下几个说明</p>
 <p>①每个中断源至少有一个1（对自身中断源）</p>
 <p>②1越多，优先级越高</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519316.png" alt="img">看懂这个例题就够了</p>
+<p><img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031519316.png"
+alt="img" />看懂这个例题就够了</p>
 <p><strong>三、DMA方式</strong></p>
 <p>DMA的特点：</p>
 <p>1、内存既可以被CPU访问也可以被DMA控制器访问，CPU和DMA控制器会竞争总线的使用权，因而需要仲裁机制。</p>
@@ -1377,13 +1784,18 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>3.后处理：CPU执行中断服务程序做DMA结束处理</p>
 <p>DMA的传送方式：</p>
 <p>1.停止CPU访存：需要传送数据时，停止CPU访存，总线控制器交给DMA控制器。</p>
-<p>2.周期挪用方式：当I&#x2F;O接口没有DMA请求时，CPU按程序要求访问内存；一旦I&#x2F;P接口有DMA请求，则I&#x2F;O接口挪用一个或几个周期。缺点是：数据输入或输出过程中实际占用了CPU时间。</p>
+<p>2.周期挪用方式：当I/O接口没有DMA请求时，CPU按程序要求访问内存；一旦I/P接口有DMA请求，则I/O接口挪用一个或几个周期。缺点是：数据输入或输出过程中实际占用了CPU时间。</p>
 <p>3.交替访存方式：CPU与DMA控制器交替访问内存。不需要总线使用权的申请、建立和归还过程。</p>
 <p>效率高，但实现起来有困难，基本上不被使用。</p>
 <ul>
 <li>DMA与中断方式的差别</li>
 </ul>
 <table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 36%" />
+<col style="width: 53%" />
+</colgroup>
 <thead>
 <tr>
 <th></th>
@@ -1391,7 +1803,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <th>DMA</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>数据传送</td>
 <td>程序控制</td>
 <td>硬件控制—DMA控制器。CPU只需进行预处理和后处理</td>
@@ -1431,12 +1844,23 @@ btf.addGlobalFn('pjaxComplete', () => {
 <td>请求的是CPU处理时间</td>
 <td>请求的是总线使用权</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>中断的分类：</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031520925.png" alt="img"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.zhihu.com/people/1988-47-39">废话少讲</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://zhuanlan.zhihu.com/p/554546968">https://zhuanlan.zhihu.com/p/554546968</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">转载</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><a class="post-meta__tags" href="/tags/408/">408</a></div><div class="post-share"><div class="social-share" data-image="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031523489.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/28197.html" title="【学习笔记】HTML+CSS笔记"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210091633024.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【学习笔记】HTML+CSS笔记</div></div><div class="info-2"><div class="info-item-1">HTML+CSS学习笔记</div></div></div></a><a class="pagination-related" href="/posts/43138.html" title="【学习笔记】使用阿里云OSS+CDN搭建图床（未写）"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202209272136044.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【学习笔记】使用阿里云OSS+CDN搭建图床（未写）</div></div><div class="info-2"><div class="info-item-1">使用阿里云OSS+CDN搭建图床</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/54903.html" title="【学习笔记】内大复试"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/IMU.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-01</div><div class="info-item-2">【学习笔记】内大复试</div></div><div class="info-2"><div class="info-item-1">内蒙古大学计算机复试学习</div></div></div></a><a class="pagination-related" href="/posts/39774.html" title="【学习笔记】操作系统知识点整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/defaultcover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-07</div><div class="info-item-2">【学习笔记】操作系统知识点整理</div></div><div class="info-2"><div class="info-item-1">计算机操作系统</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">亦晓白</div><div class="author-info-description">记录学习生活</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://gitee.com/wq3stone"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://gitee.com/wq3stone" rel="external nofollow noreferrer" target="_blank" title="Gitee"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wq3stone@sina.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://music.163.com/#/user/home?id=3336333178" rel="external nofollow noreferrer" target="_blank" title="网易云"><i class="fas fa-music" style="color: #ff0000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">学业繁忙，随缘更新！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">第一章 计算机系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">第一节 计算机系统层次结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">第二节 计算机性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">题目总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">第二章 数据的表示和运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">第三章 存储系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E5%AD%98%E5%82%A8%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">第一节 存储器概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">第二节 主存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8ECPU%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.3.</span> <span class="toc-text">第三节 主存储器与CPU的连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82-%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.4.</span> <span class="toc-text">第四节 外部存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82-%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">3.5.</span> <span class="toc-text">第五节 高速缓冲存储器（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%8A%82-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.6.</span> <span class="toc-text">第六节 虚拟存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93%EF%BC%9A-1"><span class="toc-number">3.7.</span> <span class="toc-text">题目总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">第四章 指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">第一节 指令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">第二节 寻址方式（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%BA%A7%E4%BB%A3%E7%A0%81%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AF%B9%E5%BA%94"><span class="toc-number">4.3.</span> <span class="toc-text">第三节 高级语言程序与机器级代码之间的对应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">第五章 中央处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-CPU"><span class="toc-number">5.1.</span> <span class="toc-text">第一节 CPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">5.2.</span> <span class="toc-text">第二节 指令执行过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">5.3.</span> <span class="toc-text">第三节 数据通路的功能和基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82-%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">5.4.</span> <span class="toc-text">第四节 控制器的功能和工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82-%E5%BC%82%E5%B8%B8%E5%92%8C%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6"><span class="toc-number">5.5.</span> <span class="toc-text">第五节 异常和中断机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%8A%82-%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">5.6.</span> <span class="toc-text">第六节 指令流水线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93%EF%BC%9A-2"><span class="toc-number">5.7.</span> <span class="toc-text">题目总结：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E8%8A%82-%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%88%E9%80%89%E6%8B%A9%E9%A2%98%EF%BC%89"><span class="toc-number">5.8.</span> <span class="toc-text">第七节 多处理器的基本概念（选择题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%80%BB%E7%BA%BF"><span class="toc-number">6.</span> <span class="toc-text">第六章 总线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E6%80%BB%E7%BA%BF%E7%9A%84%E6%A6%82%E8%BF%B0"><span class="toc-number">6.1.</span> <span class="toc-text">第一节 总线的概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">6.2.</span> <span class="toc-text">第二节 性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E6%80%BB%E7%BA%BF%E5%AE%9A%E6%97%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">6.3.</span> <span class="toc-text">第三节 总线定时方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-I-O%E7%B3%BB%E7%BB%9F"><span class="toc-number">7.</span> <span class="toc-text">第七章 I&#x2F;O系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-I-O%E6%8E%A5%E5%8F%A3"><span class="toc-number">7.1.</span> <span class="toc-text">第一节 I&#x2F;O接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E4%B8%BB%E6%9C%BA%E8%AE%BF%E9%97%AEI-O%E8%AE%BE%E5%A4%87%E7%9A%84%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">7.2.</span> <span class="toc-text">第二节 主机访问I&#x2F;O设备的控制方式</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/undefined.html" title="【学习笔记】Linux命令"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202508141957519.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【学习笔记】Linux命令"/></a><div class="content"><a class="title" href="/posts/undefined.html" title="【学习笔记】Linux命令">【学习笔记】Linux命令</a><time datetime="2025-08-13T16:00:00.000Z" title="发表于 2025-08-14 00:00:00">2025-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/undefined.html" title="【学习笔记】Spring依赖注入详解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202508122335760.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【学习笔记】Spring依赖注入详解"/></a><div class="content"><a class="title" href="/posts/undefined.html" title="【学习笔记】Spring依赖注入详解">【学习笔记】Spring依赖注入详解</a><time datetime="2025-08-11T16:00:00.000Z" title="发表于 2025-08-12 00:00:00">2025-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/39537.html" title="研究生周报"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/defaultcover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="研究生周报"/></a><div class="content"><a class="title" href="/posts/39537.html" title="研究生周报">研究生周报</a><time datetime="2025-07-20T16:00:00.000Z" title="发表于 2025-07-21 00:00:00">2025-07-21</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2021 - 2025 By 亦晓白</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div><div class="footer_custom_text">感谢访问！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+<figure>
+<img
+src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031520925.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.zhihu.com/people/1988-47-39">废话少讲</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://zhuanlan.zhihu.com/p/554546968">https://zhuanlan.zhihu.com/p/554546968</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">转载</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><a class="post-meta__tags" href="/tags/408/">408</a></div><div class="post-share"><div class="social-share" data-image="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210031523489.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/28197.html" title="【学习笔记】HTML+CSS笔记"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202210091633024.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【学习笔记】HTML+CSS笔记</div></div><div class="info-2"><div class="info-item-1">HTML+CSS学习笔记</div></div></div></a><a class="pagination-related" href="/posts/43138.html" title="【学习笔记】使用阿里云OSS+CDN搭建图床（未写）"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202209272136044.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【学习笔记】使用阿里云OSS+CDN搭建图床（未写）</div></div><div class="info-2"><div class="info-item-1">使用阿里云OSS+CDN搭建图床</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/54903.html" title="【学习笔记】内大复试"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/IMU.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-01</div><div class="info-item-2">【学习笔记】内大复试</div></div><div class="info-2"><div class="info-item-1">内蒙古大学计算机复试学习</div></div></div></a><a class="pagination-related" href="/posts/39774.html" title="【学习笔记】操作系统知识点整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/defaultcover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-07</div><div class="info-item-2">【学习笔记】操作系统知识点整理</div></div><div class="info-2"><div class="info-item-1">计算机操作系统</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">亦晓白</div><div class="author-info-description">记录学习生活</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://gitee.com/wq3stone"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://gitee.com/wq3stone" rel="external nofollow noreferrer" target="_blank" title="Gitee"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wq3stone@sina.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://music.163.com/#/user/home?id=3336333178" rel="external nofollow noreferrer" target="_blank" title="网易云"><i class="fas fa-music" style="color: #ff0000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">学业繁忙，随缘更新！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">第一章 计算机系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">第一节 计算机系统层次结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">第二节 计算机性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text">题目总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">第二章 数据的表示和运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">第三章 存储系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E5%AD%98%E5%82%A8%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">第一节 存储器概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">第二节 主存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8Ecpu%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.3.</span> <span class="toc-text">第三节 主存储器与CPU的连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82-%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.4.</span> <span class="toc-text">第四节 外部存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82-%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8%E9%87%8D%E7%82%B9"><span class="toc-number">3.5.</span> <span class="toc-text">第五节 高速缓冲存储器（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%8A%82-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.6.</span> <span class="toc-text">第六节 虚拟存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93-1"><span class="toc-number">3.7.</span> <span class="toc-text">题目总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">第四章 指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">第一节 指令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F%E9%87%8D%E7%82%B9"><span class="toc-number">4.2.</span> <span class="toc-text">第二节 寻址方式（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E4%B8%8E%E6%9C%BA%E5%99%A8%E7%BA%A7%E4%BB%A3%E7%A0%81%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AF%B9%E5%BA%94"><span class="toc-number">4.3.</span> <span class="toc-text">第三节
+高级语言程序与机器级代码之间的对应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">第五章 中央处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-cpu"><span class="toc-number">5.1.</span> <span class="toc-text">第一节 CPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">5.2.</span> <span class="toc-text">第二节 指令执行过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">5.3.</span> <span class="toc-text">第三节
+数据通路的功能和基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82-%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">5.4.</span> <span class="toc-text">第四节
+控制器的功能和工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82-%E5%BC%82%E5%B8%B8%E5%92%8C%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6"><span class="toc-number">5.5.</span> <span class="toc-text">第五节 异常和中断机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%8A%82-%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">5.6.</span> <span class="toc-text">第六节 指令流水线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93-2"><span class="toc-number">5.7.</span> <span class="toc-text">题目总结：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E8%8A%82-%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E9%80%89%E6%8B%A9%E9%A2%98"><span class="toc-number">5.8.</span> <span class="toc-text">第七节
+多处理器的基本概念（选择题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%80%BB%E7%BA%BF"><span class="toc-number">6.</span> <span class="toc-text">第六章 总线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E6%80%BB%E7%BA%BF%E7%9A%84%E6%A6%82%E8%BF%B0"><span class="toc-number">6.1.</span> <span class="toc-text">第一节 总线的概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">6.2.</span> <span class="toc-text">第二节 性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E6%80%BB%E7%BA%BF%E5%AE%9A%E6%97%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">6.3.</span> <span class="toc-text">第三节 总线定时方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-io%E7%B3%BB%E7%BB%9F"><span class="toc-number">7.</span> <span class="toc-text">第七章 I&#x2F;O系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-io%E6%8E%A5%E5%8F%A3"><span class="toc-number">7.1.</span> <span class="toc-text">第一节 I&#x2F;O接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E4%B8%BB%E6%9C%BA%E8%AE%BF%E9%97%AEio%E8%AE%BE%E5%A4%87%E7%9A%84%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">7.2.</span> <span class="toc-text">第二节
+主机访问I&#x2F;O设备的控制方式</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/50433.html" title="【学习笔记】Linux命令"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202508141957519.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【学习笔记】Linux命令"/></a><div class="content"><a class="title" href="/posts/50433.html" title="【学习笔记】Linux命令">【学习笔记】Linux命令</a><time datetime="2025-08-13T16:00:00.000Z" title="发表于 2025-08-14 00:00:00">2025-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/51928.html" title="【学习笔记】Spring依赖注入详解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202508122335760.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【学习笔记】Spring依赖注入详解"/></a><div class="content"><a class="title" href="/posts/51928.html" title="【学习笔记】Spring依赖注入详解">【学习笔记】Spring依赖注入详解</a><time datetime="2025-08-11T16:00:00.000Z" title="发表于 2025-08-12 00:00:00">2025-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/39537.html" title="研究生周报"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/somefiles/defaultcover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="研究生周报"/></a><div class="content"><a class="title" href="/posts/39537.html" title="研究生周报">研究生周报</a><time datetime="2025-07-20T16:00:00.000Z" title="发表于 2025-07-21 00:00:00">2025-07-21</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2021 - 2025 By 亦晓白</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div><div class="footer_custom_text">感谢访问！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
   const loadMathjax = () => {
     if (!window.MathJax) {
       window.MathJax = {
