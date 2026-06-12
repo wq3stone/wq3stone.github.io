@@ -1,0 +1,748 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>汇报</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='multimodal-wildland-fire-smoke-detection'><span>Multimodal Wildland Fire Smoke Detection</span></h1><p><span>基于卫星、天气传感器和光学相机图像的多模式野地火灾烟雾探测的多模式SmokeyNet和SmokeyNet集成。</span></p><h2 id='网络结构'><span>网络结构</span></h2><h3 id='smokeynet'><span>SmokeyNet</span></h3><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606121048290.png" referrerpolicy="no-referrer"></p><h4 id='1）第一层cnn-模块--------单帧局部空间特征提取'><span>（1）第一层：CNN 模块 —— 单帧局部空间特征提取</span></h4><ol><li><p><span>骨干网络：选用</span><strong><span>ResNet34</span></strong><span>（轻量版 ResNet50），基于 ImageNet 预训练权重初始化，兼顾特征能力与推理速度。</span></p></li><li><p><span>执行逻辑：</span></p><ul><li><p><span>两帧图像的每一个 224×224 子图，</span><strong><span>单独送入 ResNet34</span></strong><span>提取深度视觉特征；</span></p></li><li><p><span>输出每个子图的高维空间特征向量，仅捕捉单帧画面里烟雾的颜色、纹理、形态等静态空间特征。</span></p></li></ul></li></ol><h4 id='2）第二层lstm-模块--------跨帧时序特征融合'><span>（2）第二层：LSTM 模块 —— 跨帧时序特征融合</span></h4><p><span>烟雾是动态目标，单帧特征不足以区分雾、云与烟雾，LSTM 专门建模</span><strong><span>帧间运动与时序变化</span></strong><span>。</span></p><ol><li><p><span>执行逻辑：</span></p><ul><li><p><span>按位置配对：将</span><strong><span>当前帧子图特征</span></strong><span>与</span><strong><span>前一帧同位置子图特征</span></strong><span>输入 LSTM；</span></p></li><li><p><span>LSTM 学习相邻帧之间烟团的移动、扩散、形态变化等时序信息，输出融合时空信息的子图特征。</span></p></li></ul></li><li><p><span>附属结构：</span></p><p><span>LSTM 子图分类头：结构与 CNN 子图头完全一致，对 LSTM 输出的时序特征做子图级二分类，再次施加中间监督。</span></p></li></ol><h4 id='3）第三层vit视觉-transformer）模块--------全局空间关联融合'><span>（3）第三层：ViT（视觉 Transformer）模块 —— 全局空间关联融合</span></h4><p><span>单张子图特征是局部信息，ViT 负责</span><strong><span>把所有子图特征关联起来，建模整张图像的全局空间关系</span></strong><span>。</span></p><ol><li><p><span>执行逻辑：</span></p><ul><li><p><span>将 45 个经过 LSTM 编码的子图特征，作为 Transformer 的 “序列 Token” 输入 ViT；</span></p></li><li><p><span>ViT 通过自注意力机制，学习不同位置子图之间的关联（比如连片烟团、烟雾蔓延区域）；</span></p></li><li><p><span>ViT 输出两类特征：</span></p><p><span>① 每个子图对应的新特征；</span></p><p><span>② 特殊 CLS Token：聚合整幅图像所有子图的全局摘要特征，用于最终全局判定。</span></p></li></ul></li><li><p><span>附属结构：</span></p><ol><li><p><strong><span>ViT 子图分类头</span></strong><span>：对 ViT 输出的单子图特征做二分类，第三层中间监督；</span></p></li><li><p><span>图像分类头（Image Head）</span></p><p><span>：模型最终输出分支</span></p><ul><li><p><span>输入：ViT 的 CLS 全局特征；</span></p></li><li><p><span>结构：3 层全连接（输出维度依次 256→64→1）+ Sigmoid 激活；</span></p></li><li><p><span>输出：整张图像</span><strong><span>是否存在野火烟雾</span></strong><span>的全局二分类结果（阈值 0.5）。</span></p></li></ul></li></ol></li></ol><p><strong><span>Tile loss（子图损失 / 分块损失）</span></strong><span> 是针对图像切分后的每个</span><strong><span>Tile（子图 / 图像块）</span></strong><span> 计算的损失函数，属于</span><strong><span>中间监督损失</span></strong><span>。</span></p><p><span>对</span><strong><span>每一个子图</span></strong><span>的预测结果与对应真实标签计算得到的损失，统称为 </span><strong><span>Tile loss</span></strong><span>。</span></p><p><span>与之相对的是 </span><strong><span>Image loss（图像损失）</span></strong><span>：针对</span><strong><span>整张原图</span></strong><span>最终预测结果计算的全局损失。</span></p><h3 id='multimodal-smokeynet'><span>Multimodal SmokeyNet</span></h3><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606120952944.png" referrerpolicy="no-referrer"></p><p><span>气象数据向量变化</span></p><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606121014374.png" referrerpolicy="no-referrer"></p><ol><li><p><span>为什么要用广播而不是真实复制数据？</span>
+<span>气象描述整段场景的全局环境：</span></p><ul><li><p><span>同一批次、同一帧、同一张图的所有 45 个图块，气象数据完全一致；</span></p></li><li><p><span>广播是框架（PyTorch/TensorFlow）的内存优化机制，不额外拷贝数据，仅在计算逻辑上扩展维度，保证效率。</span></p></li></ul></li><li><p><span>两处融合的复用逻辑</span></p><p><span>变换完成后的</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="14.895ex" height="2.358ex" role="img" focusable="false" viewBox="0 -750 6583.8 1042.1" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.661ex;"><defs><path id="MJX-12-TEX-B-5B" d="M128 -250V750H293V689H189V-189H293V-250H128Z"></path><path id="MJX-12-TEX-BI-1D483" d="M220 -8Q142 -8 94 35T45 155V167Q45 187 52 218T104 426L153 622H149Q148 622 144 622T134 623T122 624T111 624T101 624T96 625Q84 628 84 642Q84 647 88 661T94 679Q98 684 109 685T185 690Q258 694 272 694Q289 694 293 679Q293 676 263 553L232 429L244 434Q256 440 281 446T331 452Q417 452 465 407T513 285Q513 235 494 184T439 90T346 20T220 -8ZM385 337Q385 400 318 400Q269 400 226 360Q214 349 211 341T191 268Q162 149 162 113Q162 44 226 44Q269 44 299 76T339 135T362 215Q364 222 365 226Q385 303 385 337Z"></path><path id="MJX-12-TEX-B-2C" d="M74 85Q74 120 97 145T159 171Q200 171 226 138Q258 101 258 37Q258 -5 246 -44T218 -109T183 -155T152 -184T135 -194Q129 -194 118 -183T106 -164Q106 -157 115 -149Q121 -145 130 -137T161 -100T195 -35Q197 -28 200 -17T204 3T205 11T199 9T183 3T159 0Q120 0 97 26T74 85Z"></path><path id="MJX-12-TEX-BI-1D48F" d="M24 296Q25 302 27 312T41 350T65 397T104 435T159 452Q203 452 234 435Q268 419 285 384L293 391Q363 452 454 452Q575 446 597 367Q599 356 599 334Q599 285 562 183T522 66Q519 43 530 43Q557 43 582 69T621 138Q626 156 630 159T650 162H656H667Q687 162 687 148Q687 138 677 115T647 63T595 13T522 -8Q475 -8 439 16T402 82Q402 96 439 199T477 351Q477 401 434 401Q421 401 409 398Q341 388 285 305L278 295L247 170Q216 46 214 40Q206 22 187 7T143 -8T104 7T90 39Q90 47 108 124T146 274L164 347Q166 355 166 372Q166 401 149 401Q129 401 115 379T89 306Q84 288 80 285T55 282H44Q24 282 24 296Z"></path><path id="MJX-12-TEX-BI-1D495" d="M82 382H55Q21 382 21 399Q21 422 33 439Q39 444 93 444H144L162 517Q163 522 167 541T174 567T181 589T192 611T206 627T226 639T253 643Q276 643 291 630T306 594Q306 586 288 514Q284 499 280 481T273 454L271 445Q271 444 317 444Q322 444 331 444T345 445Q377 445 377 428Q377 408 368 390Q360 382 341 382H306H255Q182 86 182 75Q182 43 201 43H204Q242 46 279 81Q298 101 309 119T323 145T330 157T350 162H356H363Q377 162 382 160T387 146Q385 136 372 114T337 64T275 14T192 -7Q131 -7 95 19T59 90V105L128 381Q128 382 82 382Z"></path><path id="MJX-12-TEX-BI-1D48D" d="M157 -8Q138 -8 118 -4T77 11T41 42T27 91V106L156 622H152Q151 622 147 622T137 623T125 624T114 624T104 624T99 625Q87 628 87 642Q87 647 91 661T97 679Q101 684 112 685T188 690Q261 694 275 694Q292 694 296 679L151 91Q150 85 150 71Q150 42 167 42Q186 42 205 75Q216 96 225 134Q230 155 234 158T255 162H260H271Q291 162 291 148Q290 145 289 140T283 118T271 87T254 54T229 23T197 1T157 -8Z"></path><path id="MJX-12-TEX-BI-1D494" d="M140 290Q140 311 148 336T176 388T235 433T326 451H336Q355 451 373 449T418 439T460 412T476 363Q476 333 456 311T406 289Q384 289 371 302T357 335Q357 351 364 364T379 384L386 391Q386 392 381 394T362 398T330 400Q299 400 278 393T247 373T235 352T232 335Q232 322 242 312Q258 299 315 290T403 260Q457 224 457 167Q457 152 453 134T435 90T397 43T330 7T229 -8Q133 -8 95 22T57 91Q57 127 81 152T139 177Q161 177 177 164T194 121Q189 80 153 56Q179 43 236 43Q275 43 303 52T343 75T361 101T366 124Q366 148 338 161T272 180T232 186Q187 198 164 227T140 290Z"></path><path id="MJX-12-TEX-BI-1D498" d="M636 367Q636 400 664 426T719 453Q748 453 772 431T796 357Q796 321 782 256T727 112T633 6Q604 -8 567 -8Q466 -8 415 43Q414 42 410 38T403 31T396 25T388 18T378 11T367 5T355 0T340 -4T324 -7T306 -8Q249 -8 209 5T151 40T125 84T117 129Q117 176 153 274T190 388Q190 408 158 396Q112 376 90 306Q85 288 81 285T61 282H55H44Q24 282 24 296Q24 305 34 328T63 380T114 430T187 452Q240 452 274 427T309 362Q309 346 275 255T240 117Q240 43 317 43Q325 43 333 45T347 50T359 57T369 66T377 75T383 83T388 90L390 95Q390 99 389 110T387 129Q387 139 391 167Q393 177 419 282T448 396Q456 414 475 429T519 444Q546 444 559 428T572 397Q572 384 542 265T511 114Q511 43 579 43Q608 43 633 66T673 122T699 188T714 244L718 267Q718 291 673 315Q636 335 636 367Z"></path><path id="MJX-12-TEX-BI-1D493" d="M24 296Q24 298 28 313T42 352T67 398T104 436T154 452Q198 452 230 437T273 404L282 411Q334 452 393 452Q441 452 470 423T500 350Q500 301 473 279T418 256Q395 256 379 270T363 308Q363 366 424 386Q424 388 420 391T405 398T385 401Q363 401 343 390Q321 380 289 341L252 192Q214 42 212 39Q190 -8 142 -8Q117 -8 103 7T89 39Q89 52 127 202T165 369Q165 402 148 402Q139 402 128 393T110 369Q100 348 90 310Q85 289 82 286T60 282H55H44Q24 282 24 296Z"></path><path id="MJX-12-TEX-BI-1D487" d="M584 444Q597 439 597 426Q597 409 586 387Q580 382 505 382H434V380Q432 378 421 314T395 162T368 30Q324 -164 203 -199Q194 -201 175 -201Q123 -201 94 -177T64 -117T88 -58T145 -33Q169 -33 184 -47T200 -84Q200 -122 166 -150L174 -151H185Q202 -148 217 -112Q222 -94 240 9Q246 40 262 132T293 303T307 382H247H210Q190 382 182 385T173 400Q177 436 189 442Q193 444 256 444H318L319 446Q337 565 355 602Q373 640 404 664T458 694T503 701Q569 701 596 676T624 617Q624 581 599 557T544 533Q520 533 504 547T488 585Q488 596 491 606T499 624T508 637T516 646L520 650Q515 650 509 651Q459 651 459 561V554L458 518L452 484Q446 448 445 447V444H584Z"></path><path id="MJX-12-TEX-B-5D" d="M25 689V750H190V-250H25V-189H129V689H25Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><use data-c="5B" xlink:href="#MJX-12-TEX-B-5B"></use></g><g data-mml-node="mi" transform="translate(319,0)"><use data-c="1D483" xlink:href="#MJX-12-TEX-BI-1D483"></use></g><g data-mml-node="mo" transform="translate(840,0)"><use data-c="2C" xlink:href="#MJX-12-TEX-B-2C"></use></g><g data-mml-node="msub" transform="translate(1325.7,0)"><g data-mml-node="mi"><use data-c="1D48F" xlink:href="#MJX-12-TEX-BI-1D48F"></use></g><g data-mml-node="mi" transform="translate(746,-150) scale(0.707)"><use data-c="1D495" xlink:href="#MJX-12-TEX-BI-1D495"></use></g></g><g data-mml-node="mo" transform="translate(2415.1,0)"><use data-c="2C" xlink:href="#MJX-12-TEX-B-2C"></use></g><g data-mml-node="msub" transform="translate(2900.8,0)"><g data-mml-node="mi"><use data-c="1D48D" xlink:href="#MJX-12-TEX-BI-1D48D"></use></g><g data-mml-node="mi" transform="translate(381,-150) scale(0.707)"><use data-c="1D494" xlink:href="#MJX-12-TEX-BI-1D494"></use></g></g><g data-mml-node="mo" transform="translate(3707.3,0)"><use data-c="2C" xlink:href="#MJX-12-TEX-B-2C"></use></g><g data-mml-node="msub" transform="translate(4192.9,0)"><g data-mml-node="mi"><use data-c="1D48D" xlink:href="#MJX-12-TEX-BI-1D48D"></use></g><g data-mml-node="mi" transform="translate(381,-150) scale(0.707)"><use data-c="1D498" xlink:href="#MJX-12-TEX-BI-1D498"></use></g></g><g data-mml-node="msub" transform="translate(5211.5,0)"><g data-mml-node="mi"><use data-c="1D493" xlink:href="#MJX-12-TEX-BI-1D493"></use></g><g data-mml-node="mi" transform="translate(562,-150) scale(0.707)"><use data-c="1D487" xlink:href="#MJX-12-TEX-BI-1D487"></use></g></g><g data-mml-node="mo" transform="translate(6264.8,0)"><use data-c="5D" xlink:href="#MJX-12-TEX-B-5D"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false" mathvariant="bold">[</mo><mi mathvariant="bold-italic">b</mi><mo mathvariant="bold">,</mo><msub><mi mathvariant="bold-italic">n</mi><mi mathvariant="bold-italic">t</mi></msub><mo mathvariant="bold">,</mo><msub><mi mathvariant="bold-italic">l</mi><mi mathvariant="bold-italic">s</mi></msub><mo mathvariant="bold">,</mo><msub><mi mathvariant="bold-italic">l</mi><mi mathvariant="bold-italic">w</mi></msub><msub><mi mathvariant="bold-italic">r</mi><mi mathvariant="bold-italic">f</mi></msub><mo stretchy="false" mathvariant="bold">]</mo></math></mjx-assistive-mml></mjx-container><script type="math/tex"> \boldsymbol{[b,n_t,l_s,l_wr_f]}</script><span> 气象张量：</span></p><ol><li><p><span>第一次：和 CNN 输出视觉特征拼接；</span></p></li><li><p><span>第二次：该气象张量直接复用，再和 LSTM 输出视觉特征拼接；</span></p></li></ol><p><span>全程只做一次维度变换，不用重复计算气象分支。</span></p></li><li><p><span>为什么引入</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="2.088ex" height="1.667ex" role="img" focusable="false" viewBox="0 -442 922.9 737" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.667ex;"><defs><path id="MJX-19-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-19-TEX-I-1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D45F" xlink:href="#MJX-19-TEX-I-1D45F"></use></g><g data-mml-node="mi" transform="translate(484,-150) scale(0.707)"><use data-c="1D453" xlink:href="#MJX-19-TEX-I-1D453"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>r</mi><mi>f</mi></msub></math></mjx-assistive-mml></mjx-container><script type="math/tex">r_f</script><span>？</span></p><ul><li><p><span>不引入的话，气象维度为7，会被1000维的视觉特征稀释。</span></p></li></ul></li><li><p><span>为什么进行第二次气象融合？</span></p><ul><li><p><span>LSTM 负责捕捉连续两帧图像之间的变化，建模烟雾飘动、扩散、蔓延等</span><strong><span>时序动态特征</span></strong><span>。</span></p></li><li><p><span>CNN 负责提取单帧图像里烟雾的形态、纹理、轮廓、局部区域等</span><strong><span>空间视觉特征</span></strong><span>。</span></p></li></ul></li><li><p><span>ViT的输出？（豆包）</span></p><ul><li><p><span>Tile 输出（图块级预测）：对每一个图块单独输出 “有无烟雾” 概率，计算 ViT 阶段图块损失；</span></p></li></ul><ul><li><p><span>Image 输出（全局图像级预测）：利用 Transformer 的 CLS token 整合整张图像所有信息，输出整张图片的烟雾二分类结果，计算 Image Loss（图像主损失）。</span></p></li></ul></li></ol><h2 id='数据组织格式'><span>数据组织格式</span></h2><h3 id='气象数据'><span>气象数据</span></h3><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606120028286.png" referrerpolicy="no-referrer"></p><p><span>每张RGB图像对应一条csv记录，每条记录由气温、相对湿度、风速、阵风、风向（sin cos）、露点温度。</span></p><p><span>解释：</span></p><p><span>阵风：气象术语，特殊的空气流动现象，指风速在短暂时间内，有突然出现忽大忽小变化的风。通常是指“瞬间极大风速”。</span></p><p><span>露点温度：指气象学中表示在固定气压条件下，空气内水蒸气达到饱和状态所需冷却至的温度阈值。</span></p><h3 id='图像数据'><span>图像数据</span></h3><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606121040769.png" referrerpolicy="no-referrer"></p><h1 id='a-rgb-thermal-based-adaptive-modality-learning-network-for-day--night-wildfire-identification'><span>A RGB-Thermal based adaptive modality learning network for day–night wildfire identification</span></h1><h2 id='网络结构-2'><span>网络结构</span></h2><h3 id='与先前范式对比'><span>与先前范式对比</span></h3><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606121100751.png" referrerpolicy="no-referrer"></p><h4 id='范式a'><span>范式a</span></h4><h5 id='结构流程'><span>结构流程</span></h5><ol><li><p><span>RGB、TIR 两个模态</span><strong><span>各自使用一套完整、结构相同的独立网络</span></strong><span>，分别提取单模态中间特征；</span></p></li><li><p><span>两个分支特征提取完成后，</span><strong><span>在网络后半段统一拼接 / 融合</span></strong><span>；</span></p></li><li><p><span>送入同一个后续网络 / 解码器，输出最终分割结果。</span></p></li></ol><h5 id='核心特点'><span>核心特点</span></h5><ul><li><p><span>设计简单，两个模态完全解耦；</span></p></li><li><p><span>只学习</span><strong><span>跨模态共享特征</span></strong><span>，不区分模态独有信息；</span></p></li></ul><h5 id='优缺点'><span>优缺点</span></h5><p><span>✅ 实现容易、分支训练灵活；</span></p><p><span>❌ 忽略 RGB/TIR 各自的专属特征，模态互补性利用不充分。</span></p><h4 id='范式b'><span>范式b</span></h4><h5 id='结构流程-2'><span>结构流程</span></h5><ol><li><p><span>依然采用双分支提取 RGB、TIR 特征；</span></p></li><li><p><strong><span>额外增加专用模块</span></strong><span>（边缘感知、位置增强、语义增强模块等），针对性挖掘不同层级（高 / 中 / 低层）特征；</span></p></li><li><p><span>叠加</span><strong><span>多种辅助监督信号</span></strong><span>（边缘监督、位置监督、语义监督），引导模型收敛、提升特征表达能力。</span></p></li></ol><h5 id='核心特点-2'><span>核心特点</span></h5><ul><li><p><span>主打</span><strong><span>多模块 + 多任务监督</span></strong><span>，从特征层级和损失约束两方面强化融合效果；</span></p></li><li><p><span>依然以学习模态共享特征为主；</span></p></li><li><p><span>论文对应模型：LASNet、EGFNet、GMNet 等主流 RGB-T 分割网络。</span></p></li></ul><h5 id='优缺点-2'><span>优缺点</span></h5><p><span>✅ 精度较高，适配复杂场景；</span></p><p><span>❌ 模块繁多、结构复杂，参数量与计算量大幅增加，</span><strong><span>不利于边缘设备实时部署</span></strong><span>。</span></p><h4 id='范式c'><span>范式c</span></h4><h5 id='结构流程-3'><span>结构流程</span></h5><ol><li><p><span>选定</span><strong><span>RGB 作为主分支网络</span></strong><span>，承担主要特征提取与分割任务；</span></p></li><li><p><span>红外 TIR 分支作为</span><strong><span>辅助子网络</span></strong><span>，提取热成像特征；</span></p></li><li><p><span>将 TIR 特征逐层级嵌入 RGB 主分支，用红外信息</span><strong><span>增强、修正 RGB 特征</span></strong><span>，而非平等融合；</span></p></li><li><p><span>最终依靠 RGB 主解码器输出结果。</span></p></li></ol><h5 id='核心特点-3'><span>核心特点</span></h5><ul><li><p><span>典型 </span><strong><span>“主 - 辅” 模态融合 </span></strong><span> 思路，TIR 仅作为补充；</span></p></li><li><p><span>代表模型：RTFNet、FEANet（搭载特征增强注意力模块 FEAM）。</span></p></li></ul><h5 id='优缺点-3'><span>优缺点</span></h5><p><span>✅ 网络逻辑清晰，一定程度弥补 RGB 在弱光下的不足；</span></p><p><span>❌ 弱化了 TIR 模态本身的价值，夜间、低光照场景上限低；两个模态地位不对等。</span></p><h4 id='范式d'><span>范式d</span></h4><h5 id='结构流程-4'><span>结构流程</span></h5><ol><li><p><strong><span>双编码器</span></strong><span>：RGB、TIR 并行编码器，分别提取各自多尺度特征（保留模态独有信息）；</span></p></li><li><p><strong><span>双模态专属解码器</span></strong><span>：为 RGB、TIR 各设置</span><strong><span>独立解码器</span></strong><span>，搭配专属监督，专门学习</span><strong><span>单模态独有特征</span></strong><span>；</span></p></li><li><p><strong><span>共享解码器</span></strong><span>：融合两个编码器特征 + 两个专属解码器的输出，学习</span><strong><span>双模态共享特征</span></strong><span>；</span></p></li><li><p><strong><span>三路独立标签监督</span></strong><span>：分别对 RGB 解码器、TIR 解码器、共享解码器施加损失约束，端到端协同训练。</span></p></li></ol><h5 id='核心特点-4'><span>核心特点</span></h5><ol><li><p><span>不再只追求 “共享特征”，</span><strong><span>显式分离模态独有特征与跨模态共享特征</span></strong><span>；</span></p></li><li><p><span>不设计复杂注意力 / 交互模块，网络结构轻量化；</span></p></li><li><p><span>依靠</span><strong><span>多分支解码器 + 多路监督</span></strong><span>实现自适应模态学习，平衡精度与推理速度；</span></p></li><li><p><span>专门针对</span><strong><span>昼夜野火识别</span></strong><span>场景设计，充分发挥 RGB（纹理 / 白天）、TIR（抗光照 / 夜间）各自优势。</span></p></li></ol><h5 id='优缺点-4'><span>优缺点</span></h5><p><span>✅ 模态互补性利用充分、泛化能力强、计算开销低，适合无人机 / 地面监控等野外实时设备；</span></p><p><span>❌ 分支结构比 (a)(c) 略复杂，但远优于 (b) 类重型多模块网络</span></p><h3 id='具体网络架构图'><span>具体网络架构图</span></h3><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606121101927.png" referrerpolicy="no-referrer"></p><p><span>完整网络由</span><strong><span>双编码器、三类解码器、RFB 特征增强模块、多分支监督损失</span></strong><span>四部分组成，为端到端训练结构：</span></p><ol><li><p><span>双并行编码器：分别对 RGB 图像、TIR 热红外图像做多尺度特征提取；</span></p></li><li><p><span>特征融合层：编码器中间层特征做通道拼接，得到 RGB-T 共享融合特征；</span></p></li><li><p><span>三大解码器：RGB 独有解码器、TIR 独有解码器、跨模态共享解码器（最终输出预测结果）；</span></p></li><li><p><span>三重独立监督：三个解码器分别对应标签损失，引导网络同时学习单模态专属特征与双模态共有特征；</span></p></li><li><p><span>核心组件：RFB（感受野模块）用于捕捉多尺度、上下文信息，适配不同尺度火焰目标。</span></p></li></ol><p><span>整体流程：RGB/TIR 图像分别送入编码器 → 提取单模态多尺度特征 → 特征分流至</span><strong><span>模态独有解码器</span></strong><span> + </span><strong><span>融合后送入共享解码器</span></strong><span> → 三个解码器分别输出分割结果 → 联合损失函数反向传播优化。</span></p><h4 id='rfb模块'><span>RFB模块</span></h4><p><img src="https://picture-wq3stone.oss-accelerate.aliyuncs.com/picgo/202606121102363.png" referrerpolicy="no-referrer"></p><h1 id='firecast-fusion-physics-guided-fusion-of-uav-rgb--thermal-imagery-and-environmental-data-for-near-term-wildfire-spread-prediction'><span>FireCast-fusion Physics-Guided fusion of UAV RGB–thermal imagery and environmental data for near-term wildfire spread prediction</span></h1></div></div>
+</body>
+</html>
