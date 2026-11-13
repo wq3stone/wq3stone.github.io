@@ -1,0 +1,155 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #007bff;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.tab-button {
+    padding: 12px 24px;
+    border: none;
+    background-color: #e9ecef;
+    cursor: pointer;
+    margin: 0 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #495057;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.tab-button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #495057;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#qrcode-output, #decode-output {
+    margin-top: 25px;
+}
+
+#qrcode-output img {
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #495057;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+#decode {
+    border: 2px dashed #ced4da;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+#decode.dragover {
+    border-color: #007bff;
+}
+
+#decode-hint {
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#decode-hint p {
+    margin: 5px 0;
+}

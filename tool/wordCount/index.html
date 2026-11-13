@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本字符统计器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+
+        .text-input {
+            width: 100%;
+            height: 200px;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            resize: vertical;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #6c5ce7;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-label {
+            color: #636e72;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            color: #2d3436;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #6c5ce7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 文本字符统计器</h1>
+        <textarea 
+            class="text-input" 
+            placeholder="请输入或粘贴文本..."
+            autofocus
+        ></textarea>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-label">总字符数</div>
+                <div class="stat-value" id="totalChars">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">大写字母</div>
+                <div class="stat-value" id="upperCase">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">小写字母</div>
+                <div class="stat-value" id="lowerCase">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">数字</div>
+                <div class="stat-value" id="numbers">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">空格</div>
+                <div class="stat-value" id="spaces">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">标点符号</div>
+                <div class="stat-value" id="punctuation">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">单词数</div>
+                <div class="stat-value" id="words">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const textInput = document.querySelector('.text-input');
+        const stats = {
+            totalChars: document.getElementById('totalChars'),
+            upperCase: document.getElementById('upperCase'),
+            lowerCase: document.getElementById('lowerCase'),
+            numbers: document.getElementById('numbers'),
+            spaces: document.getElementById('spaces'),
+            punctuation: document.getElementById('punctuation'),
+            words: document.getElementById('words')
+        };
+
+        textInput.addEventListener('input', updateStats);
+
+        function updateStats() {
+            const text = textInput.value;
+            
+            // 基础统计
+            stats.totalChars.textContent = text.length;
+            
+            // 字符类型统计
+            stats.upperCase.textContent = (text.match(/[A-Z]/g) || []).length;
+            stats.lowerCase.textContent = (text.match(/[a-z]/g) || []).length;
+            stats.numbers.textContent = (text.match(/[0-9]/g) || []).length;
+            stats.spaces.textContent = (text.match(/\s/g) || []).length;
+            
+            // 标点符号统计（常见中英文标点）
+            const punctuationMatches = text.match(/[.,\/#!$%\^&\*;:{}=\-_`~()，。！？；：“”‘’（）【】《》…]/g);
+            stats.punctuation.textContent = punctuationMatches ? punctuationMatches.length : 0;
+            
+            // 单词统计（按空格分割，过滤空字符串）
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            stats.words.textContent = text.trim() === '' ? 0 : words.length;
+        }
+    </script>
+</body>
+</html>
